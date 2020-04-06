@@ -1,0 +1,65 @@
+baseURL = "http://blog.raikay.com/"
+title = "代码改变世界"
+author = "Steve Francia"
+paginate = 10
+theme = "harbor"
+languageCode = "zh-CN"
+defaultContentLanguage = "zh-cn"
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+
+[Author]
+  name = "hugo author"
+
+[outputs]
+    section = ["JSON", "HTML"]
+
+
+[[params.nav]]
+  identifier = "tags"
+  name = "Tags"
+  icon = "fas fa-tag fa-lg"
+  url = "tags"
+  weight = 3
+  
+#[[params.nav]]
+#  identifier = "search"
+#  name = "Search"
+#  icon = "fas fa-search fa-lg"
+#  url = "search"
+#  weight = 3
+  
+[[params.nav]]
+  identifier = "about"
+  name = "关于我"
+  icon = "fas fa-user fa-lg"
+  url = "/about/"
+  weight = 3
+
+
+
+
+[params]
+  dateFormat = "2006-1-2"
+  # Tips: 默认日期格式
+  syntaxHighlighter = "highlight.js"
+  # Tips: 语法高亮js库
+  clearReading = true
+  # Tips: 进入文章内容页面侧边栏菜单收起状态
+  hierarchicalCategories = true
+  sidebarBehavior = 2
+  # Tips: 定义侧边栏状态（值为1-6，可自行测试显示状态）
+  coverImage = "cover.jpg"
+  imageGallery = true
+  # Tips: 在有内容底部显示照片墙
+
+  thumbnailImage = true
+  # Tips: 列表页是否显示内容图片
+  mainSections = ["post"]
+  favicon = "favicon.ico"
+
+  [params.logo]
+    url = "icon.png"
+    width = 50
+    height = 50
+    alt = "Logo"

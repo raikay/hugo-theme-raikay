@@ -1,0 +1,15 @@
+<meta charset="utf-8" />
+<title>{{ .Title }}</title>
+<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
+
+{{ partial "analytics.html" . }}
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml" title="Site Title">
+<!-- Stylesheets -->
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css" />
+<link id="dark-mode" rel="stylesheet" href="{{ .Site.BaseURL }}css/dark-sys.css" />
+<link disabled id="dark-mode-theme" rel="stylesheet" href="{{ .Site.BaseURL }}css/dark.css" />
+<link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.css" />
+{{ hugo.Generator -}}
