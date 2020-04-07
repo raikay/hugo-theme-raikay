@@ -1,0 +1,135 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Typora on 代码改变世界</title>
+		<link>http://blog.raikay.com/tags/typora/</link>
+		<description>Recent content in Typora on 代码改变世界</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+  		<language>zh-CN</language>
+		
+		<managingEditor>Page(/tags/typora) (hugo author)</managingEditor>
+    	
+  		<lastBuildDate>Sat, 11 Mar 2017 00:00:00 +0000</lastBuildDate>
+		
+		<atom:link href="http://blog.raikay.com/tags/typora/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>分布式唯一ID：雪花ID Snowflake .Net版</title>
+			<link>http://blog.raikay.com/post/2020/dotnet-snowflake/</link>
+			<pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2020/dotnet-snowflake/</guid>
+			<description>雪花Id介绍： 雪花ID是用一个64位的整形数字来做ID，对应.net中的long，数据库中的bigint，雪花算法的原始版本是scala版，用于生成分布式ID（纯数字，时间顺序）,订单编号等。
+生成的雪花Id： 353248615741644803532486157835878435324861578358785对比自增和Guid: 自增ID： 对于数据敏感场景不宜使用，且不适合于分布式场景。
+GUID： 采用无意义字符串，且36位字符串太长，数据量增大时造成访问过慢，且不宜排序。
+算法描述：  最高位是符号位，始终为0，不可用。 41位的时间序列，精确到毫秒级，41位的长度可以使用69年。时间位还有一个很重要的作用是可以根据时间进行排序。 10位的机器标识，10位的长度最多支持部署1024个节点。 12位的计数序列号，序列号即一系列的自增id，可以支持同一节点同一毫秒生成多个ID序号，12位的计数序列号支持每个节点每毫秒产生4096个ID序号。  雪花算法改进，时钟回拨： 雪花ID严重依赖系统当前时间，当系统时间被人为反后调整时，算法会出问题，可能会出重复ID．Snowflake原算法是在检测到系统时间被回调后直接抛异常．本代码在时钟回拨后,会将生成的ID时间戳停留在最后一次时间戳上(每当序列溢出时会往前走一毫秒),等待系统时间追上后即可以避过时钟回拨问题.
+这种处理方式的优点是时钟回拨后不会异常，能一直生成出雪花ID，但缺点是雪花ID中的时间戳不是系统的当前时间，会是回拨前的最后记录的一次时间戳，但相差也不大．不知道有没有什么生产系统会对这个时间戳要求非常严格，无法使用这种补救方式的？
+当然停掉系统后的时钟回拨是无法处理的,这种还是会有可能出现重复ID的．
+生成Id以及解析Id方法: 源码git地址:https://gitee.com/itsm/learning_example/tree/master/snowflake-雪花Id
+public class SnowflakeId{// 开始时间截((new DateTime(2020, 1, 1, 0, 0, 0, DateTimeKind.Utc)-Jan1st1970).TotalMilliseconds) private const long twepoch = 1577836800000L;// 机器id所占的位数 private const int workerIdBits = 5;// 数据标识id所占的位数 private const int datacenterIdBits = 5;// 支持的最大机器id，结果是31 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数)  private const long maxWorkerId = -1L ^ (-1L &amp;lt;&amp;lt; workerIdBits);// 支持的最大数据标识id，结果是31  private const long maxDatacenterId = -1L ^ (-1L &amp;lt;&amp;lt; datacenterIdBits);// 序列在id中占的位数  private const int sequenceBits = 12;// 数据标识id向左移17位(12+5)  private const int datacenterIdShift = sequenceBits + workerIdBits;// 机器ID向左移12位  private const int workerIdShift = sequenceBits;// 时间截向左移22位(5+5+12)  private const int timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;// 生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095)  private const long sequenceMask = -1L ^ (-1L &amp;lt;&amp;lt; sequenceBits);// 数据中心ID(0~31)  public long datacenterId { get; private set; }// 工作机器ID(0~31)  public long workerId { get; private set; }// 毫秒内序列(0~4095)  public long sequence { get; private set; }// 上次生成ID的时间截  public long lastTimestamp { get; private set; }/// &amp;lt;summary&amp;gt; /// 雪花ID /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;datacenterId&amp;#34;&amp;gt;数据中心ID&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;workerId&amp;#34;&amp;gt;工作机器ID&amp;lt;/param&amp;gt; public SnowflakeId(long datacenterId,long workerId ){if (datacenterId &amp;gt; maxDatacenterId || datacenterId &amp;lt; 0){throw new Exception(string.</description>
+		</item>
+		
+		<item>
+			<title>Net Core 3.x 禁用序列化时自动首字母小写</title>
+			<link>http://blog.raikay.com/post/2019/net-core-initial-lowercase/</link>
+			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/net-core-initial-lowercase/</guid>
+			<description>public void ConfigureServices(IServiceCollection services){services.AddControllers().AddJsonOptions(config =&amp;gt;{//去掉转小写功能// System.Text.Json.JsonNamingPolicy.CamelCase：转小写 // null:不转小写config.JsonSerializerOptions.PropertyNamingPolicy =null;});}</description>
+		</item>
+		
+		<item>
+			<title>NuGet源中国加速镜像，博客园，华为等</title>
+			<link>http://blog.raikay.com/post/2019/nuget/</link>
+			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/nuget/</guid>
+			<description>打开Visual Studio =&amp;gt; 工具 =&amp;gt; NuGet包管理器 =&amp;gt; 程序包管理器设置
+NuGet微软官方中国镜像地址：
+https://nuget.cdn.azure.cn/v3/index.json
+官方默认源：
+https://api.nuget.org/v3/index.json
+博客园：
+https://nuget.cnblogs.com/v3/index.json
+华为：
+https://repo.huaweicloud.com/repository/nuget/v3/index.json
+MyNuGet： https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
+这是一个很激进的 NuGet 源，包含各种日构建包（其中包括 .NET Standard 或者 .NET Core 等库的日构建版本），所以如果你希望尝试最新的 API 最新的功能，最好设置此 NuGet 源。
+早期版本：
+https://www.nuget.org/api/v2/ https://nuget.org/api/v2/</description>
+		</item>
+		
+		<item>
+			<title>T4模板 生成多个文件 映射整个库表</title>
+			<link>http://blog.raikay.com/post/2019/t4-a/</link>
+			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/t4-a/</guid>
+			<description>&amp;lt;#@ output extension=&amp;#34;txt&amp;#34; #&amp;gt;&amp;lt;#@ template debug=&amp;#34;false&amp;#34; hostspecific=&amp;#34;true&amp;#34; language=&amp;#34;C#&amp;#34; #&amp;gt;&amp;lt;#@ assembly name=&amp;#34;System.Data&amp;#34; #&amp;gt;&amp;lt;#@ assembly name=&amp;#34;System.xml&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Collections.Generic&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Data.SqlClient&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Data&amp;#34; #&amp;gt;&amp;lt;#@ assembly name=&amp;#34;System.Core&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Linq&amp;#34; #&amp;gt;&amp;lt;#@ include file=&amp;#34;MultiOutput.tt&amp;#34; #&amp;gt;&amp;lt;#string connectionString= &amp;#34;server=.;database=57blogDB;uid=sa;pwd=123;&amp;#34;; SqlConnection conn = new SqlConnection(connectionString);conn.Open();string selectQuery =&amp;#34;SET FMTONLY ON; select * from @tableName; SET FMTONLY OFF;&amp;#34;;SqlCommand command = new SqlCommand(selectQuery,conn);SqlDataAdapter ad = new SqlDataAdapter(command);System.</description>
+		</item>
+		
+		<item>
+			<title>把C#程序（含多个Dll）合并成一个Exe的超简单方法</title>
+			<link>http://blog.raikay.com/post/2018/dll-exe/</link>
+			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2018/dll-exe/</guid>
+			<description>开发程序的时候经常会引用一些第三方的DLL，然后编译生成的exe文件就不能脱离这些DLL独立运行了。 但是，很多时候我们本想开发一款只需要一个exe就能完美运行的小工具。那该怎么办呢？ 下文介绍一种超简单的方法，不用写一行代码就可轻松实现。 这里我们需要用到一款名为Fody.Costura的工具。Fody.Costura是一个Fody框架下的插件，可通过Nuget安装到VS工程中。安装之后，就可以将项目所依赖的DLL（甚至PDB）文件全部打包到EXE文件里。
+使用方法  在VS中，通过Nuget为目标EXE工程安装Costura.Fody。 重新构建项目。  构建完成后，到项目的输出目录下找到新生成的EXE文件，你同时会发现输出目录下仍然存在那些DLL。不过不用担心，这个EXE已经能够独立运行了。你可以把这些DLL全部删除后再运行EXE试试。 另外，Fody.Costura还支持一些进阶的特性，例如：
+ 临时程序集文件：在运行EXE前自动，自动将DLL从EXE中解压到文件夹系统中，再通过常规的方式加载该DLL。 合并非托管的DLL：Fody.Costura可以合并非托管的DLL，但是不会自动合。如果你的程序涉及非托管DLL，那么你需要通过修改Fody.Costura的配置文件来显示地告诉它你想合并哪些非托管的DLL。 预加载DLL：Fody.Costura可以帮助你在程序启动时预先加载某些DLL，你甚至可以指定这些DLL的加载顺序。  以上这些进阶特性都需要你通过修改Fody.Costura的配置文件来实现，具体的操作步骤可以参考它的官方文档。 好了，Fody.Costura的使用方式已经介绍完了。如果你对Fody.Costura的实现原理感到好奇，可以接着往下看。
+实现原理介绍 当CLR试图加载一个程序集但加载失败时，它会引发AppDomain.AssemblyResolve事件。我们的程序可以监听这个事件，并且在这个事件的处理函数中返回这个CLR试图加载的程序集，从而使程序得以继续正常运行。 Fody.Costura在构建项目时会把EXE引用到的DLL全部嵌入到EXE文件中。当程序在运行的过程中用到其中某个DLL的时候（此时由于CLR无法找到该DLL文件，导致AppDomain.AssemblyResolve事件被触发）再从EXE文件的嵌入资源中提取所需的DLL。 下面这两个函数就是Fody.Costura实现这部分逻辑的代码。
+public static void Attach(){var currentDomain = AppDomain.CurrentDomain;currentDomain.AssemblyResolve += (s, e) =&amp;gt; ResolveAssembly(e.Name);}public static Assembly ResolveAssembly(string assemblyName){if (nullCache.ContainsKey(assemblyName)){return null;} var requestedAssemblyName = new AssemblyName(assemblyName); var assembly = Common.ReadExistingAssembly(requestedAssemblyName);if (assembly != null){return assembly;} Common.Log(&amp;#34;Loading assembly &amp;#39;{0}&amp;#39; into the AppDomain&amp;#34;, requestedAssemblyName); assembly = Common.</description>
+		</item>
+		
+		<item>
+			<title>git命令备忘系列：标签操作（git tag）</title>
+			<link>http://blog.raikay.com/post/2018/git-tag/</link>
+			<pubDate>Fri, 25 May 2018 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2018/git-tag/</guid>
+			<description>对于某些提交，我们可以为它打上Tag，表示这次提交很重要， 比如为一些正式发布大版本的 commit，打上TAG，当某个版本出问题了，通过TAG可以快速找到此次提交对应的Hash值， 直接切换到此次版本的代码去查找问题，比起一个个commit找省事多了。
+git tag #列出git中现有的所有标签git tag -r #查看远程标签git tag [name] #创建标签git tag -d [name] #删除本地标签git push origin [name] # 推送标签到远程仓库git push origin --tags # 删除所有本地仓库中不存在的标签git push origin --delete tag [name] #删除远程标签在 git 中有两种最主要的标签–轻量级标签（lightweight）和带注释的标签（annotated）。轻量级标签跟分枝一样，不会改变。它就是针对某个特定提交的指针。然而，带注释的标签是git仓库中的对象。它是一组校验和，包含标签名、email、日期，标签信息，GPG签名和验证。一般情况下，建议创建带注释的标签，这样就会保留这些信息，但是如果你只是需要临时性标签或者某些原因你不想在标签中附带上面说的这些信息，lightweight标签更合适些。
+带注释的标签
+在git中创建带注释的标签非常简单，在运行’tag’命令时加上-a就可以了。
+$ git tag -a v1.4 -m ‘version 1.4′$ git tagv0.1v1.3v1.4‘-m’指明标签信息，跟标签一起存储。如果你不使用-m指明标签信息，git会自动启动文本编辑器让你输入。 可以使用 git show 命令查看相应标签的版本信息，并连同显示打标签时的提交对象。
+$ git show v1.4tag v1.4Tagger: Scott ChaconDate: Mon Feb 9 14:45:11 2009 -0800my version 1.</description>
+		</item>
+		
+		<item>
+			<title>git命令备忘系列：查看历史记录（git log）</title>
+			<link>http://blog.raikay.com/post/2018/git-log/</link>
+			<pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2018/git-log/</guid>
+			<description>git log # 查看所有commit记录(SHA-A校验和，作者名称，邮箱，提交时间，提交说明)git log -p -次数 # 查看最近多少次的提交记录git log --stat # 简略显示每次提交的内容更改git log --name-only # 仅显示已修改的文件清单git log --name-status # 显示新增，修改，删除的文件清单git log --oneline # 让提交记录以精简的一行输出git log –graph –all --online # 图形展示分支的合并历史git log --author=作者 # 查询作者的提交记录(和grep同时使用要加一个--all--match参数)git log --grep=过滤信息 # 列出提交信息中包含过滤信息的提交记录git log -S查询内容 # 和--grep类似，S和查询内容间没有空格git log fileName # 查看某文件的修改记录，找背锅专用git blame 文件名 # 查看某文件的每一行内容的作者，最新commit和提交时间除此之外，还可以通过 –pretty 对提交信息进行定制，比如：
+占位符：    占位符 说明 占位符 说明     %H 提交对象（commit）的完整哈希字串 %h 提交对象的简短哈希字串   %T 树对象（tree）的完整哈希字串 %t 树对象的简短哈希字串   %P 父对象（parent）的完整哈希字串 %p 父对象的简短哈希字串   %an 作者（author）的名字 %ae 作者的电子邮件地址   %ad 作者修订日期（可以用 –date= 选项定制格式） %ar 按多久以前的方式显示   %cn 提交者(committer)的名字 %ce 提交者的电子邮件地址   %cd 提交日期 %cr 提交日期，按多久以前的方式显示   %s 提交说明      参数：    选项 说明     -p 按补丁格式显示每个更新之间的差异   –stat 显示每次更新的文件修改统计信息(行数)   –shortstat 只显示 –stat 中最后的行数修改添加移除统计   –name-only 仅在提交信息后显示已修改的文件清单   –name-status 显示新增、修改、删除的文件清单   –abbrev-commit 仅显示 SHA-1 的前几个字符，而非所有的 40 个字符   –relative-date 使用较短的相对时间显示（比如，“2 weeks ago”）   –graph 显示 ASCII 图形表示的分支合并历史   –pretty 格式定制，可选选项有：oneline，short，full，Fullerton和format(后跟指定格式)    限制log输出参数：    选项 说明     -(n) 仅显示最近的 n 条提交   –since, –after 仅显示指定时间之后的提交。   –until, –before 仅显示指定时间之前的提交。   –author 仅显示指定作者相关的提交。   –committer 仅显示指定提交者相关的提交。   –grep 仅显示含指定关键字的提交   -S 仅显示添加或移除了某个关键字的提交    示例： 示例1：</description>
+		</item>
+		
+		<item>
+			<title>git命令备忘系列：对比两个分支的差异（git diff）</title>
+			<link>http://blog.raikay.com/post/2018/git-diff/</link>
+			<pubDate>Sun, 08 Apr 2018 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2018/git-diff/</guid>
+			<description>1、工作区与缓存区的差异 git diff
+示例：
+$ git diffdiff --git a/Raikay.Managix.API/Controllers/MenuController.cs b/Raikay.Managix.API/Controllers/MenuController.csindex 9d75053..34d7733 100644--- a/Raikay.Managix.API/Controllers/MenuController.cs+++ b/Raikay.Managix.API/Controllers/MenuController.cs@@ -45,7 +45,8 @@ namespace Raikay.Managix.API.Controllers[HttpPost]public async Task&amp;lt;dynamic&amp;gt; Post(MenuDto param){- return await _currentService.Add(param);+ var result=await _currentService.Add(param); + return result; }[HttpDelete]public async Task&amp;lt;dynamic&amp;gt; Delete(List&amp;lt;Guid&amp;gt; param)2、工作区与某分支的差异 远程分支这样写：remotes/origin/branchNmae
+git diff branchNmae3、工作区与HEAD指针指向的内容差异 git diff HEAD
+示例：
+git diff HEAD^ # 工作区与上次提交内容差异git diff HEAD^^ # 上上次提交内容差异git diff HEAD~3 # 也可以直接~次数git diff head f42b15f5 # 也可以指定id4、工作区某文件“当前版本”与“历史版本”的差异 git diff 提交id 文件路径</description>
+		</item>
+		
+		<item>
+			<title>Picgo图床插件介绍</title>
+			<link>http://blog.raikay.com/post/picgo-picbed/</link>
+			<pubDate>Sun, 08 Apr 2018 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/picgo-picbed/</guid>
+			<description>{&amp;#34;uploaded&amp;#34;: [],&amp;#34;picBed&amp;#34;: {&amp;#34;current&amp;#34;: &amp;#34;blog-uploader&amp;#34;,&amp;#34;list&amp;#34;: [{&amp;#34;name&amp;#34;: &amp;#34;SM.MS图床&amp;#34;,&amp;#34;type&amp;#34;: &amp;#34;smms&amp;#34;,&amp;#34;visible&amp;#34;: false},{&amp;#34;name&amp;#34;: &amp;#34;腾讯云COS&amp;#34;,&amp;#34;type&amp;#34;: &amp;#34;tcyun&amp;#34;,&amp;#34;visible&amp;#34;: false},{&amp;#34;name&amp;#34;: &amp;#34;微博图床&amp;#34;,&amp;#34;type&amp;#34;: &amp;#34;weibo&amp;#34;,&amp;#34;visible&amp;#34;: false},{&amp;#34;name&amp;#34;: &amp;#34;GitHub图床&amp;#34;,&amp;#34;type&amp;#34;: &amp;#34;github&amp;#34;,&amp;#34;visible&amp;#34;: false},{&amp;#34;name&amp;#34;: &amp;#34;七牛图床&amp;#34;,&amp;#34;type&amp;#34;: &amp;#34;qiniu&amp;#34;,&amp;#34;visible&amp;#34;: false},{&amp;#34;name&amp;#34;: &amp;#34;Imgur图床&amp;#34;,&amp;#34;type&amp;#34;: &amp;#34;imgur&amp;#34;,&amp;#34;visible&amp;#34;: false},{&amp;#34;name&amp;#34;: &amp;#34;阿里云OSS&amp;#34;,&amp;#34;type&amp;#34;: &amp;#34;aliyun&amp;#34;,&amp;#34;visible&amp;#34;: false},{&amp;#34;name&amp;#34;: &amp;#34;又拍云图床&amp;#34;,&amp;#34;type&amp;#34;: &amp;#34;upyun&amp;#34;,&amp;#34;visible&amp;#34;: false},{&amp;#34;name&amp;#34;: &amp;#34;SM.</description>
+		</item>
+		
+		<item>
+			<title>git命令备忘系列：配置文件操作（config）</title>
+			<link>http://blog.raikay.com/post/2018/git-config/</link>
+			<pubDate>Mon, 19 Mar 2018 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2018/git-config/</guid>
+			<description>.gitconfig 配置文件 .giconfig配置文件 共三个
+ system（系统）：C:\Program Files\Git\mingw64\etc\gitconfig，系统中所有用户都会生效 global（全局）：C:/Users/当前用户/.gitconfig当前系统用户下生效 local（本地）：项目路径/.git/config配置仅在当前项目生效  不同的系统路径可能不一样，可以通过：git config -e --system 和git config -e --global找到路径
+优先级：local &amp;gt; global &amp;gt; system
+常用命令：
+# 配置git config --global user.name &amp;quot;用户名&amp;quot; # 配置用户名git config --global user.email &amp;quot;用户邮箱&amp;quot; # 配置邮箱git config --global core.editor 编辑器 # 配置编辑器，模式使用vi或者vim# 查看配置git config --global user.name # 查看配置的用户名git config --global user.email # 查看配置的邮箱# 查看所有配置列表git config --global --list # 查看全局设置相关参数列表git config --local --list # 查看本地设置相关参数列表git config --system --list # 查看系统配置参数列表git config --list # 查看所有Git的配置(全局+本地+系统).</description>
+		</item>
+		
+	</channel>
+</rss>
