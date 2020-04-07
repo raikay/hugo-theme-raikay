@@ -34,8 +34,8 @@ https://nuget.cnblogs.com/v3/index.json
 
 https://repo.huaweicloud.com/repository/nuget/v3/index.json
 
-**MyNuGet：**
-https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
+**MyNuGet：**  
+https://dotnet.myget.org/F/dotnet-core/api/v3/index.json  
 
 这是一个很激进的 NuGet 源，包含各种日构建包（其中包括 .NET Standard 或者 .NET Core 等库的日构建版本），所以如果你希望尝试最新的 API 最新的功能，最好设置此 NuGet 源。
 

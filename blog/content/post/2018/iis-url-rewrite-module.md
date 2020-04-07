@@ -11,3 +11,13 @@ tags = [
 ]
 
 +++
+
+
+
+![clipboard](https://i.loli.net/2020/04/07/uYJNileErIMjB1V.png)
+
+
+
+打开注册表编辑器，在HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\InetStp位置   
+
+把MajorVersion的值改为9之后，就可以安装了，安装完成之后，再把MajorVersion的值改回10，重启一下iis。 
