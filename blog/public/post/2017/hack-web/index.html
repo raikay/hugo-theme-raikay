@@ -2,8 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-<title></title>
-<meta name="description" content="">
+<title>如何用好消息队列RabbitMQ？ </title>
+<meta name="description" content="如何用好消息队列RabbitMQ？RabbitMQ 是基于 AMQP 实现的一个开源消息组件，主要用于在分布式系统中存储转发消息，由因高性能、高可用以及高扩展而出名的 Erlang 语言写成 ">
 
 
   
@@ -21,8 +21,6 @@
 <meta name="generator" content="Hugo 0.68.1" />
   </head>
   <body>
-    
-  
     
   
 
@@ -57,10 +55,23 @@
 <script>hljs.initHighlightingOnLoad();</script>
     <div class="intro-header">
       <div class="container">
-        <div class="page-heading">
+        <div class="post-heading">
 				  
-		  			<p hidden>世上本没有垃圾，</br>
-有的，只是放错地方的金子……</br></p>
+          
+            <h1>如何用好消息队列RabbitMQ？ </h1>
+          
+          
+            <span class="meta-post">
+  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
+  
+    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
+    
+      <a href="http://blog.raikay.com//tags/rabbitmq/">RabbitMQ</a>&nbsp;
+    
+  
+</span>
+
+          
 		  
         </div>
       </div>
@@ -69,322 +80,110 @@
 
 
     
-<div class="container home" role="main">
-    <div class="posts-list">
+  <div class="container" role="main">
+    <article class="article" class="blog-post">
       
-        
-      
+    <p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172346" alt="img"></p>
+<h3 id="一写在前面">一、写在前面</h3>
+<p>使用过分布式中间件的人都知道，程序员使用起来并不复杂，常用的客户端 API 就那么几个，比我们日常编写程序时用到的 API 要少得多。但是分布式中间件在中小研发团队中使用得并不多，为什么会这样呢？</p>
+<p>原因是中间件的职责相对单一，客户端的使用虽然简单，但整个环境搭起来却不容易。所以对于系列中的几篇中间件文章，我们重点放在解决门槛问题，把服务端环境搭好（后期可云或运维解决），把中间件的基本职责和功能介绍好，把客户端 Demo 写好，让程序员抬抬脚，在调试代码中即可轻松入门。</p>
+<p>根据我们以往几年的经验，初次接触也可以自主快速学习，文章和 Demo 以实用为主，以下是消息队列 RabbitMQ 的快速入门及应用。</p>
+<h3 id="二为什么要用消息队列-mq">二、为什么要用消息队列 MQ</h3>
+<ul>
+<li>
+<p>1、业务系统往往要求响应能力特别强，能够起到削峰填谷的作用。</p>
+</li>
+<li>
+<p>2、解耦：如果一个系统挂了，则不会影响另外个系统的继续运行。</p>
+</li>
+<li>
+<p>3、业务系统往往有对消息的高可靠要求，以及有对复杂功能如 Ack 的要求。</p>
+</li>
+<li>
+<p>4、增强业务系统的异步处理能力，减少甚至几乎不可能出现并发现象：</p>
+</li>
+</ul>
+<p>使用消息队列，就好比为了防汛而建葛洲坝，有大量数据的堆积能力，然后可靠地进行异步输出。例如：</p>
+<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172400" alt="img"></p>
+<p>传统做法存在如下问题，请见上图：</p>
+<ul>
+<li>
+<p>1、一旦业务处理时间超过了定时器时间间隔，就会导致漏单。</p>
+</li>
+<li>
+<p>2、如果采用新开线程的方式获取数据，那么由于大量新开线程处理，会容易造成服务器宕机。</p>
+</li>
+<li>
+<p>3、数据库压力大，易并发。</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172412" alt="img"></p>
+<p><strong>使用 MQ 后的好处，请见上图</strong>：</p>
+<ul>
+<li>
+<p>1、业务可注册、可配置。</p>
+</li>
+<li>
+<p>2、获取数据规则可配置。</p>
+</li>
+<li>
+<p>3、成功消费 MQ 中的消息才会被 Ack，提高可靠性。</p>
+</li>
+<li>
+<p>4、大大增强了异步处理业务作业的能力：</p>
+</li>
+</ul>
+<p>定时从数据库获取数据后，存入 MQ 消息队列，然后 Job 会定期扫描 MQ 消息队列，假设 Job 扫描后先预取 5 条消息，然后异步处理这 5 条消息，也就是说这 5 条消息可能会同时被处理。</p>
+<h3 id="三rabbitmq-简介">三、RabbitMQ 简介</h3>
+<p>RabbitMQ 是基于 AMQP 实现的一个开源消息组件，主要用于在分布式系统中存储转发消息，由因高性能、高可用以及高扩展而出名的 Erlang 语言写成。</p>
+<p>其中，AMQP（Advanced Message Queuing Protocol，即高级消息队列协议），是一个异步消息传递所使用的应用层协议规范，为面向消息的中间件设计。</p>
+<h4 id="rabbitmq-特点如下">RabbitMQ 特点如下：</h4>
+<p><strong>高可靠</strong>：RabbitMQ 提供了多种多样的特性让你在可靠性和性能之间做出权衡，包括持久化、发送应答、发布确认以及高可用性。</p>
+<p><strong>高可用队列</strong>：支持跨机器集群，支持队列安全镜像备份，消息的生产者与消费者不论哪一方出现问题，均不会影响消息的正常发出与接收。</p>
+<p><strong>灵活的路由</strong>：所有的消息都会通过路由器转发到各个消息队列中，RabbitMQ 内建了几个常用的路由器，并且可以通过路由器的组合以及自定义路由器插件来完成复杂的路由功能。</p>
+<p><strong>支持多客户端</strong>：对主流开发语言（如：Python、Ruby、.NET、Java、C、PHP、ActionScript 等）都有客户端实现。</p>
+<p><strong>集群</strong>：本地网络内的多个 Server 可以聚合在一起，共同组成一个逻辑上的 broker。</p>
+<p><strong>扩展性</strong>：支持负载均衡，动态增减服务器简单方便。</p>
+<p><strong>权限管理</strong>：灵活的用户角色权限管理，Virtual Host 是权限控制的最小粒度。</p>
+<p><strong>插件系统</strong>：支持各种丰富的插件扩展，同时也支持自定义插件，其中最常用的插件是 Web 管理工具 RabbitMQ_Management，其 Web UI 访问地址：</p>
+<p>http://139.198.13.12:6233/，</p>
+<p>登录账号：flight，密码：yyabc123。</p>
+<h3 id="四rabbitmq-工作原理">四、RabbitMQ 工作原理</h3>
+<p>消息从发送端到接收端的流转过程即 RabbitMQ 的消息工作机制，请见下图：</p>
+<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172421" alt="img"></p>
+<p>消息发送与接收的工作机制</p>
+<h3 id="五rabbitmq-基本用法">五、RabbitMQ 基本用法</h3>
+<p>共有 6 种基本用法：单对单、单对多、发布订阅模式、按路由规则发送接收、主题、RPC（即远程存储调用）。我们将介绍单对单、单对多和主题的用法。</p>
+<p>1、<strong>单对单</strong>：单发送、单接收。请见下图。</p>
+<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172440" alt="img"></p>
+<p>2、<strong>单对多</strong>：一个发送端，多个接收端，如分布式的任务派发。请见下图：</p>
+<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172450" alt="img"></p>
+<p>3、<strong>主题</strong>：Exchange Type 为 topic，发送消息时需要指定交换机及 Routing Key，消费者的消息队列绑定到该交换机并匹配到 Routing Key 实现消息的订阅，订阅后则可接收消息。只有消费者将队列绑定到该交换机且指定的 Routing Key 符合匹配规则，才能收到消息。</p>
+<p>其中 Routing Key 可以设置成通配符，如：*或 #（*表示匹配 Routing Key 中的某个单词，# 表示任意的 Routing Key 的消息都能被收到）。如果 Routing Key 由多个单词组成，则单词之间用. 来分隔。</p>
+<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172504" alt="img"></p>
+<p><strong>命名规范</strong>：</p>
+<p>交换机名的命名建议：Ex{AppID}.{自定义 ExchangeName}，队列名的命名建议：MQ{AppID}.{自定义 QueueName} 。</p>
+<h3 id="六demo-下载及更多资料">六、Demo 下载及更多资料</h3>
+<p><strong>RabbitMQDemo 下载地址</strong>：</p>
+<p><a href="https://github.com/das2017/RabbitMQDemo">https://github.com/das2017/RabbitMQDemo</a></p>
+<p><strong>RabbitMQ 的官方网址</strong>：</p>
+<p><a href="http://www.rabbitmq.com">http://www.rabbitmq.com</a></p>
+<p>鸣谢：</p>
+<p>原作者: 杨丽、张辉清</p>
+<p>公众号: 聊聊架构</p>
+
+
 
       
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2019/dapper-config-core/">
-      <h3 class="post-title">Dapper连接MySql(Core读取配置)</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2019/dapper-config-core/" class="post-read-more">Read More</a>
-    
+        <div class="blog-tags">
+          
+            <a href="http://blog.raikay.com//tags/rabbitmq/">RabbitMQ</a>&nbsp;
+          
+        </div>
       
-        
+    </article>
     
   </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/dapper/">Dapper</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/core/">core</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/helper/">helper</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">配置文件</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2019/dotnet-core-automaper-demo/">
-      <h3 class="post-title">DotNet Core AutoMapper实体映射学习记录</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2019/dotnet-core-automaper-demo/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/automapper/">AutoMapper</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/.net-core/">.Net Core</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E5%AE%9E%E4%BD%93%E6%98%A0%E5%B0%84/">实体映射</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/git-command/">
-      <h3 class="post-title">git 常用命令汇总</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/git-command/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/git/">git</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/iis-url-rewrite-module/">
-      <h3 class="post-title">win10 IIS 10.0 无法安装 URL Rewrite Module 重写模块</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/iis-url-rewrite-module/" class="post-read-more">Read More</a>
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/url-rewrite-module/">URL Rewrite Module</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E5%B7%A5%E5%85%B7/">工具</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E8%AF%AD%E6%B3%95/">语法</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2017/csharp-bakup-db/">
-      <h3 class="post-title">C# 编写的SqlServer 数据库自动备份服务，带配置，功能强大 </h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2017/csharp-bakup-db/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/sqlserver/">SqlServer</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2017/net-cache/">
-      <h3 class="post-title">DotNet Framework 类库 自带的缓存 HttpRuntime.Cache HttpContext.Cache</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2017/net-cache/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%BC%93%E5%AD%98/">缓存</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/framework/">Framework</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/web-config/">
-      <h3 class="post-title">DotNet IIS web.config配置文件说明详解</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/web-config/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">配置文件</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2017/elasticsearch-netcore/">
-      <h3 class="post-title">ElasticSearch入门 附.NET Core例子 </h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2017/elasticsearch-netcore/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/elasticsearch/">ElasticSearch</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2017/http-status-code/">
-      <h3 class="post-title">HTTP协议状态码详解 HTTP Status Code </h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2017/http-status-code/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/http/">HTTP</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/markdown-tool-note/">
-      <h3 class="post-title">MarkDown基本语法以及相关工具笔记简单介绍</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/markdown-tool-note/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/markdown/">MarkDown</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E5%B7%A5%E5%85%B7/">工具</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E8%AF%AD%E6%B3%95/">语法</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-      </div>
-    
-    <ul class="pager">
-      
-        <li class="previous">
-          <a href="http://blog.raikay.com/page/1/">&larr; Newer</a>
-        </li>
-      
-      
-        <li class="next">
-          <a href="http://blog.raikay.com/page/3/">Older &rarr;</a>
-        </li>
-      
-    </ul>
-  
-</div>
 
     <footer>
 <script type="text/javascript">

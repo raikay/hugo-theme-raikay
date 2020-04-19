@@ -228,12 +228,42 @@
   </url>
   
   <url>
+    <loc>http://blog.raikay.com/post/2017/csharp-bakup-db/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.raikay.com/post/2017/net-cache/</loc>
     <lastmod>2017-03-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
+    <loc>http://blog.raikay.com/post/2018/web-config/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/tags/elasticsearch/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/post/2017/elasticsearch-netcore/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.raikay.com/tags/framework/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/tags/http/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/post/2017/http-status-code/</loc>
     <lastmod>2017-03-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -244,6 +274,16 @@
   
   <url>
     <loc>http://blog.raikay.com/post/2018/markdown-tool-note/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/tags/rabbitmq/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/tags/sqlserver/</loc>
     <lastmod>2017-03-11T00:00:00+00:00</lastmod>
   </url>
   
@@ -273,7 +313,27 @@
   </url>
   
   <url>
+    <loc>http://blog.raikay.com/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/post/2017/single-sign-on/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://blog.raikay.com/tags/%E5%9B%BE%E7%89%87/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/post/2017/hack-web/</loc>
+    <lastmod>2017-03-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/post/2017/cqrs/</loc>
     <lastmod>2017-03-11T00:00:00+00:00</lastmod>
   </url>
   
