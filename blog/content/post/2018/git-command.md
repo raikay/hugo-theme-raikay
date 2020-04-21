@@ -7,7 +7,6 @@ tags = [
     "git",
 	"版本控制",
 ]
-
 +++
 
 
@@ -56,7 +55,20 @@ git status
 git status -s   # 让结果以更简短的形式输出
 ```
 
-### 5、设置git别名
+### 5、推送到远程分支
+
+```sh
+git push
+git push origin branch1 #多个仓库时，指定origin仓库下 branch1分支
+```
+
+
+
+
+
+
+
+### 9、设置git别名
 
 ```
 git config –global alias
@@ -95,11 +107,27 @@ To https://github.com/raikay/Managix.git
 ```
 也可以直接vim、文本编辑器编辑配置文件  
 在`C:\Users\Administrator\.gitconfig`文件中添加上面的代码：
+
 ```
 [alias]
 	cm = commit
 	acp = "!f() { git add -A && git commit -m \\\"$@\\\" && git push; }; f"
 ```
+
+
+
+### 10、查看某个文件是谁改动的「git blame」
+
+```sh
+git blame 文件名 # 查看某文件的每一行内容的作者，最新commit和提交时间
+```
+
+
+
+
+
+
+
 
 
 ### 2、获取帮助 「help」
