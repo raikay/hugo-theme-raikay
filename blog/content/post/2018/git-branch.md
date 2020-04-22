@@ -36,6 +36,7 @@ git checkout -B branchName
 
 ```sh
 git push --set-upstream origin branchName
+git push origin branch1 #多个仓库时，指定origin仓库下 branch1分支
 ```
 
 ### 3、删除
