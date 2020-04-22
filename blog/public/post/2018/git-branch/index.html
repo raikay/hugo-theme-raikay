@@ -2,8 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-<title></title>
-<meta name="description" content="">
+<title>git命令备忘系列：分支操作（branch）</title>
+<meta name="description" content="git命令备忘系列：分支操作（branch）查看分支列表、 创建并切换新分支、强制创建分支、新创建的分支推送到远程仓库、恢复误删除分支、分支重命名、合并分支、解决冲突">
 
 
   
@@ -21,8 +21,6 @@
 <meta name="generator" content="Hugo 0.68.1" />
   </head>
   <body>
-    
-  
     
   
 
@@ -57,10 +55,25 @@
 <script>hljs.initHighlightingOnLoad();</script>
     <div class="intro-header">
       <div class="container">
-        <div class="page-heading">
+        <div class="post-heading">
 				  
-		  			<p hidden>世上本没有垃圾，</br>
-有的，只是放错地方的金子……</br></p>
+          
+            <h1>git命令备忘系列：分支操作（branch）</h1>
+          
+          
+            <span class="meta-post">
+  <i class="fa fa-calendar-alt"></i>&nbsp;2018-3-11
+  
+    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
+    
+      <a href="http://blog.raikay.com//tags/git/">git</a>&nbsp;
+    
+      <a href="http://blog.raikay.com//tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>&nbsp;
+    
+  
+</span>
+
+          
 		  
         </div>
       </div>
@@ -69,252 +82,68 @@
 
 
     
-<div class="container home" role="main">
-    <div class="posts-list">
+  <div class="container" role="main">
+    <article class="article" class="blog-post">
       
-        
-      
+    <h3 id="1查看分支列表">1、查看分支列表</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git branch  <span style="color:#75715e">#显示本地分支</span>
+git branch -r <span style="color:#75715e">#显示远程所有分支</span>
+</code></pre></div><h3 id="2创建并切换分支">2、创建并切换分支</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git branch branchName    <span style="color:#75715e"># 创建分支</span>
+git checkout branchName1   <span style="color:#75715e">#切换到 branchName1 分支</span>
+git checkout -b branchName2   <span style="color:#75715e">#创建并切换到 branchName2分支</span>
+</code></pre></div><p><strong>强制创建分支</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git checkout -B branchName
+</code></pre></div><p>为什么强制创建分支，比如已经有dev分支，打算创建新的dev分支，正常情况同名不允许创建，<code>-B</code>参数之后既可以成功创建</p>
+<p><strong>新创建的分支推送到远程仓库</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git push --set-upstream origin branchName
+</code></pre></div><h3 id="3删除">3、删除</h3>
+<pre><code>git branch -d 分支名    # 删除分支，分支上有未提交更改是不能删除的
+git branch -D 分支名    # 强行删除分支，尽管这个分支上有未提交的更改
+git push origin --delete 分支名   #删除远程分支
+</code></pre><h3 id="4恢复误删除分支">4、恢复误删除分支</h3>
+<p>两步：找出被删分支最新的commit的Hash值，然后恢复分支：</p>
+<pre><code>git log --branches=&quot;被删除的分支名&quot;     # 找到被删分支最新的commit版本号
+git branch 分支名 版本号(前七位即可)    # 恢复被删分支
+</code></pre><h3 id="5分支重命名">5、分支重命名</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git branch -m 老分支名 新分支名     <span style="color:#75715e"># 分支重命名</span>
+</code></pre></div><h3 id="6合并分支">6、合并分支</h3>
+<p>branchName1 合并到当前分支</p>
+<pre><code>git merge branchName1
+</code></pre><p><strong>常用参数</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git merge -ff           <span style="color:#75715e"># 快速合并，默认参数</span>
+git merge -ff-only      <span style="color:#75715e"># 只有快速合并的情况才合并</span>
+git merge --no-ff       <span style="color:#75715e"># 不使用快速合并</span>
+git merge -n 分支名     <span style="color:#75715e"># 合并分支，不会在合并后显示合并前后的不同状态</span>
+git merge -stat 分支名  <span style="color:#75715e"># 合并分支，合并结束后显示合并前后的不同状态</span>
+git merge -e 分支名     <span style="color:#75715e"># 合并分支，合并前调用编辑器，可自行编写commit</span>
+</code></pre></div><h3 id="7解决冲突">7、解决冲突</h3>
+<p>冲突后会进入临时的冲突分支 <code>branchName | MERGE</code></p>
+<p>&laquo;&lt; 和 &raquo;&gt;包裹着的就是冲突内容,以====分隔开，上半部分是当前分支的代码</p>
+<p>保留想要的代码，然后删除 <code>&lt;&lt;&lt;&lt;</code> / <code>&gt;&gt;&gt;&gt;</code> / <code>====</code></p>
+<p>最后:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add .
+git commit -m <span style="color:#e6db74">&#39;注释&#39;</span>
+</code></pre></div><p>提交后就会自动跳出临时的冲突分支</p>
+<blockquote>
+<p>鸣谢：
+<a href="https://juejin.im/post/5e79ea975188255e277a3892#heading-29">https://juejin.im/post/5e79ea975188255e277a3892#heading-29</a></p>
+</blockquote>
+
+
 
       
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2017/http-status-code/">
-      <h3 class="post-title">HTTP协议状态码详解 HTTP Status Code </h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2017/http-status-code/" class="post-read-more">Read More</a>
-    
+        <div class="blog-tags">
+          
+            <a href="http://blog.raikay.com//tags/git/">git</a>&nbsp;
+          
+            <a href="http://blog.raikay.com//tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>&nbsp;
+          
+        </div>
       
-        
+    </article>
     
   </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/http/">HTTP</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/markdown-tool-note/">
-      <h3 class="post-title">MarkDown基本语法以及相关工具笔记简单介绍</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/markdown-tool-note/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/markdown/">MarkDown</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E5%B7%A5%E5%85%B7/">工具</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E8%AF%AD%E6%B3%95/">语法</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2020/typora-picgo-markdown/">
-      <h3 class="post-title">Typora&#43;Picgo图片自动上传打造Markdown写作神器</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2020/typora-picgo-markdown/" class="post-read-more">Read More</a>
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/typora/">Typora</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/picgo/">Picgo</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/markdown/">Markdown</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E5%9B%BE%E7%89%87/">图片</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2020/vuepress/">
-      <h3 class="post-title">Vuepress起步</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2020/vuepress/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/vuepress/">Vuepress</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2017/single-sign-on/">
-      <h3 class="post-title">单点登录怎么实现？</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2017/single-sign-on/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">单点登录</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2017/hack-web/">
-      <h3 class="post-title">如何用好消息队列RabbitMQ？ </h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2017/hack-web/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/rabbitmq/">RabbitMQ</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2017/cqrs/">
-      <h3 class="post-title">程序员除了会 CRUD 之外，还应该知道什么叫 CQRS！</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2017/cqrs/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/http/">HTTP</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/aspx-web-config/">
-      <h3 class="post-title">通过一个一般处理程序（aspx文件)直接获取服务器web.config文件</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/aspx-web-config/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/aspx/">aspx</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E4%B8%80%E8%88%AC%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F/">一般处理程序</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-      </div>
-    
-    <ul class="pager">
-      
-        <li class="previous">
-          <a href="http://blog.raikay.com/page/2/">&larr; Newer</a>
-        </li>
-      
-      
-    </ul>
-  
-</div>
 
     <footer>
 <script type="text/javascript">
