@@ -75,7 +75,7 @@ git reset --soft HEAD^
 本地版本回退到指定的id
 
 ```sh
-git reset --hard 4e0c318  #4e0c318 是提交的Id
+git reset --hard 4e0c318  #4e0c318 是提交的Id,git log/git reflog 等 可以查看
 ```
 
 强制提交到远程仓库
@@ -86,7 +86,16 @@ git push -f
 
 
 
-### 6、只修改 commit 注释
+### 6、撤销某次提交
+
+会增加一次修改记录
+
+```
+git revert HEAD             # 撤销最近的一个提交
+git revert 提交的Hash值     # 撤销某次commit
+```
+
+### 7、只修改 commit 注释
 
 ```sh
 git commit --amend

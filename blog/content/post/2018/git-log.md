@@ -14,7 +14,6 @@ tags = [
 
 ```
 git log                 # 查看所有commit记录(SHA-A校验和，作者名称，邮箱，提交时间，提交说明)
-git reflog              #简洁显示log
 git log -p -次数                # 查看最近多少次的提交记录
 git log --stat                  # 简略显示每次提交的内容更改
 git log --name-only             # 仅显示已修改的文件清单
@@ -100,3 +99,20 @@ $ git log --pretty=format:"%h - %an, %ar : %s" Raikay.Managix.API/Controllers/Me
 519be01 - raikay, 2 weeks ago : 菜单管理功能完善
 c06ce9d - raikay, 2 weeks ago : 前期调整
 ```
+
+
+
+### 查看某次提交的修改内容「git show」
+
+```sh
+git show 提交Hash值     # 查看某次commit的修改内容
+```
+
+
+
+### 查看所有HEAD变动记录， 如commit， 分支切换信息
+
+```sh
+git reflog              #简洁显示log
+```
+

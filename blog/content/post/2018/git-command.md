@@ -142,25 +142,7 @@ git 命令 -h
 
 
 
-#### 撤销已经commit
-```
-git reset --soft HEAD^
-# HEAD^的意思是上一个版本，也可以写成HEAD~1
-# 如果你进行了2次commit，想都撤回，可以使用HEAD~2
-```
 
-#### 删除新创建文件
-```
-git clean -df #删除 一些 没有 git add 的 文件
-```
-
-
-
-### 1、git push 强制提交
-
-```sh
-git push -f origin master
-```
 
 ### 2、git pull 强制覆盖本地
 
@@ -231,42 +213,11 @@ $ git push origin --delete <branchName>
 ```
 $ git push origin :test
 ```
-#### 3、忽略一些文件、文件夹 不提交
-在仓库根目录下创建名称为`.gitignore`的文件，写入不需要的文件夹名或文件，每个元素占一行即可，如:
-```
-target
-bin
-*.db
-```
-
 推送`pull`时出现==冲突== 放弃本地修改，使远程库内容强制覆盖本地代码
 ```
 git fetch --all #只是下载代码到本地，不进行合并操作
 git reset --hard origin/master  #HEAD指向最新下载的版本
 ```
-#### 4、恢复 撤销
-```
-$ git checkout -- readme.txt
-```
-
-命令`git checkout -- readme.txt`意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：
-一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
-一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
-总之，就是让这个文件回到最近一次git commit或git add时的状态。
-`git checkout .` 只是一个点，是全部撤销
-
-回退所有内容到上一个版本  
-```
-git reset HEAD^  
-```
-#### 查看本地仓库（commit） 未提交到(push)远程仓库的代码
-```
-#git log 本地branch ^远程分支   可以查看本地有远程没有的提交。
-#git log 远程分子 ^本地branch   可以查看远程有，本地没有的提交。
-git log master ^origin master
-```
----
-
 
 
 #### 7、子模块(submodule)相关操作命令
@@ -283,57 +234,25 @@ $ git submodule add git://github.com/soberh/ui-libs.git src/main/webapp/ui-libs
 ##### 删除子模块：（分4步走哦）
 
 1. `$ git rm --cached [path]`
+
 2. 编辑`.gitmodules`文件，将子模块的相关配置节点删除掉
+
 3. 编辑`.git/config`文件，将子模块的相关配置节点删除掉
+
 4. 手动删除子模块残留的目录
 
+   
 
-```
-**追问：**
+   
 
-我的本地分支是master，远程分支也是master，
-使用`git log master ^master` 没有任何响应。是我理解错误了吗？
-
-**追答:**
-
-本地分支是自己建立的分支如master，远程分支一般是origin/XXX，这个仓的远程库。
-
-你自己提交代码是先add，然后commit。这个时候是提交在自己的本地分支。git push或者repo upload的命令执行的是往中心库的提交。
-
-就比如你吃饭。中心库就是锅里的。远程分支是盘子里的。本地分支是碗里的。你所有操作都是在操作本地分支的。
-
-**********************************************
-
-本地修改了许多文件，其中有些是新增的，因为开发需要这些都不要了，想要丢弃掉，可以使用如下命令：
-```
-git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
-git stash #把所有没有提交的修改暂存到stash里面。可用git stash pop回复。
-
-git reset --hard HASH #返回到某个节点，不保留修改。
-git reset --soft HASH #返回到某个节点。保留修改
-
-git clean -df #删除 一些 没有 git add 的 文件；
-git clean 参数
-    -n 显示 将要 删除的 文件 和  目录
-    -f 删除 文件
-    -df 删除 文件 和 目录
 也可以使用：
+```
 git checkout . && git clean -xdf
-
-
-
-
-每次操作都需要输入用户名和密码感觉很繁琐，解决方法，在本地的工程文件夹的.git下打开config文件 添加：
 ```
-[credential]
-     helper = store
-```
-或者执行这个命令
 
-```
-git config --global credential.helper store
-```
-再输入一次用户名密码后就可以保存住了。
+
+
+
 
 
 http://www.oschina.net/translate/10-tips-git-next-level
