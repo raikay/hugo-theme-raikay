@@ -14,6 +14,7 @@ tags = [
 
 ```
 git log                 # 查看所有commit记录(SHA-A校验和，作者名称，邮箱，提交时间，提交说明)
+git reflog              #简洁显示log
 git log -p -次数                # 查看最近多少次的提交记录
 git log --stat                  # 简略显示每次提交的内容更改
 git log --name-only             # 仅显示已修改的文件清单

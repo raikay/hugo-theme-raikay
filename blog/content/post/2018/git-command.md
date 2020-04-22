@@ -154,6 +154,27 @@ git reset --soft HEAD^
 git clean -df #删除 一些 没有 git add 的 文件
 ```
 
+
+
+### 1、git push 强制提交
+
+```sh
+git push -f origin master
+```
+
+### 2、git pull 强制覆盖本地
+
+```sh
+// 从远程仓库下载最新版本
+git fetch -all 
+// 将本地设为刚获取的最新的内容
+git reset --hard origin/master
+```
+
+
+
+
+
 ##### 1、远程仓库相关命令
 
 查看远程仓库：`$ git remote -v`

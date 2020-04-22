@@ -21,17 +21,83 @@ git checkout .   #点表示撤销所有文件
 
 checkout 只撤销已有(tracked)文件，新增文件（untracked）不会撤销
 
-清除工作区新增（untracked）文件
+**清除工作区新增（untracked）文件**
 
 ```sh
 git clean -df
 ```
 
 ### 2、撤销暂存区修改（已经add，未commit /push）
+把添加（add）到暂存区的更改，恢复到工作区  
+```sh
+git reset  #撤销暂存区全部文件
+git reset  filename #指定文件
+```
+### 3、查看本地仓库修改(已经commit，未push)
+
+
 
 ```sh
+git log 本地branch ^仓库 远程分支   #可以查看本地有远程没有的提交。
+git log 远程分子 ^本地branch   #可以查看远程有，本地没有的提交。
+git log master ^origin master #demo
+```
+
+### 4、撤销本地仓库修改(已经commit,未push)
+
+仅仅是撤回commit操作，您写的代码仍然保留。  
+
+HEAD^的意思是上一个版本，也可以写成HEAD~1  
+
+如果你进行了2次commit，想都撤回，可以使用HEAD~2  
+
+```
 git reset --soft HEAD^
 ```
-`HEAD^`的意思是上一个版本，也可以写成`HEAD~1`
+**参数说明：**  
 
-如果你进行了2次commit，想都撤回，可以使用`HEAD~2`
+- `--mixed `
+
+  不删除工作空间改动代码，撤销commit，并且撤销git add . 操作
+
+- `--soft`
+
+  不删除工作空间改动代码，撤销commit，不撤销git add . 操作
+
+- `--hard`
+
+  删除工作空间改动代码，撤销commit，撤销git add .操作
+
+
+
+### 5、远程仓库版本回退（已经push到远程仓库）
+
+本地版本回退到指定的id
+
+```sh
+git reset --hard 4e0c318  #4e0c318 是提交的Id
+```
+
+强制提交到远程仓库
+
+```sh
+git push -f
+```
+
+
+
+### 6、只修改 commit 注释
+
+```sh
+git commit --amend
+```
+
+此时会进入默认vim编辑器，修改注释完毕后保存就好了。
+
+
+
+鸣谢：
+
+> https://www.cnblogs.com/lfxiao/p/9378763.html
+>
+> https://juejin.im/post/5e79ea975188255e277a3892#heading-6
