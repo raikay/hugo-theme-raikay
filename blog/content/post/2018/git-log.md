@@ -113,6 +113,6 @@ git show 提交Hash值     # 查看某次commit的修改内容
 ### 查看所有HEAD变动记录， 如commit， 分支切换信息
 
 ```sh
-git reflog              #简洁显示log
+git reflog
 ```
 

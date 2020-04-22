@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
 <title>git命令备忘系列：配置文件操作（config）</title>
-<meta name="description" content="Git 常用命令系列（一）配置文件操作 版本控制 基本操作 代码管理">
+<meta name="description" content="Git 常用命令系列（一）配置文件操作 版本控制 基本操作 代码管理,解决git不自动记录 密码,每次操作都需要输入用户名和密码感觉很繁琐，解决方法，在本地的工程文件夹的.git下打开config文件 添加">
 
 
   
@@ -134,7 +134,13 @@ doc/**/*.pdf
 </code></pre><p><strong>注：</strong> 有过提交记录的文件再加入到这个规则文件是不起作用的，可以使用以下命令，清楚缓存。</p>
 <p>[.]代表所有文件，也可指定具体文件。</p>
 <pre><code>git rm -r --cached . 
-</code></pre>
+</code></pre><h3 id="解决git不自动记录-密码">解决git不自动记录 密码</h3>
+<p>每次操作都需要输入用户名和密码感觉很繁琐，解决方法，在本地的工程文件夹的.git下打开config文件 添加：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>credential<span style="color:#f92672">]</span>
+     helper <span style="color:#f92672">=</span> store
+</code></pre></div><p>或者执行这个命令</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git config --global credential.helper store
+</code></pre></div>
 
 
       
