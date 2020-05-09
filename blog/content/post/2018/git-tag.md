@@ -1,14 +1,13 @@
 +++
-author = "Raikay"
-title = "git命令备忘系列（七）：标签操作（tag）"
-date = "2018-06-13"
-description = "git命令备忘录系列：标签操作（tag） 笔记 学习 教程 分支 差异."
+author = "Raikay"  
+title = "git命令备忘系列（七）：标签操作（tag）"  
+date = "2018-06-13"  
+description = "git命令备忘录系列：标签操作（tag） 笔记 学习 教程 分支 差异"  
 tags = [
     "git",
 	"版本控制",
 	"标签"
-]
-
+]  
 +++
 
 对于某些提交，我们可以为它打上Tag，表示这次提交很重要， 比如为一些正式发布大版本的 commit，打上TAG，当某个版本出问题了，通过TAG可以快速找到此次提交对应的Hash值， 直接切换到此次版本的代码去查找问题，比起一个个commit找省事多了。
