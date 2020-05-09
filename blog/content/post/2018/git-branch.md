@@ -1,7 +1,7 @@
 +++
 author = "Raikay"
-title = "git命令备忘系列：分支操作（branch）"
-date = "2018-03-11"
+title = "git命令备忘系列（六）：分支操作（branch）"
+date = "2018-06-12"
 description = "git命令备忘系列：分支操作（branch）查看分支列表、 创建并切换新分支、强制创建分支、新创建的分支推送到远程仓库、恢复误删除分支、分支重命名、合并分支、解决冲突"
 tags = [
     "git",
@@ -99,6 +99,21 @@ git commit -m '注释'
 ```
 
 提交后就会自动跳出临时的冲突分支
+
+### 8、远程仓库相关命令
+
+查看远程仓库：`$ git remote -v`
+
+添加远程仓库：`$ git remote add [name] [url]`
+
+删除远程仓库：`$ git remote rm [name]`
+
+修改远程仓库：`$ git remote set-url --push[name][newUrl]`
+
+拉取远程仓库：`$ git pull [remoteName] [localBranchName]`
+
+推送远程仓库：`$ git push [remoteName] [localBranchName]`
+
 
 
 > 鸣谢：

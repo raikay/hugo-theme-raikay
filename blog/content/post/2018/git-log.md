@@ -1,7 +1,7 @@
 +++
 author = "Raikay"
-title = "git命令备忘系列：查看历史记录（git log）"
-date = "2018-05-22"
+title = "git命令备忘系列（三）：查看历史记录（log）"
+date = "2018-06-09"
 description = "git常用命令查看历史记录（git log） 笔记 学习 教程 分支 差异."
 tags = [
     "git",
