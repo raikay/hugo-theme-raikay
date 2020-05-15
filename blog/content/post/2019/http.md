@@ -76,7 +76,7 @@ HTTP1.1 新增了六种请求方法：OPTIONS、PUT、PATCH、DELETE、TRACE 和
 
 
 
-## 5、HTTP报文
+## 4、HTTP报文
 
 在HTTP连接中报文分为请求（request）和响应（response）两种。每种报文在请求头都有不同的字段来标识不同的用途。
 
@@ -136,7 +136,7 @@ If-Modified-Since：只有当所请求的内容在指定的日期之后又经过
 
 
 
-## 4、TCP 三次握手和四次挥手
+## 5、TCP 三次握手和四次挥手
 
 ### 三次握手
 
