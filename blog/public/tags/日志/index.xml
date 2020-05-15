@@ -35,8 +35,7 @@ public class SnowflakeId{// 开始时间截((new DateTime(2020, 1, 1, 0, 0, 0,
 			<guid>http://blog.raikay.com/post/2019/http/</guid>
 			<description>HTTP 是一种 超文本传输协议(Hypertext Transfer Protocol)。
 http是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应 。
-引自百度百科
- 1、地址栏输入网址（url）后发生了什么 1. DNS解析
+1、地址栏输入网址（url）后发生了什么 1. DNS解析
 首先浏览器通过DNS解析根据域名获取IP。通过下面的顺序获取。其中某个节点返回IP就不继续执行。
  浏览器缓存 &amp;ndash;&amp;gt; 系统host &amp;ndash;&amp;gt; 本地域名服务器LDNS &amp;ndash;&amp;gt; Root Server 域名服务器
  2. 建立连接
@@ -49,7 +48,10 @@ http是一个简单的请求-响应协议，它通常运行在TCP之上。它指
 应答结束后，web浏览器与webserver四次握手断开连接，以保证其它web浏览器能够与webserver建立连接。
 http1.1不是立即断开连接，而是服务端使用超时断开的策略来维护连接，一般是300s左右
 2、无状态协议 HTTP无状态协议，是指协议对于事务处理没有记忆能力。每次的请求都是独立的，它的执行情况和结果与前面的请求和之后的请求是无直接关系的。不过，可以通过cookie、session等机制解决这个问题。
-3、HTTP请求方法 根据 HTTP 标准，HTTP 请求可以使用多种请求方法。 HTTP1.0 定义了三种请求方法： GET, POST 和 HEAD方法。 HTTP1.1 新增了六种请求方法：OPTIONS、PUT、PATCH、DELETE、TRACE 和 CONNECT 方法。</description>
+3、HTTP请求方法 根据 HTTP 标准，HTTP 请求可以使用多种请求方法。
+HTTP1.0 定义了三种请求方法： GET, POST 和 HEAD方法。
+HTTP1.1 新增了六种请求方法：OPTIONS、PUT、PATCH、DELETE、TRACE 和 CONNECT 方法。
+   方法 描述     GET 请求指定的页面信息，并返回实体主体。   POST 向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和/或已有资源的修改。   PUT 从客户端向服务器传送的数据取代指定的文档的内容。   DELETE 请求服务器删除指定的页面。   HEAD 类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头   CONNECT 协议中预留给能够将连接改为管道方式的代理服务器。   OPTIONS 允许客户端查看服务器的性能。   TRACE 回显服务器收到的请求，主要用于测试或诊断。   PATCH 对 PUT 方法的补充，用来对已知资源进行局部更新 。    5、HTTP报文 在HTTP连接中报文分为请求（request）和响应（response）两种。每种报文在请求头都有不同的字段来标识不同的用途。</description>
 		</item>
 		
 		<item>
