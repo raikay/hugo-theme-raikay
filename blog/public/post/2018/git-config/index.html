@@ -2,7 +2,7 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-<title>git命令备忘系列：配置文件操作（config）</title>
+<title>git命令备忘系列（二）：配置文件操作（config）</title>
 <meta name="description" content="Git 常用命令系列（一）配置文件操作 版本控制 基本操作 代码管理,解决git不自动记录 密码,每次操作都需要输入用户名和密码感觉很繁琐，解决方法，在本地的工程文件夹的.git下打开config文件 添加">
 
 
@@ -58,11 +58,11 @@
         <div class="post-heading">
 				  
           
-            <h1>git命令备忘系列：配置文件操作（config）</h1>
+            <h1>git命令备忘系列（二）：配置文件操作（config）</h1>
           
           
             <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-3-19
+  <i class="fa fa-calendar-alt"></i>&nbsp;2018-6-8
   
     &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
     
@@ -134,6 +134,40 @@ doc/**/*.pdf
 </code></pre><p><strong>注：</strong> 有过提交记录的文件再加入到这个规则文件是不起作用的，可以使用以下命令，清楚缓存。</p>
 <p>[.]代表所有文件，也可指定具体文件。</p>
 <pre><code>git rm -r --cached . 
+</code></pre><h3 id="设置git别名">设置git别名</h3>
+<pre><code>git config –global alias
+</code></pre><p>比如 <code>commit</code> 定义为 <code>cm</code>:</p>
+<pre><code>Raikay@DESKTOP-8CO9PI4 MINGW64 /d/Resources/GitFile/Managix (master)
+$ git config --global alias.cm commit
+
+Raikay@DESKTOP-8CO9PI4 MINGW64 /d/Resources/GitFile/Managix (master)
+$ git cm -m 'save'
+[master 037da09] save
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+</code></pre><p>还可以组合多个命令为一个命令，比如将 <code>add</code>  <code>commit</code> <code>push</code> 合并为一个命令 <code>acp</code></p>
+<pre><code>Raikay@DESKTOP-8CO9PI4 MINGW64 /d/Resources/GitFile/Managix (master)
+$ git config --global alias.acp '!f() { git add -A &amp;&amp; git commit -m \&quot;$@\&quot; &amp;&amp; git push; }; f'
+
+Raikay@DESKTOP-8CO9PI4 MINGW64 /d/Resources/GitFile/Managix (master)
+$ git acp 'save'
+[master 51fb37f] &quot;save&quot;
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 582 bytes | 582.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To https://github.com/raikay/Managix.git
+   2977f6b..51fb37f  master -&gt; master
+
+</code></pre><p>也可以直接vim、文本编辑器编辑配置文件<br>
+在<code>C:\Users\Administrator\.gitconfig</code>文件中添加上面的代码：</p>
+<pre><code>[alias]
+	cm = commit
+	acp = &quot;!f() { git add -A &amp;&amp; git commit -m \\\&quot;$@\\\&quot; &amp;&amp; git push; }; f&quot;
 </code></pre><h3 id="解决git不自动记录-密码">解决git不自动记录 密码</h3>
 <p>每次操作都需要输入用户名和密码感觉很繁琐，解决方法，在本地的工程文件夹的.git下打开config文件 添加：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>credential<span style="color:#f92672">]</span>

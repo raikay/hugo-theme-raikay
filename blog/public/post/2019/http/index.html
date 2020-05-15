@@ -2,8 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-<title>HTTP协议状态码详解 HTTP Status Code </title>
-<meta name="description" content="HTTP协议状态码详解 HTTP Status Code,分别代表什么意思，注解，当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。HTTP状态码的英文为HTTP Status Code。">
+<title>HTTP / HTTPS 必备基础知识</title>
+<meta name="description" content="http / https 必备基础知识">
 
 
   
@@ -58,15 +58,17 @@
         <div class="post-heading">
 				  
           
-            <h1>HTTP协议状态码详解 HTTP Status Code </h1>
+            <h1>HTTP / HTTPS 必备基础知识</h1>
           
           
             <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2017-3-11
+  <i class="fa fa-calendar-alt"></i>&nbsp;2019-8-6
   
     &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
     
-      <a href="http://blog.raikay.com//tags/http/">HTTP</a>&nbsp;
+      <a href="http://blog.raikay.com//tags/http/">http</a>&nbsp;
+    
+      <a href="http://blog.raikay.com//tags/%E7%BD%91%E7%BB%9C/">网络</a>&nbsp;
     
   
 </span>
@@ -83,112 +85,226 @@
   <div class="container" role="main">
     <article class="article" class="blog-post">
       
-    <p>当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。</p>
-<p>HTTP状态码的英文为HTTP Status Code。</p>
-<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418211820.png" alt="image-20200418211818299"></p>
-<p><strong>下面是常见的HTTP状态码：</strong></p>
+    <p><img src="https://imgkr.cn-bj.ufileos.com/081014d5-3b08-46ea-9ce8-c21fb669b050.jpeg" alt="img"></p>
+<blockquote>
+<p>HTTP 是一种 <code>超文本传输协议(Hypertext Transfer Protocol)</code>。</p>
+<p>http是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应 。</p>
+<p>引自<a href="https://baike.baidu.com/item/HTTP/243074">百度百科</a></p>
+</blockquote>
+<h2 id="1地址栏输入网址url后发生了什么">1、地址栏输入网址（url）后发生了什么</h2>
+<p><strong>1. DNS解析</strong></p>
+<p>首先浏览器通过DNS解析根据域名获取IP。通过下面的顺序获取。其中某个节点返回IP就不继续执行。</p>
+<blockquote>
+<p>浏览器缓存 &ndash;&gt; 系统host &ndash;&gt; 本地域名服务器LDNS &ndash;&gt; Root Server 域名服务器</p>
+</blockquote>
+<p><strong>2. 建立连接</strong></p>
+<p>浏览器根据得到的IP和目标服务器经过三次握手建立 TCP 连接。</p>
+<p><strong>3. 请求</strong></p>
+<p>建立连接后，浏览器会向目标服务器发起 <code>HTTP-GET</code> 请求，包括其中的 URL，HTTP 1.1 后默认使用长连接，只需要一次握手即可多次传输数据。</p>
+<p><strong>4. 响应</strong></p>
+<p>如果目标服务器只是一个简单的页面，就会直接返回，状态码为200。如果有重定向 ，返回 301,302 以 3 开头的重定向码，浏览器在获取了重定向响应后，在响应报文中 Location  项找到重定向地址，浏览器重新第一步访问即可。</p>
+<p><strong>5. 关闭连接</strong></p>
+<p>应答结束后，web浏览器与webserver四次握手断开连接，以保证其它web浏览器能够与webserver建立连接。</p>
+<p>http1.1不是立即断开连接，而是服务端使用超时断开的策略来维护连接，一般是300s左右</p>
+<h2 id="2无状态协议">2、无状态协议</h2>
+<p>HTTP无状态协议，是指协议对于事务处理没有记忆能力。每次的请求都是独立的，它的执行情况和结果与前面的请求和之后的请求是无直接关系的。不过，可以通过cookie、session等机制解决这个问题。</p>
+<p><img src="https://imgkr.cn-bj.ufileos.com/3e710159-35fa-4e06-8f7b-2d4d0fb906f9.png" alt=""></p>
+<h2 id="3http请求方法">3、HTTP请求方法</h2>
+<p>根据 HTTP 标准，HTTP 请求可以使用多种请求方法。
+HTTP1.0 定义了三种请求方法： GET, POST 和 HEAD方法。
+HTTP1.1 新增了六种请求方法：OPTIONS、PUT、PATCH、DELETE、TRACE 和 CONNECT 方法。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>请求指定的页面信息，并返回实体主体。</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和/或已有资源的修改。</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>从客户端向服务器传送的数据取代指定的文档的内容。</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>请求服务器删除指定的页面。</td>
+</tr>
+<tr>
+<td>HEAD</td>
+<td>类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头</td>
+</tr>
+<tr>
+<td>CONNECT</td>
+<td>协议中预留给能够将连接改为管道方式的代理服务器。</td>
+</tr>
+<tr>
+<td>OPTIONS</td>
+<td>允许客户端查看服务器的性能。</td>
+</tr>
+<tr>
+<td>TRACE</td>
+<td>回显服务器收到的请求，主要用于测试或诊断。</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>对 PUT 方法的补充，用来对已知资源进行局部更新 。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5http报文">5、HTTP报文</h2>
+<p>在HTTP连接中报文分为请求（request）和响应（response）两种。每种报文在请求头都有不同的字段来标识不同的用途。</p>
+<p><img src="https://imgkr.cn-bj.ufileos.com/a3d8bcb3-152a-4112-b68b-3cacd9bebca3.png" alt=""></p>
+<p><strong>常见请求头：</strong></p>
+<p><code>Accept</code>：浏览器可接受的MIME类型；</p>
+<p><code>Accept-Charset</code>：浏览器可接受的字符集；</p>
+<p><code>Accept-Encoding</code>：浏览器能够进行解码的数据编码方式，比如gzip。</p>
+<p><code>Accept-Language</code>：浏览器所希望的语言种类，当服务器能够提供一种以上的语言版本时要用到；</p>
+<p><code>Authorization</code>：授权信息，通常出现在对服务器发送的WWW-Authenticate头的应答中；</p>
+<p><code>Connection</code>：表示是否需要持久连接。</p>
+<p><code>Content-Length</code>：表示请求消息正文的长度；</p>
+<p><code>Cookie</code>：这是最重要的请求头信息之一；</p>
+<p><code>From</code>：请求发送者的email地址，由一些特殊的Web客户程序使用，浏览器不会用到它；</p>
+<p><code>Host</code>：初始URL中的主机和端口；</p>
+<p>If-Modified-Since：只有当所请求的内容在指定的日期之后又经过修改才返回它，否则返回304“Not Modified”应答；</p>
+<p><code>Pragma</code>：指定“no-cache”值表示服务器必须返回一个刷新后的文档，即使它是代理服务器而且已经有了页面的本地拷贝；</p>
+<p><code>Referer</code>：包含一个URL，用户从该URL代表的页面出发访问当前请求的页面。</p>
+<p><code>User-Agent</code>：浏览器类型，如果Servlet返回的内容与浏览器类型有关则该值非常有用；</p>
+<p><code>UA-Pixels，UA-Color，UA-OS，UA-CPU</code>：由某些版本的IE浏览器所发送的非标准的请求头，表示屏幕大小、颜色深度、操作系统和CPU类型。</p>
+<p><strong>常见响应头：</strong></p>
+<p><code>Allow</code>：服务器支持哪些请求方法（如GET、POST等）；</p>
+<p><code>Content-Encoding</code>：文档的编码（Encode）方法。只有在解码之后才可以得到Content-Type头指定的内容类型。利用gzip压缩文档能够显著地减少HTML文档的下载时间。</p>
+<p><code>Content-Length</code>：表示内容长度。只有当浏览器使用持久HTTP连接时才需要这个数据。</p>
+<p><code>Content-Type</code>： 表示后面的文档属于什么MIME类型。</p>
+<p><code>Date</code>：当前的GMT时间。</p>
+<p><code>Expires</code>：指明应该在什么时候认为文档已经过期，从而不再缓存它。</p>
+<p><code>Last-Modified</code>：文档的最后改动时间。客户可以通过If-Modified-Since请求头提供一个日期，该请求将被视为一个条件GET，只有改动时间迟于指定时间的文档才会返回，否则返回一个304（Not Modified）状态。Last-Modified也可用setDateHeader方法来设置；</p>
+<p><code>Location</code>：表示客户应当到哪里去提取文档。Location通常不是直接设置的，而是通过HttpServletResponse的sendRedirect方法，该方法同时设置状态代码为302；</p>
+<p><code>Refresh</code>：表示浏览器应该在多少时间之后刷新文档，以秒计。</p>
+<h2 id="4tcp-三次握手和四次挥手">4、TCP 三次握手和四次挥手</h2>
+<h3 id="三次握手">三次握手</h3>
+<p><strong>相关概念：</strong></p>
+<p>**SYN：**它的全称是 <code>Synchronize Sequence Numbers</code>，同步序列编号。是 TCP/IP 建立连接时使用的握手信号。在客户机和服务器之间建立 TCP 连接时，首先会发送的一个信号。客户端在接受到 SYN 消息时，就会在自己的段内生成一个随机值 X。</p>
+<p>**SYN-ACK：**服务器收到 SYN 后，打开客户端连接，发送一个 SYN-ACK 作为答复。确认号设置为比接收到的序列号多一个，即 X + 1，服务器为数据包选择的序列号是另一个随机数 Y。</p>
+<p>**ACK：**<code>Acknowledge character</code>, 确认字符，表示发来的数据已确认接收无误。最后，客户端将 ACK 发送给服务器。序列号被设置为所接收的确认值即 Y + 1。</p>
+<p>**FIN：**用来释放一个连接。FIN=1表示：此报文段的发送方的数据已经发送完毕，并要求释放运输连接</p>
+<p>如果用现实生活来举例的话就是</p>
+<p>小明 - 客户端 小红 - 服务端</p>
 <ul>
-<li>200 - 请求成功</li>
-<li>301 - 资源（网页等）被永久转移到其它URL</li>
-<li>404 - 请求的资源（网页等）不存在</li>
-<li>500 - 内部服务器错误</li>
+<li>
+<p>小明给小红打电话，接通了后，小明说喂，能听到吗，这就相当于是连接建立。</p>
+</li>
+<li>
+<p>小红给小明回应，能听到，你能听到我说的话吗，这就相当于是请求响应。</p>
+</li>
+<li>
+<p>小明听到小红的回应后，好的，这相当于是连接确认。在这之后小明和小红就可以通话/交换信息了。</p>
+</li>
 </ul>
-<h2 id="1xx临时响应">1xx（临时响应）</h2>
-<p>表示临时响应并需要请求者继续执行操作的状态代码。</p>
+<p><img src="https://imgkr.cn-bj.ufileos.com/4abb09fe-a035-43fe-931e-30e18faf9c3e.png" alt=""></p>
+<h3 id="四次挥手">四次挥手</h3>
+<p>在连接终止阶段使用四次挥手，连接的每一端都会独立的终止。下面我们来描述一下这个过程。</p>
 <ul>
-<li>100   （继续） 请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。</li>
-<li>101   （切换协议） 请求者已要求服务器切换协议，服务器已确认并准备切换。</li>
+<li>首先，客户端应用程序决定要终止连接(这里服务端也可以选择断开连接)。这会使客户端将 FIN 发送到服务器，并进入 <code>FIN_WAIT_1</code> 状态。当客户端处于 FIN_WAIT_1 状态时，它会等待来自服务器的 ACK 响应。</li>
+<li>然后第二步，当服务器收到 FIN 消息时，服务器会立刻向客户端发送 ACK 确认消息。</li>
+<li>当客户端收到服务器发送的 ACK 响应后，客户端就进入 <code>FIN_WAIT_2</code> 状态，然后等待来自服务器的 <code>FIN</code> 消息</li>
+<li>服务器发送 ACK 确认消息后，一段时间（可以进行关闭后）会发送 FIN 消息给客户端，告知客户端可以进行关闭。</li>
+<li>当客户端收到从服务端发送的 FIN 消息时，客户端就会由 FIN_WAIT_2 状态变为 <code>TIME_WAIT</code> 状态。处于 TIME_WAIT 状态的客户端允许重新发送 ACK 到服务器为了防止信息丢失。客户端在 TIME_WAIT 状态下花费的时间取决于它的实现，在等待一段时间后，连接关闭，客户端上所有的资源（包括端口号和缓冲区数据）都被释放。</li>
 </ul>
-<h2 id="2xx-成功">2xx （成功）</h2>
-<p>表示成功处理了请求的状态代码。</p>
+<p>还是可以用上面那个通话的例子来进行描述</p>
 <ul>
-<li>200   （成功）  服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页。</li>
-<li>201   （已创建）  请求成功并且服务器创建了新的资源。</li>
-<li>202   （已接受）  服务器已接受请求，但尚未处理。</li>
-<li>203   （非授权信息）  服务器已成功处理了请求，但返回的信息可能来自另一来源。</li>
-<li>204   （无内容）  服务器成功处理了请求，但没有返回任何内容。</li>
-<li>205   （重置内容） 服务器成功处理了请求，但没有返回任何内容。</li>
-<li>206   （部分内容）  服务器成功处理了部分 GET 请求。</li>
+<li>小明对小红说：“我要挂电话了”。</li>
+<li>小红说：“知道了，等我把话说完”。</li>
+<li>经过若干秒后，小红也说完了，小红说：“说完了，可以挂了”。</li>
+<li>小明收到消息后，又等了若干时间后，挂断了电话。</li>
 </ul>
-<h2 id="3xx-重定向">3xx （重定向）</h2>
-<p>表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。</p>
+<p><img src="https://imgkr.cn-bj.ufileos.com/39d0f617-c2d5-448b-ae81-1593a199a27a.png" alt=""></p>
+<h2 id="6简述-http101120-的区别">6、简述 HTTP1.0/1.1/2.0 的区别</h2>
+<h3 id="http-10">HTTP 1.0</h3>
+<p>HTTP 1.0 是在 1996 年引入的，从那时开始，它的普及率就达到了惊人的效果。</p>
 <ul>
-<li>300   （多种选择）  针对请求，服务器可执行多种操作。 服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</li>
-<li>301   （永久移动）  请求的网页已永久移动到新位置。 服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。</li>
-<li>302   （临时移动）  服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
-<li>303   （查看其他位置） 请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。</li>
-<li>304   （未修改） 自从上次请求后，请求的网页未修改过。 服务器返回此响应时，不会返回网页内容。</li>
-<li>305   （使用代理） 请求者只能使用代理访问请求的网页。 如果服务器返回此响应，还表示请求者应使用代理。</li>
-<li>307   （临时重定向）  服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
+<li>HTTP 1.0 仅仅提供了最基本的认证，这时候用户名和密码还未经加密，因此很容易收到窥探。</li>
+<li>HTTP 1.0 被设计用来使用短链接，即每次发送数据都会经过 TCP 的三次握手和四次挥手，效率比较低。</li>
+<li>HTTP 1.0 只使用 header 中的 If-Modified-Since 和 Expires 作为缓存失效的标准。</li>
+<li>HTTP 1.0 不支持断点续传，也就是说，每次都会传送全部的页面和数据。</li>
+<li>HTTP 1.0 认为每台计算机只能绑定一个 IP，所以请求消息中的 URL 并没有传递主机名（hostname）。</li>
 </ul>
-<h2 id="4xx客户端错误">4xx（客户端错误）</h2>
-<p>这些状态代码表示请求可能出错，妨碍了服务器的处理。</p>
+<h3 id="http-11">HTTP 1.1</h3>
+<p>HTTP 1.1 是 HTTP 1.0 开发三年后出现的，也就是 1999 年，它做出了以下方面的变化</p>
 <ul>
-<li>400   （错误请求） 服务器不理解请求的语法。</li>
-<li>401   （未授权） 请求要求身份验证。 对于需要登录的网页，服务器可能返回此响应。</li>
-<li>403   （禁止） 服务器拒绝请求。</li>
-<li>404   （未找到） 服务器找不到请求的网页。</li>
-<li>405   （方法禁用） 禁用请求中指定的方法。</li>
-<li>406   （不接受） 无法使用请求的内容特性响应请求的网页。</li>
-<li>407   （需要代理授权） 此状态代码与 401（未授权）类似，但指定请求者应当授权使用代理。</li>
-<li>408   （请求超时）  服务器等候请求时发生超时。</li>
-<li>409   （冲突）  服务器在完成请求时发生冲突。 服务器必须在响应中包含有关冲突的信息。</li>
-<li>410   （已删除）  如果请求的资源已永久删除，服务器就会返回此响应。</li>
-<li>411   （需要有效长度） 服务器不接受不含有效内容长度标头字段的请求。</li>
-<li>412   （未满足前提条件） 服务器未满足请求者在请求中设置的其中一个前提条件。</li>
-<li>413   （请求实体过大） 服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</li>
-<li>414   （请求的 URI 过长） 请求的 URI（通常为网址）过长，服务器无法处理。</li>
-<li>415   （不支持的媒体类型） 请求的格式不受请求页面的支持。</li>
-<li>416   （请求范围不符合要求） 如果页面无法提供请求的范围，则服务器会返回此状态代码。</li>
-<li>417   （未满足期望值） 服务器未满足”期望”请求标头字段的要求。</li>
+<li>HTTP 1.1 使用了摘要算法来进行身份验证</li>
+<li>HTTP 1.1 默认使用长连接，长连接就是只需一次建立就可以传输多次数据，传输完成后，只需要一次切断连接即可。长连接的连接时长可以通过请求头中的 <code>keep-alive</code> 来设置</li>
+<li>HTTP 1.1 中新增加了 E-tag，If-Unmodified-Since, If-Match, If-None-Match 等缓存控制标头来控制缓存失效。</li>
+<li>HTTP 1.1 支持断点续传，通过使用请求头中的 <code>Range</code> 来实现。</li>
+<li>HTTP 1.1 使用了虚拟网络，在一台物理服务器上可以存在多个虚拟主机（Multi-homed Web Servers），并且它们共享一个IP地址。</li>
 </ul>
-<h2 id="5xx服务器错误">5xx（服务器错误）</h2>
-<p>这些状态代码表示服务器在尝试处理请求时发生内部错误。 这些错误可能是服务器本身的错误，而不是请求出错。</p>
+<h3 id="http-20">HTTP 2.0</h3>
+<p>HTTP 2.0 是 2015 年开发出来的标准，它主要做的改变如下</p>
 <ul>
-<li>500   （服务器内部错误）  服务器遇到错误，无法完成请求。</li>
-<li>501   （尚未实施） 服务器不具备完成请求的功能。 例如，服务器无法识别请求方法时可能会返回此代码。</li>
-<li>502   （错误网关） 服务器作为网关或代理，从上游服务器收到无效响应。</li>
-<li>503   （服务不可用） 服务器目前无法使用（由于超载或停机维护）。 通常，这只是暂时状态。</li>
-<li>504   （网关超时）  服务器作为网关或代理，但是没有及时从上游服务器收到请求。</li>
-<li>505   （HTTP 版本不受支持） 服务器不支持请求中所用的 HTTP 协议版本。</li>
+<li><code>头部压缩</code>，由于 HTTP 1.1 经常会出现 <strong>User-Agent、Cookie、Accept、Server、Range</strong> 等字段可能会占用几百甚至几千字节，而 Body 却经常只有几十字节，所以导致头部偏重。HTTP 2.0 使用 <code>HPACK</code> 算法进行压缩。</li>
+<li><code>二进制格式</code>，HTTP 2.0 使用了更加靠近 TCP/IP 的二进制格式，而抛弃了 ASCII 码，提升了解析效率</li>
+<li><code>强化安全</code>，由于安全已经成为重中之重，所以 HTTP2.0 一般都跑在 HTTPS 上。</li>
+<li><code>多路复用</code>，即每一个请求都是是用作连接共享。一个请求对应一个id，这样一个连接上可以有多个请求。</li>
 </ul>
-<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418210727.png" alt="image-20200418210725688"></p>
-<p><a href="http://tools.ietf.org/html/rfc6585">RFC 6585</a> 最近刚刚发布，该文档描述了 4 个新的 HTTP 状态码。</p>
-<p>HTTP 协议还在变化？是的，HTTP 协议一直在演变，新的状态码对于开发 REST 服务或者说是基于 HTTP 的服务非常有用，下面我们为你详细介绍这四个新的状态码以及是否应该使用。</p>
-<h3 id="428-precondition-required-要求先决条件">428 Precondition Required (要求先决条件)</h3>
-<p>先决条件是客户端发送 HTTP 请求时，如果想要请求能成功必须满足一些预设的条件。</p>
-<p>一个好的例子就是 If-None-Match 头，经常在 GET 请求中使用，如果指定了 If-None-Match ，那么客户端只在响应中的 ETag 改变后才会重新接收回应。</p>
-<p>先决条件的另外一个例子就是 If-Match 头，这个一般用在 PUT 请求上用于指示只更新没被改变的资源，这在多个客户端使用 HTTP 服务时用来防止彼此间不会覆盖相同内容。</p>
-<p>当服务器端使用 <a href="http://tools.ietf.org/html/rfc6585#section-3">428 Precondition Required</a> 状态码时，表示客户端必须发送上述的请求头才能执行请求，这个方法为服务器提供一种有效的方法来阻止 &lsquo;lost update&rsquo; 问题。</p>
-<h3 id="429-too-many-requests-太多请求">429 Too Many Requests (太多请求)</h3>
-<p>当你需要限制客户端请求某个服务数量时，该状态码就很有用，也就是请求速度限制。</p>
-<p>在此之前，有一些类似的状态码，例如 &lsquo;509 Bandwidth Limit Exceeded&rsquo;. <a href="https://dev.twitter.com/docs/error-codes-responses">Twitter 使用 420</a> （这不是HTTP定义的状态码）</p>
-<p>如果你希望限制客户端对服务的请求数，可使用 429 状态码，同时包含一个 Retry-After 响应头用于告诉客户端多长时间后可以再次请求服务。</p>
-<h3 id="431-request-header-fields-too-large-请求头字段太大">431 Request Header Fields Too Large (请求头字段太大)</h3>
-<p>某些情况下，客户端发送 HTTP 请求头会变得很大，那么服务器可发送 <a href="http://tools.ietf.org/html/rfc6585#section-5">431 Request Header Fields Too Large</a> 来指明该问题。</p>
-<p>我不太清楚为什么没有 430 状态码，而是直接从 429 跳到 431，我尝试搜索但没有结果。唯一的猜测是 430 Forbidden 跟 403 Forbidden 太像了，为了避免混淆才这么做的，天知道！</p>
-<h3 id="511-network-authentication-required-要求网络认证">511 Network Authentication Required (要求网络认证)</h3>
-<p>对我来说这个状态码很有趣，如果你在开发一个 HTTP 服务器，你不一定需要处理该状态码，但如果你在编写 HTTP 客户端，那这个状态码就非常重要。</p>
-<p>如果你频繁使用笔记本和智能手机，你可能会注意到大量的公用 WIFI 服务要求你必须接受一些协议或者必须登录后才能使用。</p>
-<p>这是通过拦截HTTP流量，当用户试图访问网络返回一个重定向和登录，这很讨厌，但是实际情况就是这样的。</p>
-<p>使用这些“拦截”客户端，会有一些讨厌的副作用。在 RFC 中有提到这两个的例子：</p>
-<ul>
-<li>如果你在登录WIFI前访问某个网站，网络设备将会拦截首个请求，这些设备往往也有自己的网站图标 ‘favicon.ico&rsquo;。登录后您会发现，有一段时间内你访问的网站图标一直是WIFI登录网站的图标。</li>
-<li>如果客户端使用HTTP请求来查找文档（可能是JSON），网络将会响应一个登录页，这样你的客户端就会解析错误并导致客户端运行异常，在现实中这种问题非常常见。</li>
-</ul>
-<p>因此 511 状态码的提出就是为了解决这个问题。</p>
-<p>如果你正在编写 HTTP 的客户端，你最好还是检查 511 状态码以确认是否需要认证后才能访问。</p>
-<p>鸣谢：</p>
-<p>英文原文：<a href="http://www.rooftopsolutions.nl/blog/new-http-status-codes">http://www.rooftopsolutions.nl/blog/new-http-status-codes</a></p>
-<p><a href="http://www.cnblogs.com/shanyou/archive/2012/05/06/2486134.html">http://www.cnblogs.com/shanyou/archive/2012/05/06/2486134.html</a><br>
-<a href="https://www.runoob.com/http/http-status-codes.html">https://www.runoob.com/http/http-status-codes.html</a></p>
+<p><img src="https://imgkr.cn-bj.ufileos.com/9395905a-6edc-4ee6-97a9-1d73d99d8a3a.png" alt="img"></p>
+<h2 id="7https">7、HTTPS</h2>
+<p>HTTPS 的全称是 <code>Hypertext Transfer Protocol Secure</code>，从名称我们可以看出 HTTPS 要比 HTTPS 多了 secure 安全性这个概念，实际上， HTTPS 并不是一个新的应用层协议，它其实就是 HTTP + TLS/SSL 协议组合而成，而安全性的保证正是 TLS/SSL 所做的工作。</p>
+<p>也就是说，<strong>HTTPS 就是身披了一层 SSL 的 HTTP</strong>。</p>
+<h2 id="1uriurl-区别">1、uri、url 区别</h2>
+<p>URI（Uniform Resource Identifier）：统一资源标识符，一个资源的唯一标识，可以是一个名字、一串编号、一个URL（说明URL是一种URI）。</p>
+<p>URL（Uniform Resource Locator）：统一资源定位符，一个资源的网络地址</p>
+<p><strong>两者关系</strong></p>
+<ol>
+<li>
+<p>URI负责识别，URL负责定位</p>
+</li>
+<li>
+<p>URL是URI的子集（URL一定是URI，但URI不一定是URL）</p>
+</li>
+<li>
+<p>URI是一个唯一字符串，URL是一个表示位置（或地址）的唯一字符串</p>
+</li>
+</ol>
+<p><strong>举例说明</strong></p>
+<ol>
+<li>我要找到这个骚扰如花的油腻大叔！谁能提供他的信息？</li>
+<li>普通URI的告知方式：他的身份证号、纹图案、DNA检测报告</li>
+<li>URL（一种特殊的URI）的告知方式：动物住址协议://地球/中国/广东省/深圳市/南山区/XX小区/X栋X座24楼/5号座位/陈狗蛋</li>
+</ol>
+<p><strong>引申领域</strong></p>
+<p>URI还有其他种类，这些平时接触不多。</p>
+<p>URN（Uniform Resource Name）：统一资源名称</p>
+<p>URC（Uniform Resource Characteristics）：统一资源特性</p>
+<p>Data URI（Data URI scheme）</p>
+<p><img src="https://imgkr.cn-bj.ufileos.com/3be160c3-03fd-4238-b331-02290431f7ca.png" alt="img"></p>
+<p>cookie session token jwt</p>
+<p><strong>巨人肩膀：</strong></p>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/21950864">https://www.zhihu.com/question/21950864</a></p>
+<p><a href="https://www.cnblogs.com/hustskyking/p/data-uri.html">https://www.cnblogs.com/hustskyking/p/data-uri.html</a></p>
+<p><a href="https://www.cnblogs.com/luyuqiang/p/uri-url-urn-urc-and-data-uri.html">https://www.cnblogs.com/luyuqiang/p/uri-url-urn-urc-and-data-uri.html</a></p>
+<p><a href="https://mp.weixin.qq.com/s/d9mDXO-dxeYUPMIii_scrg">https://mp.weixin.qq.com/s/d9mDXO-dxeYUPMIii_scrg</a></p>
+<p><a href="https://www.cnblogs.com/liguangsunls/p/7248357.html">https://www.cnblogs.com/liguangsunls/p/7248357.html</a></p>
+<p><a href="https://blog.csdn.net/dreamingbaobei3/article/details/95938517">https://blog.csdn.net/dreamingbaobei3/article/details/95938517</a></p>
+<p><a href="https://www.cnblogs.com/wxf-h/p/10519670.html">https://www.cnblogs.com/wxf-h/p/10519670.html</a></p>
+<p><a href="https://www.cnblogs.com/laoluoits/">https://www.cnblogs.com/laoluoits/</a></p>
+</blockquote>
 
 
 
       
         <div class="blog-tags">
           
-            <a href="http://blog.raikay.com//tags/http/">HTTP</a>&nbsp;
+            <a href="http://blog.raikay.com//tags/http/">http</a>&nbsp;
+          
+            <a href="http://blog.raikay.com//tags/%E7%BD%91%E7%BB%9C/">网络</a>&nbsp;
           
         </div>
       
