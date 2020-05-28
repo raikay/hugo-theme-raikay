@@ -143,3 +143,18 @@ To https://github.com/raikay/Managix.git
 ```sh
 git config --global credential.helper store
 ```
+
+### 忽略本地文件
+
+添加本地忽略文件
+
+```
+git update-index --assume-unchanged 忽略的文件名
+
+```
+恢复本地忽略文件
+
+```
+git update-index --no-assume-unchanged  忽略的文件名
+
+```
