@@ -174,7 +174,14 @@ To https://github.com/raikay/Managix.git
      helper <span style="color:#f92672">=</span> store
 </code></pre></div><p>或者执行这个命令</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git config --global credential.helper store
-</code></pre></div>
+</code></pre></div><h3 id="忽略本地文件">忽略本地文件</h3>
+<p>添加本地忽略文件</p>
+<pre><code>git update-index --assume-unchanged 忽略的文件名
+
+</code></pre><p>恢复本地忽略文件</p>
+<pre><code>git update-index --no-assume-unchanged  忽略的文件名
+
+</code></pre>
 
 
       

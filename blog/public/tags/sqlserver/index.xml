@@ -55,6 +55,61 @@ HTTP1.1 新增了六种请求方法：OPTIONS、PUT、PATCH、DELETE、TRACE 和
 		</item>
 		
 		<item>
+			<title>正则表达式元字符简介 </title>
+			<link>http://blog.raikay.com/post/2019/regular/</link>
+			<pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/regular/</guid>
+			<description>元字符1 .：匹配除\n之外的任何单个字符。
+例如正则表达式“b.g”能匹配如下字符串：“big”、“bug”、“b g”，但是不匹配“buug”，“b..g”可以匹配“buug”。
+[ ] ：匹配括号中的任何一个字符（范围,字符集合）。
+例如正则表达式“b[aui]g”匹配bug、big和bag，但是不匹配beg、baug。可以在括号中使用连字符“-”来指定字符的区间来简化表示，例如正则表达式[0-9]可以匹配任何数字字符，这样正则表达式“a[0-9]c”等价于“a[0123456789]c”就可以匹配“a0c”、“a1c”、“a2c”等字符串；还可以制定多个区间，例如“[A-Za-z]”可以匹配任何大小写字母，“[A-Za-z0-9]”可以匹配任何的大小写字母或者数字。思考：x[这里必须是元音]y，如何写正则？【当.出现在[]中，则表示普通.，不作为元字符。】
+| ：将两个匹配条件进行逻辑“或”运算。
+例如‘z|food’ 能匹配 “z” 或 “food”。‘(z|f)ood’ 则匹配 “zood” 或 “food”。 //注意^$问题。
+()：将 () 之间括起来的表达式定义为“组”(group)，并且将匹配这个表达式的字符保存到一个临时区域,这个元字符在字符串提取的时候非常有用。把一些字符表示为一个整体。改变优先级、定义提取组两个作用。
+元字符2(限定符) 限定符：限定前面的正则表达式出现的次数。
+*：匹配0至多个在它之前的子表达式，和通配符*没关系。等价于{0,}。
+例如正则表达式“zo*”（等同于z(o)*）能匹配 “z” 、“zo”以及 “zoo”；因此“.*”意味着能够匹配任意字符串。&amp;ldquo;z(b|c)*&amp;ldquo;→zb、zbc、zcb、zccc、zbbbccc。&amp;ldquo;z(ab)*&amp;ldquo;能匹配z、zab、zabab（用括号改变优先级）。
++：匹配前面的子表达式一次或多次，等价于{1,}
+例如正则表达式9+匹配9、99、999等。 “zo+”能匹配 “zo”以及 “zoo” ，不能匹配&amp;quot;z&amp;rdquo;。
+? ：匹配前面的子表达式零次或一次。等价于：{0,1}
+例如，“do(es)?” 可以匹配 “do” 或 “does” 。【colou?r、favou?r】一般用来匹配“可选部分”。（终止贪婪模式）
+{n} ：匹配确定的 n 次。“zo{2}”→zoo。
+例如，“e{2}” 不能匹配“bed”中的“e”，但是能匹配“seed”中的两个“e”。 //seeeed,不可以。
+{n,} :至少匹配n次。
+例如，“e{2,}”不能匹配“bed”中的“e”（只出现一次，至少两次），但能匹配 “seeeeeeeed”中的所有“e”。
+{n,m} ：最少匹配 n 次且最多匹配 m 次。
+例如“e{1,3}”将匹配“seeeeeeeed”中的前三个“e”。 {2,5}//bed,seed,seeed;beeeeed错误。
+元字符3 ^（shift+6） ：匹配一行的开始。
+例如正则表达式“^regex”能够匹配字符串“regex我会用”的开始，但是不能匹配“我会用regex”。^另外一种意思：非！（[^0-9]）
+$ ：匹配行结束符。
+例如正则表达式“浮云$” 能够匹配字符串“一切都是浮云”的末尾，但是不能匹配字符串“浮云呀”</description>
+		</item>
+		
+		<item>
+			<title>正则表达式在C#中的使用</title>
+			<link>http://blog.raikay.com/post/2019/csharp-regular/</link>
+			<pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/csharp-regular/</guid>
+			<description>正则表达式简介  正则表达式是对字符串的操作 正则表达式是一个用来描述字符串特征的表达式。 特征：必须出现的内容、可能出现的内容、不能出现的内容。
+观察字符串规律，根据规律总结特征，然后根据特定字符串的特征来编写正则表达式。  常用函数：
+Regex.IsMatch(); //判断是否匹配Regex.Match();//提取某个（一个）匹配Regex.Matches();//提取所有的匹配Regex.Replace();//替换Regex.Split();//分割Regex.IsMatch() **练习1：**判断是否是合法的邮政编码（6位数字）
+lRegex.IsMatch(&amp;#34;100830&amp;#34;,&amp;#34;^[0-9]{6}$&amp;#34;)Regex.IsMatch(&amp;#34;119&amp;#34;, @&amp;#34;^\d{6}$&amp;#34;);解释：由元字符定义得知“[0-9]”表示0到9的任意字符，“{6}”表示前面的字符匹配6次，因此“[0-9]{6}”中的{6}表示对数字匹配6次(000000123)。简写表达式得知“[0-9]”可以被“\d”代替，所以第二种写法“\d{6}”也是正确的。
+练习2：判断一个字符串是不是身份证号码。
+  长度为15位或者18位的字符串，首位不能是0。
+  如果是15位，则全部是数字。
+  如果是18位，则前17位都是数字，末位可能是数字也可能是X。
+  写法一：^[1-9][0-9]{14}([0-9]{2}[0-9Xx])?$
+写法二： ^([1-9][0-9]{14}|[1-9][0-9]{16}[0-9X])$
+**练习3：**判断字符串是否为正确的国内电话号码，不考虑分机。
+•010-8888888或010-88888880或010xxxxxxx
+•0335-8888888或0335-88888888（区号-电话号）03358888888
+•10086、10010、95595、95599、95588（5位）
+•13888888888（11位都是数字）
+Regex.IsMatch(phoneNumber, @“^((\d{3,4}\-?\d{7,8})|(\d{5})|(\d{11}))$”);//或者Regex.IsMatch(phoneNumber, @“^((\d{3,4}\-?\d{7,8})|(\d{5}))$”);按照要求一个一个写，都用|连起来。注意：由于区号有时为010-xxxxxxx有时为010xxxxxxx，-可有可无，所以需要?,由于-表示一个区间，所以这里要转义-。最后不要忘记在所有|的最外层加一对()
+Regex.Match() / Matches() string msg = &amp;quot;大家好呀，hello,2010年10月10日是个好日子。恩，9494.吼吼！886.&amp;quot;;Match match1 = Regex.Match(msg, @&amp;quot;\d&amp;quot;, RegexOptions.ECMAScript); //提取得到 2 （逐个提取）Match match2 = Regex.Match(msg, @&amp;quot;\d+&amp;quot;, RegexOptions.ECMAScript); //提取得到2010 //提取所有的匹配的字符串MatchCollection matches = Regex.</description>
+		</item>
+		
+		<item>
 			<title>Net Core 3.x 禁用序列化时自动首字母小写</title>
 			<link>http://blog.raikay.com/post/2019/net-core-initial-lowercase/</link>
 			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
@@ -130,37 +185,6 @@ git tag #列出git中现有的所有标签git tag -r #查看远程标签git ta
 在git中创建带注释的标签非常简单，在运行’tag’命令时加上-a就可以了。
 $ git tag -a v1.4 -m ‘version 1.4′$ git tagv0.1v1.3v1.4‘-m’指明标签信息，跟标签一起存储。如果你不使用-m指明标签信息，git会自动启动文本编辑器让你输入。 可以使用 git show 命令查看相应标签的版本信息，并连同显示打标签时的提交对象。
 $ git show v1.4tag v1.4Tagger: Scott ChaconDate: Mon Feb 9 14:45:11 2009 -0800my version 1.</description>
-		</item>
-		
-		<item>
-			<title>git命令备忘系列（六）：分支操作（branch）</title>
-			<link>http://blog.raikay.com/post/2018/git-branch/</link>
-			<pubDate>Tue, 12 Jun 2018 00:00:00 +0000</pubDate>
-			<guid>http://blog.raikay.com/post/2018/git-branch/</guid>
-			<description>1、查看分支列表 git branch #显示本地分支git branch -r #显示远程所有分支2、创建并切换分支 git branch branchName # 创建分支git checkout branchName1 #切换到 branchName1 分支git checkout -b branchName2 #创建并切换到 branchName2分支强制创建分支
-git checkout -B branchName为什么强制创建分支，比如已经有dev分支，打算创建新的dev分支，正常情况同名不允许创建，-B参数之后既可以成功创建
-新创建的分支推送到远程仓库
-git push --set-upstream origin branchNamegit push origin branch1 #多个仓库时，指定origin仓库下 branch1分支3、删除 git branch -d 分支名 # 删除分支，分支上有未提交更改是不能删除的git branch -D 分支名 # 强行删除分支，尽管这个分支上有未提交的更改git push origin --delete 分支名 #删除远程分支4、恢复误删除分支 两步：找出被删分支最新的commit的Hash值，然后恢复分支：
-git log --branches=&amp;quot;被删除的分支名&amp;quot; # 找到被删分支最新的commit版本号git branch 分支名 版本号(前七位即可) # 恢复被删分支5、分支重命名 git branch -m 老分支名 新分支名 # 分支重命名6、合并分支 branchName1 合并到当前分支</description>
-		</item>
-		
-		<item>
-			<title>git命令备忘系列（五）：恢复与撤销（reset）</title>
-			<link>http://blog.raikay.com/post/2018/git-reset/</link>
-			<pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
-			<guid>http://blog.raikay.com/post/2018/git-reset/</guid>
-			<description>1、撤销本地（工作区）修改 git checkout fileName #指定文件撤销git checkout . #点表示撤销所有文件checkout 只撤销已有(tracked)文件，新增文件（untracked）不会撤销
-清除工作区新增（untracked）文件
-git clean -df2、撤销暂存区修改（已经add，未commit /push） 把添加（add）到暂存区的更改，恢复到工作区
-git reset #撤销暂存区全部文件git reset filename #指定文件3、查看本地仓库修改(已经commit，未push) git log 本地branch ^仓库 远程分支 #可以查看本地有远程没有的提交。git log 远程分子 ^本地branch #可以查看远程有，本地没有的提交。git log master ^origin master #demo4、撤销本地仓库修改(已经commit,未push) 仅仅是撤回commit操作，您写的代码仍然保留。
-HEAD^的意思是上一个版本，也可以写成HEAD~1
-如果你进行了2次commit，想都撤回，可以使用HEAD~2
-git reset --soft HEAD^参数说明：
-  --mixed 
-不删除工作空间改动代码，撤销commit，并且撤销git add . 操作
-  --soft
-不删除工作空间改动代码，撤销commit，不撤销git add . 操作
-  --hard</description>
 		</item>
 		
 	</channel>

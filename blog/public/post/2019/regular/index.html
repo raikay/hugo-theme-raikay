@@ -2,8 +2,8 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-<title></title>
-<meta name="description" content="">
+<title>正则表达式元字符简介 </title>
+<meta name="description" content="正则表达式元字符简介 基本元字符 c# .net core 正则表达式">
 
 
   
@@ -21,8 +21,6 @@
 <meta name="generator" content="Hugo 0.68.1" />
   </head>
   <body>
-    
-  
     
   
 
@@ -57,10 +55,23 @@
 <script>hljs.initHighlightingOnLoad();</script>
     <div class="intro-header">
       <div class="container">
-        <div class="page-heading">
+        <div class="post-heading">
 				  
-		  			<p hidden>世上本没有垃圾，</br>
-有的，只是放错地方的金子……</br></p>
+          
+            <h1>正则表达式元字符简介 </h1>
+          
+          
+            <span class="meta-post">
+  <i class="fa fa-calendar-alt"></i>&nbsp;2019-8-6
+  
+    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
+    
+      <a href="http://blog.raikay.com//tags/%E6%AD%A3%E5%88%99/">正则</a>&nbsp;
+    
+  
+</span>
+
+          
 		  
         </div>
       </div>
@@ -69,330 +80,55 @@
 
 
     
-<div class="container home" role="main">
-    <div class="posts-list">
+  <div class="container" role="main">
+    <article class="article" class="blog-post">
       
-        
-      
+    <h2 id="元字符1">元字符1</h2>
+<p><code>.</code>：匹配除\n之外的任何单个字符。</p>
+<p>例如正则表达式“b.g”能匹配如下字符串：“big”、“bug”、“b g”，但是不匹配“buug”，“b..g”可以匹配“buug”。</p>
+<p><code>[ ] </code>：匹配括号中的任何一个字符（范围,字符集合）。</p>
+<p>例如正则表达式“b[aui]g”匹配bug、big和bag，但是不匹配beg、baug。可以在括号中使用连字符“-”来指定字符的区间来简化表示，例如正则表达式[0-9]可以匹配任何数字字符，这样正则表达式“a[0-9]c”等价于“a[0123456789]c”就可以匹配“a0c”、“a1c”、“a2c”等字符串；还可以制定多个区间，例如“[A-Za-z]”可以匹配任何大小写字母，“[A-Za-z0-9]”可以匹配任何的大小写字母或者数字。思考：x[这里必须是元音]y，如何写正则？【当.出现在[]中，则表示普通.，不作为元字符。】</p>
+<p><code>| </code>：将两个匹配条件进行逻辑“或”运算。</p>
+<p>例如‘z|food’ 能匹配 “z” 或 “food”。‘(z|f)ood’ 则匹配 “zood” 或 “food”。 //注意^$问题。</p>
+<p><code>()</code>：将 () 之间括起来的表达式定义为“组”(group)，并且将匹配这个表达式的字符保存到一个临时区域,这个元字符在字符串提取的时候非常有用。把一些字符表示为一个整体。改变优先级、定义提取组两个作用。</p>
+<h2 id="元字符2限定符">元字符2(限定符)</h2>
+<p>限定符：限定前面的正则表达式出现的次数。</p>
+<p><code>*</code>：匹配0至多个在它之前的子表达式，和通配符*没关系。等价于{0,}。</p>
+<p>例如正则表达式“zo*”（等同于z(o)*）能匹配 “z” 、“zo”以及 “zoo”；因此“.*”意味着能够匹配任意字符串。&ldquo;z(b|c)*&ldquo;→zb、zbc、zcb、zccc、zbbbccc。&ldquo;z(ab)*&ldquo;能匹配z、zab、zabab（用括号改变优先级）。</p>
+<p><code>+</code>：匹配前面的子表达式一次或多次，等价于{1,}</p>
+<p>例如正则表达式9+匹配9、99、999等。 “zo+”能匹配 “zo”以及 “zoo” ，不能匹配&quot;z&rdquo;。</p>
+<p><code>? </code>：匹配前面的子表达式零次或一次。等价于：{0,1}</p>
+<p>例如，“do(es)?” 可以匹配 “do” 或 “does” 。【colou?r、favou?r】一般用来匹配“可选部分”。（终止贪婪模式）</p>
+<p><code>{n} </code>：匹配确定的 n 次。“zo{2}”→zoo。</p>
+<p>例如，“e{2}” 不能匹配“bed”中的“e”，但是能匹配“seed”中的两个“e”。 //seeeed,不可以。</p>
+<p><code>{n,} </code>:至少匹配n次。</p>
+<p>例如，“e{2,}”不能匹配“bed”中的“e”（只出现一次，至少两次），但能匹配 “seeeeeeeed”中的所有“e”。</p>
+<p><code>{n,m} </code>：最少匹配 n 次且最多匹配 m 次。</p>
+<p>例如“e{1,3}”将匹配“seeeeeeeed”中的前三个“e”。 {2,5}//bed,seed,seeed;beeeeed错误。</p>
+<h2 id="元字符3">元字符3</h2>
+<p><code>^</code>（shift+6） ：匹配一行的开始。</p>
+<p>例如正则表达式“^regex”能够匹配字符串“regex我会用”的开始，但是不能匹配“我会用regex”。^另外一种意思：非！（[^0-9]）</p>
+<p><code>$ </code>：匹配行结束符。<br>
+例如正则表达式“浮云$” 能够匹配字符串“一切都是浮云”的末尾，但是不能匹配字符串“浮云呀”</p>
+<p><code>\d</code> 匹配数字，即0-9</p>
+<p><code>\D</code> 匹配非数字，即不是数字</p>
+<p><code>\s</code> 匹配空白，即 空格，tab键</p>
+<p><code>\S</code> 匹配非空白</p>
+<p><code>\w</code> 匹配单词字符，即a-z、A-Z、0-9、_</p>
+<p><code>\W</code> 匹配非单词字符</p>
+
+
 
       
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/git-branch/">
-      <h3 class="post-title">git命令备忘系列（六）：分支操作（branch）</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/git-branch/" class="post-read-more">Read More</a>
-    
+        <div class="blog-tags">
+          
+            <a href="http://blog.raikay.com//tags/%E6%AD%A3%E5%88%99/">正则</a>&nbsp;
+          
+        </div>
       
-        
+    </article>
     
   </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-6-12
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/git/">git</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/git-reset/">
-      <h3 class="post-title">git命令备忘系列（五）：恢复与撤销（reset）</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/git-reset/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-6-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/git/">git</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/git-diff/">
-      <h3 class="post-title">git命令备忘系列（四）：对比两个分支的差异（diff）</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/git-diff/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-6-10
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/git/">git</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E5%B7%AE%E5%BC%82/">差异</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/git-log/">
-      <h3 class="post-title">git命令备忘系列（三）：查看历史记录（log）</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/git-log/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-6-9
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/git/">git</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E6%97%A5%E5%BF%97/">日志</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/git-config/">
-      <h3 class="post-title">git命令备忘系列（二）：配置文件操作（config）</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/git-config/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-6-8
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/git/">git</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">配置文件</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/git-basic/">
-      <h3 class="post-title">git命令备忘系列（一）：基础命令</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/git-basic/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-6-6
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/git/">git</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/picgo-picbed/">
-      <h3 class="post-title">Picgo图床插件介绍</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/picgo-picbed/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-4-8
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/picgo/">Picgo</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2019/dapper-config-core/">
-      <h3 class="post-title">Dapper连接MySql(Core读取配置)</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2019/dapper-config-core/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/dapper/">Dapper</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/core/">core</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/helper/">helper</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">配置文件</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2019/dotnet-core-automaper-demo/">
-      <h3 class="post-title">DotNet Core AutoMapper实体映射学习记录</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2019/dotnet-core-automaper-demo/" class="post-read-more">Read More</a>
-    
-      
-        
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/automapper/">AutoMapper</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/.net-core/">.Net Core</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E5%AE%9E%E4%BD%93%E6%98%A0%E5%B0%84/">实体映射</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-        <article class="post-preview">
-  <a href="http://blog.raikay.com/post/2018/iis-url-rewrite-module/">
-      <h3 class="post-title">win10 IIS 10.0 无法安装 URL Rewrite Module 重写模块</h3>
-  </a>
-  <div class="post-entry">
-  <a href="http://blog.raikay.com/post/2018/iis-url-rewrite-module/" class="post-read-more">Read More</a>
-    
-  </div>
-
-  <div class="postmeta">
-    <span class="meta-post">
-  <i class="fa fa-calendar-alt"></i>&nbsp;2018-3-11
-  
-    &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/url-rewrite-module/">URL Rewrite Module</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E5%B7%A5%E5%85%B7/">工具</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E7%AC%94%E8%AE%B0/">笔记</a>&nbsp;
-    
-      <a href="http://blog.raikay.com//tags/%E8%AF%AD%E6%B3%95/">语法</a>&nbsp;
-    
-  
-</span>
-
-  </div>
-</article>
-
-      
-      </div>
-    
-    <ul class="pager">
-      
-        <li class="previous">
-          <a href="http://blog.raikay.com/page/1/">&larr; Newer</a>
-        </li>
-      
-      
-        <li class="next">
-          <a href="http://blog.raikay.com/page/3/">Older &rarr;</a>
-        </li>
-      
-    </ul>
-  
-</div>
 
     <footer>
 <script type="text/javascript">
