@@ -1,0 +1,187 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>负载均衡 on 代码改变世界</title>
+		<link>http://blog.raikay.com/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</link>
+		<description>Recent content in 负载均衡 on 代码改变世界</description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+  		<language>zh-CN</language>
+		
+		<managingEditor>Page(/tags/负载均衡) (hugo author)</managingEditor>
+    	
+  		<lastBuildDate>Tue, 06 Aug 2019 00:00:00 +0000</lastBuildDate>
+		
+		<atom:link href="http://blog.raikay.com/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>分布式唯一ID：雪花ID Snowflake .Net版</title>
+			<link>http://blog.raikay.com/post/2020/dotnet-snowflake/</link>
+			<pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2020/dotnet-snowflake/</guid>
+			<description>雪花Id介绍： 雪花ID是用一个64位的整形数字来做ID，对应.net中的long，数据库中的bigint，雪花算法的原始版本是scala版，用于生成分布式ID（纯数字，时间顺序）,订单编号等。
+生成的雪花Id： 353248615741644803532486157835878435324861578358785对比自增和Guid: 自增ID： 对于数据敏感场景不宜使用，且不适合于分布式场景。
+GUID： 采用无意义字符串，且36位字符串太长，数据量增大时造成访问过慢，且不宜排序。
+算法描述：  最高位是符号位，始终为0，不可用。 41位的时间序列，精确到毫秒级，41位的长度可以使用69年。时间位还有一个很重要的作用是可以根据时间进行排序。 10位的机器标识，10位的长度最多支持部署1024个节点。 12位的计数序列号，序列号即一系列的自增id，可以支持同一节点同一毫秒生成多个ID序号，12位的计数序列号支持每个节点每毫秒产生4096个ID序号。  雪花算法改进，时钟回拨： 雪花ID严重依赖系统当前时间，当系统时间被人为反后调整时，算法会出问题，可能会出重复ID．Snowflake原算法是在检测到系统时间被回调后直接抛异常．本代码在时钟回拨后,会将生成的ID时间戳停留在最后一次时间戳上(每当序列溢出时会往前走一毫秒),等待系统时间追上后即可以避过时钟回拨问题.
+这种处理方式的优点是时钟回拨后不会异常，能一直生成出雪花ID，但缺点是雪花ID中的时间戳不是系统的当前时间，会是回拨前的最后记录的一次时间戳，但相差也不大．不知道有没有什么生产系统会对这个时间戳要求非常严格，无法使用这种补救方式的？
+当然停掉系统后的时钟回拨是无法处理的,这种还是会有可能出现重复ID的．
+生成Id以及解析Id方法: 源码git地址:https://gitee.com/itsm/learning_example/tree/master/snowflake-雪花Id
+public class SnowflakeId{// 开始时间截((new DateTime(2020, 1, 1, 0, 0, 0, DateTimeKind.Utc)-Jan1st1970).TotalMilliseconds) private const long twepoch = 1577836800000L;// 机器id所占的位数 private const int workerIdBits = 5;// 数据标识id所占的位数 private const int datacenterIdBits = 5;// 支持的最大机器id，结果是31 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数)  private const long maxWorkerId = -1L ^ (-1L &amp;lt;&amp;lt; workerIdBits);// 支持的最大数据标识id，结果是31  private const long maxDatacenterId = -1L ^ (-1L &amp;lt;&amp;lt; datacenterIdBits);// 序列在id中占的位数  private const int sequenceBits = 12;// 数据标识id向左移17位(12+5)  private const int datacenterIdShift = sequenceBits + workerIdBits;// 机器ID向左移12位  private const int workerIdShift = sequenceBits;// 时间截向左移22位(5+5+12)  private const int timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;// 生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095)  private const long sequenceMask = -1L ^ (-1L &amp;lt;&amp;lt; sequenceBits);// 数据中心ID(0~31)  public long datacenterId { get; private set; }// 工作机器ID(0~31)  public long workerId { get; private set; }// 毫秒内序列(0~4095)  public long sequence { get; private set; }// 上次生成ID的时间截  public long lastTimestamp { get; private set; }/// &amp;lt;summary&amp;gt; /// 雪花ID /// &amp;lt;/summary&amp;gt; /// &amp;lt;param name=&amp;#34;datacenterId&amp;#34;&amp;gt;数据中心ID&amp;lt;/param&amp;gt; /// &amp;lt;param name=&amp;#34;workerId&amp;#34;&amp;gt;工作机器ID&amp;lt;/param&amp;gt; public SnowflakeId(long datacenterId,long workerId ){if (datacenterId &amp;gt; maxDatacenterId || datacenterId &amp;lt; 0){throw new Exception(string.</description>
+		</item>
+		
+		<item>
+			<title>F5负载均衡架构图 </title>
+			<link>http://blog.raikay.com/post/2018/f5/</link>
+			<pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2018/f5/</guid>
+			<description>巨人的肩膀：
+https://blog.csdn.net/qq_35611533/article/details/51917279?locationNum=1&amp;amp;fps=1</description>
+		</item>
+		
+		<item>
+			<title>HTTP / HTTPS 必备基础知识</title>
+			<link>http://blog.raikay.com/post/2019/http/</link>
+			<pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/http/</guid>
+			<description>HTTP 是一种 超文本传输协议(Hypertext Transfer Protocol)。
+http是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应 。
+1、地址栏输入网址（url）后发生了什么 1. DNS解析
+首先浏览器通过DNS解析根据域名获取IP。通过下面的顺序获取。其中某个节点返回IP就不继续执行。
+ 浏览器缓存 &amp;ndash;&amp;gt; 系统host &amp;ndash;&amp;gt; 本地域名服务器LDNS &amp;ndash;&amp;gt; Root Server 域名服务器
+ 2. 建立连接
+浏览器根据得到的IP和目标服务器经过三次握手建立 TCP 连接。
+3. 请求
+建立连接后，浏览器会向目标服务器发起 HTTP-GET 请求，包括其中的 URL，HTTP 1.1 后默认使用长连接，只需要一次握手即可多次传输数据。
+4. 响应
+如果目标服务器只是一个简单的页面，就会直接返回，状态码为200。如果有重定向 ，返回 301,302 以 3 开头的重定向码，浏览器在获取了重定向响应后，在响应报文中 Location 项找到重定向地址，浏览器重新第一步访问即可。
+5. 关闭连接
+应答结束后，web浏览器与webserver四次握手断开连接，以保证其它web浏览器能够与webserver建立连接。
+http1.1不是立即断开连接，而是服务端使用超时断开的策略来维护连接，一般是300s左右
+2、无状态协议 HTTP无状态协议，是指协议对于事务处理没有记忆能力。每次的请求都是独立的，它的执行情况和结果与前面的请求和之后的请求是无直接关系的。不过，可以通过cookie、session等机制解决这个问题。
+3、HTTP请求方法 根据 HTTP 标准，HTTP 请求可以使用多种请求方法。
+HTTP1.0 定义了三种请求方法： GET, POST 和 HEAD方法。
+HTTP1.1 新增了六种请求方法：OPTIONS、PUT、PATCH、DELETE、TRACE 和 CONNECT 方法。
+   方法 描述     GET 请求指定的页面信息，并返回实体主体。   POST 向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和/或已有资源的修改。   PUT 从客户端向服务器传送的数据取代指定的文档的内容。   DELETE 请求服务器删除指定的页面。   HEAD 类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头   CONNECT 协议中预留给能够将连接改为管道方式的代理服务器。   OPTIONS 允许客户端查看服务器的性能。   TRACE 回显服务器收到的请求，主要用于测试或诊断。   PATCH 对 PUT 方法的补充，用来对已知资源进行局部更新 。    4、HTTP报文 在HTTP连接中报文分为请求（request）和响应（response）两种。每种报文在请求头都有不同的字段来标识不同的用途。</description>
+		</item>
+		
+		<item>
+			<title>正则表达式元字符简介 </title>
+			<link>http://blog.raikay.com/post/2019/regular/</link>
+			<pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/regular/</guid>
+			<description>元字符1 .：匹配除\n之外的任何单个字符。
+例如正则表达式“b.g”能匹配如下字符串：“big”、“bug”、“b g”，但是不匹配“buug”，“b..g”可以匹配“buug”。
+[ ] ：匹配括号中的任何一个字符（范围,字符集合）。
+例如正则表达式“b[aui]g”匹配bug、big和bag，但是不匹配beg、baug。可以在括号中使用连字符“-”来指定字符的区间来简化表示，例如正则表达式[0-9]可以匹配任何数字字符，这样正则表达式“a[0-9]c”等价于“a[0123456789]c”就可以匹配“a0c”、“a1c”、“a2c”等字符串；还可以制定多个区间，例如“[A-Za-z]”可以匹配任何大小写字母，“[A-Za-z0-9]”可以匹配任何的大小写字母或者数字。思考：x[这里必须是元音]y，如何写正则？【当.出现在[]中，则表示普通.，不作为元字符。】
+| ：将两个匹配条件进行逻辑“或”运算。
+例如‘z|food’ 能匹配 “z” 或 “food”。‘(z|f)ood’ 则匹配 “zood” 或 “food”。 //注意^$问题。
+()：将 () 之间括起来的表达式定义为“组”(group)
+将匹配这个表达式的字符保存到一个临时区域,这个元字符在字符串提取的时候非常有用。把一些字符表示为一个整体。改变优先级、定义提取组两个作用。
+元字符2(限定符) 限定符：限定前面的正则表达式出现的次数。
+*：匹配0至多个在它之前的子表达式，和通配符*没关系。等价于{0,}。
+例如正则表达式“zo*”（等同于z(o)*）能匹配 “z” 、“zo”以及 “zoo”；因此“.*”意味着能够匹配任意字符串。&amp;ldquo;z(b|c)*&amp;ldquo;→zb、zbc、zcb、zccc、zbbbccc。&amp;ldquo;z(ab)*&amp;ldquo;能匹配z、zab、zabab（用括号改变优先级）。
++：匹配前面的子表达式一次或多次，等价于{1,}
+例如正则表达式9+匹配9、99、999等。 “zo+”能匹配 “zo”以及 “zoo” ，不能匹配&amp;quot;z&amp;rdquo;。
+**? ：匹配前面的子表达式零次或一次。等价于：{0,1} **
+例如，“do(es)?” 可以匹配 “do” 或 “does” 。【colou?r、favou?r】一般用来匹配“可选部分”。（终止贪婪模式）
+{n} ：匹配确定的 n 次。“zo{2}”→zoo。
+例如，“e{2}” 不能匹配“bed”中的“e”，但是能匹配“seed”中的两个“e”。 //seeeed,不可以。
+{n,} :至少匹配n次。
+例如，“e{2,}”不能匹配“bed”中的“e”（只出现一次，至少两次），但能匹配 “seeeeeeeed”中的所有“e”。
+{n,m} ：最少匹配 n 次且最多匹配 m 次。
+例如“e{1,3}”将匹配“seeeeeeeed”中的前三个“e”。 {2,5}//bed,seed,seeed;beeeeed错误。
+元字符3 ^（shift+6） ：匹配一行的开始。
+例如正则表达式“^regex”能够匹配字符串“regex我会用”的开始，但是不能匹配“我会用regex”。^另外一种意思：非！（[^0-9]）
+$ ：匹配行结束符。 例如正则表达式“浮云$” 能够匹配字符串“一切都是浮云”的末尾，但是不能匹配字符串“浮云呀”</description>
+		</item>
+		
+		<item>
+			<title>正则表达式在C#中的使用</title>
+			<link>http://blog.raikay.com/post/2019/csharp-regular/</link>
+			<pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/csharp-regular/</guid>
+			<description>正则表达式简介  正则表达式是对字符串的操作 正则表达式是一个用来描述字符串特征的表达式。 特征：必须出现的内容、可能出现的内容、不能出现的内容。
+观察字符串规律，根据规律总结特征，然后根据特定字符串的特征来编写正则表达式。  常用函数：
+Regex.IsMatch(); //判断是否匹配Regex.Match();//提取某个（一个）匹配Regex.Matches();//提取所有的匹配Regex.Replace();//替换Regex.Split();//分割Regex.IsMatch() **练习1：**判断是否是合法的邮政编码（6位数字）
+lRegex.IsMatch(&amp;#34;100830&amp;#34;,&amp;#34;^[0-9]{6}$&amp;#34;)Regex.IsMatch(&amp;#34;119&amp;#34;, @&amp;#34;^\d{6}$&amp;#34;);解释：由元字符定义得知“[0-9]”表示0到9的任意字符，“{6}”表示前面的字符匹配6次，因此“[0-9]{6}”中的{6}表示对数字匹配6次(000000123)。简写表达式得知“[0-9]”可以被“\d”代替，所以第二种写法“\d{6}”也是正确的。
+练习2：判断一个字符串是不是身份证号码。
+  长度为15位或者18位的字符串，首位不能是0。
+  如果是15位，则全部是数字。
+  如果是18位，则前17位都是数字，末位可能是数字也可能是X。
+  写法一：^[1-9][0-9]{14}([0-9]{2}[0-9Xx])?$
+写法二： ^([1-9][0-9]{14}|[1-9][0-9]{16}[0-9X])$
+**练习3：**判断字符串是否为正确的国内电话号码，不考虑分机。
+•010-8888888或010-88888880或010xxxxxxx
+•0335-8888888或0335-88888888（区号-电话号）03358888888
+•10086、10010、95595、95599、95588（5位）
+•13888888888（11位都是数字）
+Regex.IsMatch(phoneNumber, @“^((\d{3,4}\-?\d{7,8})|(\d{5})|(\d{11}))$”);//或者Regex.IsMatch(phoneNumber, @“^((\d{3,4}\-?\d{7,8})|(\d{5}))$”);按照要求一个一个写，都用|连起来。注意：由于区号有时为010-xxxxxxx有时为010xxxxxxx，-可有可无，所以需要?,由于-表示一个区间，所以这里要转义-。最后不要忘记在所有|的最外层加一对()
+Regex.Match() / Matches() string msg = &amp;quot;大家好呀，hello,2010年10月10日是个好日子。恩，9494.吼吼！886.&amp;quot;;Match match1 = Regex.Match(msg, @&amp;quot;\d&amp;quot;, RegexOptions.ECMAScript); //提取得到 2 （逐个提取）Match match2 = Regex.Match(msg, @&amp;quot;\d+&amp;quot;, RegexOptions.ECMAScript); //提取得到2010 //提取所有的匹配的字符串MatchCollection matches = Regex.</description>
+		</item>
+		
+		<item>
+			<title>Net Core 3.x 禁用序列化时自动首字母小写</title>
+			<link>http://blog.raikay.com/post/2019/net-core-initial-lowercase/</link>
+			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/net-core-initial-lowercase/</guid>
+			<description>public void ConfigureServices(IServiceCollection services){services.AddControllers().AddJsonOptions(config =&amp;gt;{//去掉转小写功能// System.Text.Json.JsonNamingPolicy.CamelCase：转小写 // null:不转小写config.JsonSerializerOptions.PropertyNamingPolicy =null;});}</description>
+		</item>
+		
+		<item>
+			<title>NuGet源中国加速镜像，博客园，华为等</title>
+			<link>http://blog.raikay.com/post/2019/nuget/</link>
+			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/nuget/</guid>
+			<description>打开Visual Studio =&amp;gt; 工具 =&amp;gt; NuGet包管理器 =&amp;gt; 程序包管理器设置
+NuGet微软官方中国镜像地址：
+https://nuget.cdn.azure.cn/v3/index.json
+官方默认源：
+https://api.nuget.org/v3/index.json
+博客园：
+https://nuget.cnblogs.com/v3/index.json
+华为：
+https://repo.huaweicloud.com/repository/nuget/v3/index.json
+MyNuGet：
+https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
+这是一个很激进的 NuGet 源，包含各种日构建包（其中包括 .NET Standard 或者 .NET Core 等库的日构建版本），所以如果你希望尝试最新的 API 最新的功能，最好设置此 NuGet 源。
+早期版本：
+https://www.nuget.org/api/v2/ https://nuget.org/api/v2/</description>
+		</item>
+		
+		<item>
+			<title>T4模板 生成多个文件 映射整个库表</title>
+			<link>http://blog.raikay.com/post/2019/t4-a/</link>
+			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2019/t4-a/</guid>
+			<description>&amp;lt;#@ output extension=&amp;#34;txt&amp;#34; #&amp;gt;&amp;lt;#@ template debug=&amp;#34;false&amp;#34; hostspecific=&amp;#34;true&amp;#34; language=&amp;#34;C#&amp;#34; #&amp;gt;&amp;lt;#@ assembly name=&amp;#34;System.Data&amp;#34; #&amp;gt;&amp;lt;#@ assembly name=&amp;#34;System.xml&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Collections.Generic&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Data.SqlClient&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Data&amp;#34; #&amp;gt;&amp;lt;#@ assembly name=&amp;#34;System.Core&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Linq&amp;#34; #&amp;gt;&amp;lt;#@ include file=&amp;#34;MultiOutput.tt&amp;#34; #&amp;gt;&amp;lt;#string connectionString= &amp;#34;server=.;database=57blogDB;uid=sa;pwd=123;&amp;#34;; SqlConnection conn = new SqlConnection(connectionString);conn.Open();string selectQuery =&amp;#34;SET FMTONLY ON; select * from @tableName; SET FMTONLY OFF;&amp;#34;;SqlCommand command = new SqlCommand(selectQuery,conn);SqlDataAdapter ad = new SqlDataAdapter(command);System.</description>
+		</item>
+		
+		<item>
+			<title>把C#程序（含多个Dll）合并成一个Exe的超简单方法</title>
+			<link>http://blog.raikay.com/post/2018/dll-exe/</link>
+			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2018/dll-exe/</guid>
+			<description>开发程序的时候经常会引用一些第三方的DLL，然后编译生成的exe文件就不能脱离这些DLL独立运行了。 但是，很多时候我们本想开发一款只需要一个exe就能完美运行的小工具。那该怎么办呢？ 下文介绍一种超简单的方法，不用写一行代码就可轻松实现。 这里我们需要用到一款名为Fody.Costura的工具。Fody.Costura是一个Fody框架下的插件，可通过Nuget安装到VS工程中。安装之后，就可以将项目所依赖的DLL（甚至PDB）文件全部打包到EXE文件里。
+使用方法  在VS中，通过Nuget为目标EXE工程安装Costura.Fody。 重新构建项目。  构建完成后，到项目的输出目录下找到新生成的EXE文件，你同时会发现输出目录下仍然存在那些DLL。不过不用担心，这个EXE已经能够独立运行了。你可以把这些DLL全部删除后再运行EXE试试。 另外，Fody.Costura还支持一些进阶的特性，例如：
+ 临时程序集文件：在运行EXE前自动，自动将DLL从EXE中解压到文件夹系统中，再通过常规的方式加载该DLL。 合并非托管的DLL：Fody.Costura可以合并非托管的DLL，但是不会自动合。如果你的程序涉及非托管DLL，那么你需要通过修改Fody.Costura的配置文件来显示地告诉它你想合并哪些非托管的DLL。 预加载DLL：Fody.Costura可以帮助你在程序启动时预先加载某些DLL，你甚至可以指定这些DLL的加载顺序。  以上这些进阶特性都需要你通过修改Fody.Costura的配置文件来实现，具体的操作步骤可以参考它的官方文档。 好了，Fody.Costura的使用方式已经介绍完了。如果你对Fody.Costura的实现原理感到好奇，可以接着往下看。
+实现原理介绍 当CLR试图加载一个程序集但加载失败时，它会引发AppDomain.AssemblyResolve事件。我们的程序可以监听这个事件，并且在这个事件的处理函数中返回这个CLR试图加载的程序集，从而使程序得以继续正常运行。 Fody.Costura在构建项目时会把EXE引用到的DLL全部嵌入到EXE文件中。当程序在运行的过程中用到其中某个DLL的时候（此时由于CLR无法找到该DLL文件，导致AppDomain.AssemblyResolve事件被触发）再从EXE文件的嵌入资源中提取所需的DLL。 下面这两个函数就是Fody.Costura实现这部分逻辑的代码。
+public static void Attach(){var currentDomain = AppDomain.CurrentDomain;currentDomain.AssemblyResolve += (s, e) =&amp;gt; ResolveAssembly(e.Name);}public static Assembly ResolveAssembly(string assemblyName){if (nullCache.ContainsKey(assemblyName)){return null;} var requestedAssemblyName = new AssemblyName(assemblyName); var assembly = Common.ReadExistingAssembly(requestedAssemblyName);if (assembly != null){return assembly;} Common.Log(&amp;#34;Loading assembly &amp;#39;{0}&amp;#39; into the AppDomain&amp;#34;, requestedAssemblyName); assembly = Common.</description>
+		</item>
+		
+		<item>
+			<title>git命令备忘系列（八）：其他命令集合</title>
+			<link>http://blog.raikay.com/post/2018/git-other/</link>
+			<pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2018/git-other/</guid>
+			<description>1、Git彻底删除一次提交 这样删除之后，在历史记录中也查看不到
+git rebase --onto SHA^ SHASHA是错误的提交。
+例如，删除cbe8527这次提交:
+git rebase --onto cbe8527^ cbe8527这条记录就从历史记录中消失了
+2、git stash 情况处理 两个分支都没有这个文件，创建文件之后，可以两个分支随意切换！
+两个分支都有这个文件，发生改变之后，也可以随意切换
+A分支没有这个文件，B分支有这个文件，在B分支对这个文件进行更改，想切换A分支 切换失败并且提示：
+$ git checkout mastererror: Your local changes to the following files would be overwritten by checkout:stu1_create1.csPlease, commit your changes or stash them before you can switch branches.Aborting解决方案1 将当前工作状态保存
+git stash save &amp;#34;work in progress for foo feature&amp;#34; #返回到自己上一个commitpull, edit, etc 或者fix 紧急bug之后</description>
+		</item>
+		
+	</channel>
+</rss>
