@@ -133,6 +133,8 @@ To https://github.com/raikay/Managix.git
 
 每次操作都需要输入用户名和密码感觉很繁琐，解决方法，在本地的工程文件夹的.git下打开config文件 添加：
 
+（如果是密码修改过，需要修改windows 凭据：控制面板-->凭据管理器-->Windows凭据 找到对应的站点用户名）
+
 ```sh
 [credential]
      helper = store
