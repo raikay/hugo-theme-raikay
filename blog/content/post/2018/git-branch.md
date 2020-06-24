@@ -114,6 +114,23 @@ git commit -m '注释'
 
 推送远程仓库：`$ git push [remoteName] [localBranchName]`
 
+## 9、删除远程已不存在的本地分支
+
+解决方法：  
+```
+git fetch --prune    #这样就可以实现在本地删除远程已经不存在的分支  
+```
+或者简略：  
+```
+ git fetch -p
+ git fetch -p origin
+ git remote prune origin
+```
+
+
+
+
+
 
 
 > 鸣谢：
