@@ -12,17 +12,17 @@
     ,
         
             {
-                "ref": "http://blog.raikay.com/post/2018/index.json",
+                "ref": "http://blog.raikay.com/post/2019/index.json",
                 "title": "Hugo News",
                 "section": "post",
-                "date" : "2019.08.06",
+                "date" : "2019.09.15",
                 "body": ""
             }
         
     ,
         
             {
-                "ref": "http://blog.raikay.com/post/2019/index.json",
+                "ref": "http://blog.raikay.com/post/2018/index.json",
                 "title": "Hugo News",
                 "section": "post",
                 "date" : "2019.08.06",

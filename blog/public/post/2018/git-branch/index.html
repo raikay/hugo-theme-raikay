@@ -133,7 +133,14 @@ git commit -m <span style="color:#e6db74">&#39;注释&#39;</span>
 <p>修改远程仓库：<code>$ git remote set-url --push[name][newUrl]</code></p>
 <p>拉取远程仓库：<code>$ git pull [remoteName] [localBranchName]</code></p>
 <p>推送远程仓库：<code>$ git push [remoteName] [localBranchName]</code></p>
-<blockquote>
+<h2 id="9删除远程已不存在的本地分支">9、删除远程已不存在的本地分支</h2>
+<p>解决方法：</p>
+<pre><code>git fetch --prune    #这样就可以实现在本地删除远程已经不存在的分支  
+</code></pre><p>或者简略：</p>
+<pre><code> git fetch -p
+ git fetch -p origin
+ git remote prune origin
+</code></pre><blockquote>
 <p>鸣谢：
 <a href="https://juejin.im/post/5e79ea975188255e277a3892#heading-29">https://juejin.im/post/5e79ea975188255e277a3892#heading-29</a></p>
 </blockquote>

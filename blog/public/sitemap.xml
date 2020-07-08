@@ -33,12 +33,32 @@
   </url>
   
   <url>
-    <loc>http://blog.raikay.com/post/2018/f5/</loc>
-    <lastmod>2019-08-06T00:00:00+00:00</lastmod>
+    <loc>http://blog.raikay.com/post/2019/cookie/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>http://blog.raikay.com/tags/http/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/post/2019/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/post/2019/npm/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/post/2018/f5/</loc>
     <lastmod>2019-08-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -49,11 +69,6 @@
   
   <url>
     <loc>http://blog.raikay.com/post/2018/</loc>
-    <lastmod>2019-08-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.raikay.com/post/2019/</loc>
     <lastmod>2019-08-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -425,6 +440,14 @@
   
   <url>
     <loc>http://blog.raikay.com/search/</loc>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/tags/%E6%8C%81%E7%BB%AD%E8%AE%B0%E5%BD%95/</loc>
+  </url>
+  
+  <url>
+    <loc>http://blog.raikay.com/post/2020/preserverlog/</loc>
   </url>
   
 </urlset>

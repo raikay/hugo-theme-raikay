@@ -170,6 +170,7 @@ To https://github.com/raikay/Managix.git
 	acp = &quot;!f() { git add -A &amp;&amp; git commit -m \\\&quot;$@\\\&quot; &amp;&amp; git push; }; f&quot;
 </code></pre><h3 id="解决git不自动记录-密码">解决git不自动记录 密码</h3>
 <p>每次操作都需要输入用户名和密码感觉很繁琐，解决方法，在本地的工程文件夹的.git下打开config文件 添加：</p>
+<p>（如果是密码修改过，需要修改windows 凭据：控制面板&ndash;&gt;凭据管理器&ndash;&gt;Windows凭据 找到对应的站点用户名）</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#f92672">[</span>credential<span style="color:#f92672">]</span>
      helper <span style="color:#f92672">=</span> store
 </code></pre></div><p>或者执行这个命令</p>
