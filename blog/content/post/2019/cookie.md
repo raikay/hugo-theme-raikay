@@ -2,9 +2,9 @@
 author = "Raikay"
 title = "Cookie、session、token、jwt简单说明"
 date = "2019-09-15"
-description = "npm和cnpm的各种源以及切换管理工具nrm 国内源 国外 切换"
+description = "Cookie、session、token、jwt简单说明"
 tags = [
-    "前端",
+    "http",
 ]
 
 +++
