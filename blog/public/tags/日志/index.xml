@@ -14,6 +14,15 @@
 		<atom:link href="http://blog.raikay.com/tags/%E6%97%A5%E5%BF%97/" rel="self" type="application/rss+xml" />
 		
 		<item>
+			<title>浏览器保留页面跳转前的请求记录-持续记录</title>
+			<link>http://blog.raikay.com/post/2020/preserver-log/</link>
+			<pubDate>Sun, 08 Mar 2020 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2020/preserver-log/</guid>
+			<description>开发中往往会遇到这样的情况，调试一个请求，但是请求中有报错的跳转，结果一刷新页面就自动跳转了，也看不到请求报错，这个时候只要勾选上preserver log即可
+火狐： 谷歌： </description>
+		</item>
+		
+		<item>
 			<title>分布式唯一ID：雪花ID Snowflake .Net版</title>
 			<link>http://blog.raikay.com/post/2020/dotnet-snowflake/</link>
 			<pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
@@ -165,14 +174,6 @@ https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
 这是一个很激进的 NuGet 源，包含各种日构建包（其中包括 .NET Standard 或者 .NET Core 等库的日构建版本），所以如果你希望尝试最新的 API 最新的功能，最好设置此 NuGet 源。
 早期版本：
 https://www.nuget.org/api/v2/ https://nuget.org/api/v2/</description>
-		</item>
-		
-		<item>
-			<title>T4模板 生成多个文件 映射整个库表</title>
-			<link>http://blog.raikay.com/post/2019/t4-a/</link>
-			<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-			<guid>http://blog.raikay.com/post/2019/t4-a/</guid>
-			<description>&amp;lt;#@ output extension=&amp;#34;txt&amp;#34; #&amp;gt;&amp;lt;#@ template debug=&amp;#34;false&amp;#34; hostspecific=&amp;#34;true&amp;#34; language=&amp;#34;C#&amp;#34; #&amp;gt;&amp;lt;#@ assembly name=&amp;#34;System.Data&amp;#34; #&amp;gt;&amp;lt;#@ assembly name=&amp;#34;System.xml&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Collections.Generic&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Data.SqlClient&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Data&amp;#34; #&amp;gt;&amp;lt;#@ assembly name=&amp;#34;System.Core&amp;#34; #&amp;gt;&amp;lt;#@ import namespace=&amp;#34;System.Linq&amp;#34; #&amp;gt;&amp;lt;#@ include file=&amp;#34;MultiOutput.tt&amp;#34; #&amp;gt;&amp;lt;#string connectionString= &amp;#34;server=.;database=57blogDB;uid=sa;pwd=123;&amp;#34;; SqlConnection conn = new SqlConnection(connectionString);conn.Open();string selectQuery =&amp;#34;SET FMTONLY ON; select * from @tableName; SET FMTONLY OFF;&amp;#34;;SqlCommand command = new SqlCommand(selectQuery,conn);SqlDataAdapter ad = new SqlDataAdapter(command);System.</description>
 		</item>
 		
 	</channel>

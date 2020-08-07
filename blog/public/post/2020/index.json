@@ -2,6 +2,16 @@
     
         
             {
+                "ref": "http://blog.raikay.com/post/2020/preserver-log/",
+                "title": "浏览器保留页面跳转前的请求记录-持续记录",
+                "section": "post",
+                "date" : "2020.03.08",
+                "body": "开发中往往会遇到这样的情况，调试一个请求，但是请求中有报错的跳转，结果一刷新页面就自动跳转了，也看不到请求报错，这个时候只要勾选上preserver log即可\n火狐： 谷歌： "
+            }
+        
+    ,
+        
+            {
                 "ref": "http://blog.raikay.com/post/2020/dotnet-snowflake/",
                 "title": "分布式唯一ID：雪花ID Snowflake .Net版",
                 "section": "post",
@@ -27,16 +37,6 @@
                 "section": "post",
                 "date" : "2017.03.11",
                 "body": "1、安装 npm install -g vuepress\r如果慢或者安装失败可以用cnpm替换，或者yarn\n# yarm\ryarn global add vuepress #cnpm\rnpm install -g cnpm --registry=https://registry.npm.taobao.org #如果已安装请忽略\rcnpm install -g vuepress\r2、创建项目目录 mkdir vuepress-starter \u0026amp;\u0026amp; cd vuepress-starter\r3、新建一个 markdown 文件 echo \u0026#39;# Hello VuePress!\u0026#39; \u0026gt; README.md\r运行项目\nvuepress dev .\r4、访问站点 http://localhost:8080/\r初始化项目 npm init -y\r执行命令后，项目根目录会出现一个package.json，我们修改scripts节点\n\u0026quot;scripts\u0026quot;:{\r\u0026quot;dev\u0026quot;:\u0026quot;vuepress dev docs\u0026quot;,\r\u0026quot;build\u0026quot;:\u0026quot;vuepress build docs\u0026quot;\r}\r修改之后：\n{\r\u0026quot;name\u0026quot;:\u0026quot;vuepress-starter\u0026quot;,\r\u0026quot;version\u0026quot;:\u0026quot;1.0.0\u0026quot;,\r\u0026quot;description\u0026quot;:\u0026quot;\u0026quot;,\r\u0026quot;main\u0026quot;:\u0026quot;index.js\u0026quot;,\r\u0026quot;scripts\u0026quot;:{\r\u0026quot;dev\u0026quot;:\u0026quot;vuepress dev docs\u0026quot;,\r\u0026quot;build\u0026quot;:\u0026quot;vuepress build docs\u0026quot;\r},\r\u0026quot;keywords\u0026quot;:[\r],\r\u0026quot;author\u0026quot;:\u0026quot;\u0026quot;,\r\u0026quot;license\u0026quot;:\u0026quot;ISC\u0026quot;\r}\r创建基本目录\n按照官方推荐目录结构创建一些基本目录，推荐的不用全部创建，大部分都是可选\nvuepress-starter\r├─package.json\r├─docs\r| ├─README.md\r| ├─.vuepress\r| | ├─config.js\r| | ├─public\r| | | └favicon.ico\r创建之后我们在来运行一直，看看是否正常\nnpm run dev\r还是和刚才一样的，表示没什么问题\n修改配置文件 /vuepress-starter/docs/.vuepress/config.js\nmodule.exports = {\rtitle: \u0026#39;Hello VuePress\u0026#39;,\rdescription: \u0026#39;Hello, my friend!\u0026#39;,\rhead: [\r[\u0026#39;link\u0026#39;, {\rrel: \u0026#39;icon\u0026#39;,\rhref: `/favicon.ico`\r}]\r],\rdest: \u0026#39;./docs/.vuepress/dist\u0026#39;,\rga: \u0026#39;\u0026#39;,\revergreen: true,\r}\r修改README.md /vuepress-starter/docs/README.md\nVuePress 提供了对 YAML front matter 开箱即用的支持，我们可以模仿vuepress首页修改README.md\n---\rhome: true\rheroImage: /favicon.ico\ractionText: 快速上手 →\ractionLink: /guide/\rfeatures:\r- title: 简洁至上\rdetails: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。\r- title: Vue驱动\rdetails: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。\r- title: 高性能\rdetails: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。\rfooter: MIT Licensed | Copyright © 2018-present xxxxxx\r---\r运行项目\nnpm run dev\r现在看上去已经很像样子了\n接下来在添加一些内容\n创建guide文件夹\n/vuepress-starter/docs/guide\nguide下新建README.md\n## This is guide\rcontent...\r### title3\rcontent...\r### title3-01\r\r## small title\rcontent...\r运行项目，点击首页 快速上手 查看效果\n配置导航\n在config文件添加themeConfig\n配置侧边栏 在config.js文件下的themeConfig属性下添加：\nsidebarDepth: 2,\rsidebar: [\r{\rtitle: \u0026#39;Guide\u0026#39;,\rcollapsable: false,\rchildren: [\u0026#39;/guide/\u0026#39;]\r} ]\r注：通过 themeConfig.sidebarDepth 来修改它的行为。默认的深度是 1，它将提取到 h2 的标题，设置成 0 将会禁用标题（headers）链接，同时，最大的深度为 2，它将同时提取 h2 和 h3 标题。\n配置好后，运行项目\n构建项目\nnpm run biuld\r如果不是网站根目录，要在config配置根目录\n比如：http://blog.raikay.com/docs/\nmodule.exports = {\rtitle: \u0026#39;Hello VuePress\u0026#39;,\rdescription: \u0026#39;Hello, my friend!\u0026#39;,\rbase : \u0026#39;/docs/\u0026#39;,\r...\r鸣谢：https://www.jianshu.com/p/2ac5727947cd\n"
-            }
-        
-    ,
-        
-            {
-                "ref": "http://blog.raikay.com/post/2020/preserverlog/",
-                "title": "浏览器保留页面跳转前的请求记录-持续记录",
-                "section": "post",
-                "date" : "0001.01.01",
-                "body": "开发中往往会遇到这样的情况，调试一个请求，但是请求中有报错的跳转，结果一刷新页面就自动跳转了，也看不到请求报错，这个时候只要勾选上preserver log即可\n火狐： 谷歌： "
             }
         
     
