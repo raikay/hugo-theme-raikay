@@ -13,9 +13,9 @@ tags = [
 
 打开Visual Studio => 工具 => NuGet包管理器 => 程序包管理器设置
 
-![20200407123245](https://i.loli.net/2020/04/07/GCPmB7LI1T6a5AY.png)
+![20200407123245](https://gitee.com/imgrep001/m1/raw/master/20200811133529.png)
 
-![image-20200407123814591](https://i.loli.net/2020/04/07/UgzOlt6WdqK7HhJ.png)
+![image-20200407123814591](https://gitee.com/imgrep001/m1/raw/master/20200811133554.png)
 
 
 

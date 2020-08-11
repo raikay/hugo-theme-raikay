@@ -83,7 +83,7 @@
   <div class="container" role="main">
     <article class="article" class="blog-post">
       
-    <p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172346" alt="img"></p>
+    <p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811135727.png" alt="img"></p>
 <h3 id="一写在前面">一、写在前面</h3>
 <p>使用过分布式中间件的人都知道，程序员使用起来并不复杂，常用的客户端 API 就那么几个，比我们日常编写程序时用到的 API 要少得多。但是分布式中间件在中小研发团队中使用得并不多，为什么会这样呢？</p>
 <p>原因是中间件的职责相对单一，客户端的使用虽然简单，但整个环境搭起来却不容易。所以对于系列中的几篇中间件文章，我们重点放在解决门槛问题，把服务端环境搭好（后期可云或运维解决），把中间件的基本职责和功能介绍好，把客户端 Demo 写好，让程序员抬抬脚，在调试代码中即可轻松入门。</p>
@@ -104,7 +104,7 @@
 </li>
 </ul>
 <p>使用消息队列，就好比为了防汛而建葛洲坝，有大量数据的堆积能力，然后可靠地进行异步输出。例如：</p>
-<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172400" alt="img"></p>
+<p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811135626.png" alt="img"></p>
 <p>传统做法存在如下问题，请见上图：</p>
 <ul>
 <li>
@@ -117,7 +117,7 @@
 <p>3、数据库压力大，易并发。</p>
 </li>
 </ul>
-<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172412" alt="img"></p>
+<p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811135548.png" alt="img"></p>
 <p><strong>使用 MQ 后的好处，请见上图</strong>：</p>
 <ul>
 <li>
@@ -150,17 +150,17 @@
 <p>登录账号：flight，密码：yyabc123。</p>
 <h3 id="四rabbitmq-工作原理">四、RabbitMQ 工作原理</h3>
 <p>消息从发送端到接收端的流转过程即 RabbitMQ 的消息工作机制，请见下图：</p>
-<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172421" alt="img"></p>
+<p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811135511.png" alt="img"></p>
 <p>消息发送与接收的工作机制</p>
 <h3 id="五rabbitmq-基本用法">五、RabbitMQ 基本用法</h3>
 <p>共有 6 种基本用法：单对单、单对多、发布订阅模式、按路由规则发送接收、主题、RPC（即远程存储调用）。我们将介绍单对单、单对多和主题的用法。</p>
 <p>1、<strong>单对单</strong>：单发送、单接收。请见下图。</p>
-<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172440" alt="img"></p>
+<p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811135413.png" alt="img"></p>
 <p>2、<strong>单对多</strong>：一个发送端，多个接收端，如分布式的任务派发。请见下图：</p>
-<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172450" alt="img"></p>
+<p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811135329.png" alt="img"></p>
 <p>3、<strong>主题</strong>：Exchange Type 为 topic，发送消息时需要指定交换机及 Routing Key，消费者的消息队列绑定到该交换机并匹配到 Routing Key 实现消息的订阅，订阅后则可接收消息。只有消费者将队列绑定到该交换机且指定的 Routing Key 符合匹配规则，才能收到消息。</p>
 <p>其中 Routing Key 可以设置成通配符，如：*或 #（*表示匹配 Routing Key 中的某个单词，# 表示任意的 Routing Key 的消息都能被收到）。如果 Routing Key 由多个单词组成，则单词之间用. 来分隔。</p>
-<p><img src="https://gitee.com/raikay/img/raw/master/default/20200418172504" alt="img"></p>
+<p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811135221.png" alt="img"></p>
 <p><strong>命名规范</strong>：</p>
 <p>交换机名的命名建议：Ex{AppID}.{自定义 ExchangeName}，队列名的命名建议：MQ{AppID}.{自定义 QueueName} 。</p>
 <h3 id="六demo-下载及更多资料">六、Demo 下载及更多资料</h3>

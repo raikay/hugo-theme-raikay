@@ -87,15 +87,15 @@
 <p><img src="https://gitee.com/raikay/img/raw/master/default/20200419095859.png" alt="html-php-web-wordpress-34600"></p>
 <h2 id="1crud系统">1、CRUD系统</h2>
 <p>我们平常最熟悉的就是三层架构，通常都是通过数据访问层来修改或者查询数据，一般修改和查询使用的是相同的实体。然后通过业务层来处理业务逻辑，将处理结果封装成DTO对象返回给控制层，再通过前端渲染。反之亦然。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9TaWNpYkxEdUZkck1FUU4yOWxnaWFZaktOY2ZSamliS01TTm1qUDJpYXBpYlc4SW9Vbk00SGJXbVJpYmliYVo1SnFGMU9xQkdJbGR0eWxlSTlzZ0tBR3Q2NGdMbWlidy82NDA_d3hfZm10PXBuZw" alt="640?wx_fmt=png"></p>
+<p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811134124.png" alt="640?wx_fmt=png"></p>
 <p>这里基本上是围绕关系数据库构建而成的“创建、读取、更新、删除”系统（即CRUD系统），此类系统在一些业务逻辑简单的项目中可能没有什么问题，但是随着系统逻辑变得复杂，用户增多，这种设计就会出现一些性能问题。</p>
 <p>我们经常用到的解决方案就是对数据库进行读写分离。让主数据库处理事务性的增、删、改操作，让从数据库处理查询操作，然后主从数据库之间进行同步。但是这只是从DB角度处理了读写分离，从业务或者系统层面上来说，读和写的逻辑仍然是存放在一起的，他们都是操作同一个实体对象。</p>
 <p>这时候，CQRS 就该登场了。</p>
 <h2 id="2cqrs系统">2、CQRS系统</h2>
 <p>简单的说，CQRS（Command Query Responsibility Segration）就是一个系统，从架构上把 CRUD 系统拆分为两部分：命令（Command）处理和查询（Query）处理。其中命令处理包括增、删、改。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9TaWNpYkxEdUZkck1FUU4yOWxnaWFZaktOY2ZSamliS01TTm1uRnlheGljRmFjY2ljS2ljWU9LZExxZnpPZ1YwTUh6MWp1TXV3cUJocDFYMUVXaWNjTjdHTlh0eUFnLzY0MD93eF9mbXQ9cG5n" alt="640?wx_fmt=png"></p>
+<p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811134209.png" alt="640?wx_fmt=png"></p>
 <p>然后命令与查询两边可以用不同的架构实现，以实现CQ两端（即Command Side，简称C端；Query Side，简称Q端）的分别优化。两边所涉及到的实体对象也可以不同，从而继续演变成下面这样。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9TaWNpYkxEdUZkck1FUU4yOWxnaWFZaktOY2ZSamliS01TTm0xNW93RTRvc2xsZHpXUHRpYnJvQW9IZWVPVFlyUFJnZjYxTE1rTFhIY09RTVhtaWN1cURiVFgzUS82NDA_d3hfZm10PXBuZw" alt="640?wx_fmt=png"></p>
+<p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811134235.png" alt="640?wx_fmt=png"></p>
 <p>当然了，CQRS 作为一个读写分离思想的架构，在数据存储方面也没有做过多的约束。所以 CQRS可以有不同层次的实现。</p>
 <h2 id="3cqrs-实现方式">3、CQRS 实现方式</h2>
 <p>CQRS 可以有两种实现方式。</p>

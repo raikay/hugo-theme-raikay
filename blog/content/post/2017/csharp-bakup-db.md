@@ -56,21 +56,21 @@ set  @sql='del  d:\DataBase\xx' +rtrim(replace(replace(replace(convert(varchar(2
 
 #### 1. 使用管理员，打开部署脚本
 
-![img](https://images2018.cnblogs.com/blog/108827/201808/108827-20180806092244726-570547640.png)
+![img](https://gitee.com/imgrep001/m1/raw/master/20200811134312.png)
 
 #### 2. 根据指示进行配置操作，输入1 是进入配置
- ![img](https://images2018.cnblogs.com/blog/108827/201808/108827-20180806092329273-423098219.png)
+ ![img](https://gitee.com/imgrep001/m1/raw/master/20200811134348.png)
 
 #### 3. 配置界面
-  ![img](https://images2018.cnblogs.com/blog/108827/201808/108827-20180806092537133-1099426309.png)
+  ![img](https://gitee.com/imgrep001/m1/raw/master/20200811134412.png)
 
 #### 4. 安装完成后，启动服务
 
-![img](https://images2018.cnblogs.com/blog/108827/201808/108827-20180806092607253-1199485268.png)
+![img](https://gitee.com/imgrep001/m1/raw/master/20200811134439.png)
 
 **代码遇到一个小小的bug，当备份数据库巨大时，有的服务器会出现超时现象，我将SqlCommand的 CommandTimeout值设置为3600秒了，问题解决，因为数据大小是32个G，收缩日志之后，所以出现了这个问题，以解决，各位自行修改代码解决即可，代码如下：**
 
-![img](https://images2018.cnblogs.com/blog/108827/201808/108827-20180810154035550-1080053033.png)
+![img](https://gitee.com/imgrep001/m1/raw/master/20200811134459.png)
 
 实现代码如下：
 
