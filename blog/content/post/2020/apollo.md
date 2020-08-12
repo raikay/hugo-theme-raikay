@@ -1,6 +1,6 @@
 +++
 author = "Raikay"
-title = "Docker部署Apollo单机单环境和单机多环境"
+title = "Docker部署Apollo单环境以及多环境在一台服务器"
 date = "2020-04-05"
 description = "Docker部署Apollo单机单环境和单机多环境 安装 文档 教程 镜像 分布式 环境"
 tags = [
@@ -29,7 +29,11 @@ cd apollo/scripts/docker-quick-start
 
 
 
-### 三、安装成功
+### 三、安装启动
+
+```
+docker-compose up
+```
 
 看到下面日志表示已经安装成功
 
@@ -108,14 +112,13 @@ docker stop apollo-quick-start
 
 ```
 docker exec -i apollo-quick-start /apollo-quick-start/demo.sh client
-
 ```
 
 ![IMG](https://gitee.com/imgrep001/m1/raw/master/20200811151609.png)
 
 
 
-# 单机多环境安装及基本使用
+# 环境安装在一台机器多及基本使用
 
 ### 一、搭建MySql
 
@@ -214,13 +217,13 @@ docker run --net="host" --name myapollo -d \
 
 ### 新增配置
 
-默认只创建一个DEV环境，也可以在【选择集群】勾选PRO，同时创建两个环境。
+默认只在DEV环境创建，也可以在【选择集群】勾选PRO，同时在两个环境创建。
 
 ![IMG](https://gitee.com/imgrep001/m1/raw/master/20200811173324.png)
 
 
 
-也可以根据实际项目进度，部署生产环境事在同步到PRO
+也可以根据实际项目进度，部署生产环境时同步到PRO
 
 图1
 
