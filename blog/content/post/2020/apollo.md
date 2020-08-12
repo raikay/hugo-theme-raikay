@@ -264,13 +264,35 @@ docker-compose -version
 
 
 
-2、 error: command 'gcc' failed with exit status 1
+2、 error: command 'gcc' failed with exit status 1  
 
-是否忘记 升级pip
+是否忘记 升级pip  
 
+3、环境科普  
 
+DEV：Development environment，开发环境，用于开发者调试使用  
 
+FAT：Feature Acceptance Test environment，功能验收测试环境，用于软件测试者测试使用  
 
+UAT：User Acceptance Test environment，用户验收测试环境，用于生产环境下的软件测试者测试使用  
+
+PRO：Production environment，生产环境  
+
+4、继续扩展  
+
+如果想添加 UAT、FAT等环境添加对应的数据库  
+
+修改 `ApolloConfigDBUat`库中`ServerConfig`表eureka.service.url的值 为`http://localhost:8081/eureka/`  
+
+修改 `ApolloConfigDBFat`库中`ServerConfig`表eureka.service.url的值 为`http://localhost:8082/eureka/ ` 
+
+修改 `ApolloPortalDB`库中`ServerConfig`表`configView.memberOnly.envs`的值为`pro,uat,fat`    
+
+同时环境变量增加对应的数据库连接、账号密码  
+
+[使用指南](https://github.com/ctripcorp/apollo/wiki/Apollo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97#%E4%B8%80%E6%99%AE%E9%80%9A%E5%BA%94%E7%94%A8%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97)
+
+![IMG](https://gitee.com/imgrep001/m1/raw/master/20200812105011.png)
 
 鸣谢：
 
