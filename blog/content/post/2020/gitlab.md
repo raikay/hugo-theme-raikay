@@ -30,10 +30,9 @@ mkdir -p /home/gitlab/data    #创建data目录
 
 强烈建议80端口不要映射其他端口， http clone 那里生成的地址不带映射端口
 
-```sh
-docker run -d  -p 7001:443 -p 80:80 -p 7003:22 \
---name gitlab \
---restart always \
+```shell
+docker run -d  -p 443:443 -p 80:80 -p 222:22 \
+--name gitlab --restart always \
 -v /home/gitlab/config:/etc/gitlab \
 -v /home/gitlab/logs:/var/log/gitlab \
 -v /home/gitlab/data:/var/opt/gitlab \
@@ -63,12 +62,13 @@ vim /home/gitlab/config/gitlab.rb
 
 
 ```shell
-# 配置http协议所使用的访问地址,不加端口号默认为80
+# 配置http协议所使用的访问地址,不加端口号默认为80 
+#(我加端口号访问就会失败，最后用默认80端口)
 external_url 'http://192.168.198.130'
 
 # 配置ssh协议所使用的访问地址和端口
 gitlab_rails['gitlab_ssh_host'] = '192.168.198.130'
-gitlab_rails['gitlab_shell_ssh_port'] = 7003 # 此端口是run时22端口映射的7003端口
+gitlab_rails['gitlab_shell_ssh_port'] = 222 # 此端口是run时22端口映射的222端口
 :wq #保存配置文件并退出
 ```
 
@@ -143,3 +143,5 @@ https://www.cnblogs.com/root0/articles/12762789.html
 https://www.jianshu.com/p/080a962c35b6
 
 https://www.jianshu.com/p/0bc9b4755082
+
+https://www.cnblogs.com/believepd/p/10499844.html

@@ -262,6 +262,12 @@ pip install docker-compose
 docker-compose -version
 ```
 
+如果超时失败，可以临时使用国内源
+
+```
+pip install docker-compose -i https://mirrors.aliyun.com/pypi/simple/
+```
+
 
 
 2、 error: command 'gcc' failed with exit status 1  
