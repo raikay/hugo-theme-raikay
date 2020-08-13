@@ -23,7 +23,19 @@ yum makecache  #生成仓库缓存
 ### 安装：
 
 ```
-yum install docker -y
+yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2
+```
+
+```
+yum-config-manager \
+   --add-repo \
+   https://download.docker.com/linux/centos/docker-ce.repo
+```
+
+```
+yum install docker-ce docker-ce-cli containerd.io
 ```
 
 
@@ -52,14 +64,29 @@ docker version #查看版本
 修改之后重启docker服务
 
 ```
+vi  /etc/docker/daemon.json
+```
+
+
+```
 {
-  "registry-mirrors": [
-    "https://registry.docker-cn.com",
-    "http://hub-mirror.c.163.com",
-    "https://docker.mirrors.ustc.edu.cn"
-  ]
+  "registry-mirrors" : [
+    "http://ovfftd6p.mirror.aliyuncs.com",
+    "http://registry.docker-cn.com",
+    "http://docker.mirrors.ustc.edu.cn",
+    "http://hub-mirror.c.163.com"
+  ],
+  "insecure-registries" : [
+    "registry.docker-cn.com",
+    "docker.mirrors.ustc.edu.cn"
+  ],
+  "debug" : true,
+  "experimental" : true
 }
 ```
+
+
+
 **加速源**
 
 |  名称|  地址|
@@ -156,3 +183,19 @@ docker run -itd --name redis-test -p 6379:6379 redis
 docker exec -it redis-test /bin/bash
 ```
 
+源简写
+```
+{
+  "registry-mirrors": [
+    "https://registry.docker-cn.com",
+    "http://hub-mirror.c.163.com",
+    "https://docker.mirrors.ustc.edu.cn"
+  ]
+}
+```
+
+删除已安装的docker版本
+ ```
+ #不删除 /var/lib/docker 目录 就不会删除已安装的镜像及容器
+ yum -y remove docker*
+ ```
