@@ -5,6 +5,7 @@ date = "2020-04-08"
 description = "Docker部署Gitlab 环境  安装 文档 教程 镜像"
 tags = [
     "gitlab",
+    "docker",
 ]
 
 +++

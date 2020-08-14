@@ -50,31 +50,14 @@ yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/d
 yum install -y docker-ce docker-ce-cli containerd.io
 ```
 
-### 启动
-
-```shell
-systemctl start docker  #启动docker
-systemctl enable docker #开机启动docker
-```
-
-### 查看	
-
-```shell
-systemctl status docker #查看docker状态
-docker info  #查看详细信息
-docker version #查看版本
-```
-
-
-
 ### 配置加速
 
-创建或修改 /etc/docker/daemon.json 文件
+创建或修改 `daemon.json` 文件
 
 修改之后重启docker服务
 
 ```shell
-vi  /etc/docker/daemon.json
+vim  /etc/docker/daemon.json
 ```
 
 
@@ -95,6 +78,29 @@ vi  /etc/docker/daemon.json
 }
 ```
 
+开机启动
+
+```
+systemctl enable docker #开机启动docker
+```
+
+
+
+### 重启
+
+```shell
+systemctl daemon-reload #加载
+systemctl restart docker  #重启docker
+```
+
+### 查看	
+
+```shell
+systemctl status docker #查看docker状态
+docker info  #查看详细信息
+docker version #查看版本
+```
+
 
 
 **加速源**
@@ -105,14 +111,6 @@ vi  /etc/docker/daemon.json
 | ustc                 |  https://docker.mirrors.ustc.edu.cn |
 | 中国科技大学         |   https://docker.mirrors.ustc.edu.cn |
 | Docker中国区官方镜像         | https://registry.docker-cn.com      |
-
-
-
-### 重启
-```shell
-systemctl daemon-reload #加载
-systemctl restart docker
-```
 
 
 

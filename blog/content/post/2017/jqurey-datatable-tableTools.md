@@ -1,7 +1,7 @@
 +++
 author = "raikay"  
 title = "jqurey datatable  tableTools  自定义button元素 以及按钮定义事件"  
-date = "2017-05-013"  
+date = "2017-05-13"  
 description = "jqurey datatable  tableTools  自定义button元素 以及按钮定义事件"  
 tags = [
     " 前端",
