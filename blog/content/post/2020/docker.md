@@ -42,6 +42,8 @@ yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/d
 > rm -f /etc/yum.repos.d/docker-ce.repo
 > #使用官方源
 > yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+> #清华大学源
+> #https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/docker-ce.repo
 > ```
 
 3、安装Docker-CE
@@ -66,8 +68,7 @@ vim  /etc/docker/daemon.json
   "registry-mirrors" : [
     "http://registry.docker-cn.com",
     "http://docker.mirrors.ustc.edu.cn",
-    "http://hub-mirror.c.163.com",
-    "http://ovfftd6p.mirror.aliyuncs.com"
+    "http://hub-mirror.c.163.com"
   ],
   "insecure-registries" : [
     "registry.docker-cn.com",
