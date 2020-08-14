@@ -4,7 +4,7 @@ title = "sitemap和sitemapindex "
 date = "2017-05-17"  
 description = "sitemap和sitemapindex"  
 tags = [
-    "sitemap",
+    "SEO",
 ]  
 +++
 

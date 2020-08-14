@@ -4,10 +4,7 @@ title = "Dapper连接MySql(Core读取配置)"
 date = "2018-03-11"
 description = "git 常用命令 笔记 学习 教程 分支 差异."
 tags = [
-    "Dapper",
-	"core",
-	"helper",
-	"配置文件",
+    "dotnet",
 ]
 series = ["配置文件","helper","Dapper"]
 aliases = ["migrate-from-jekyl"]

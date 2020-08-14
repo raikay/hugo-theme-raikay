@@ -4,8 +4,7 @@ title = "通过一个一般处理程序（aspx文件)直接获取服务器web.co
 date = "2017-03-11"
 description = "MarkDown基本语法以及相关工具笔记简单介绍"
 tags = [
-    "aspx",
-	"一般处理程序",
+    "dotnet",
 ]
 
 +++

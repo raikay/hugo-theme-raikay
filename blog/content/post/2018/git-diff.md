@@ -2,11 +2,9 @@
 author = "Raikay"
 title = "git命令备忘系列（四）：对比两个分支的差异（diff）"
 date = "2018-06-10"
-description = "git 常用命令 笔记 学习 教程 分支 差异."
+description = "git 常用命令 笔记 学习 教程 分支 差异 ."
 tags = [
     "git",
-    "版本控制",
-    "差异",
 ]
 
 +++

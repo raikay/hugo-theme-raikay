@@ -4,9 +4,7 @@ title = "DotNet Core AutoMapper实体映射学习记录"
 date = "2018-03-11"
 description = "DotNet Core AutoMapper实体映射学习记录 AutoMapper .Net Core 实体映射记 学习 教程 ."
 tags = [
-    "AutoMapper",
-	".Net Core",
-	"实体映射",
+    "dotnet",
 ]
 series = ["命令","git"]
 aliases = ["migrate-from-jekyl"]

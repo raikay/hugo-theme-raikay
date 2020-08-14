@@ -4,8 +4,7 @@ title = "DotNet Framework 类库 自带的缓存 HttpRuntime.Cache HttpContext.C
 date = "2017-03-11"
 description = "DotNet Framework 类库 自带的缓存 HttpRuntime.Cache HttpContext.Cache"
 tags = [
-    "缓存",
-	"Framework",
+    "dotnet",
 ]
 
 +++

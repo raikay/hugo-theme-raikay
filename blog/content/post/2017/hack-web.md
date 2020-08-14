@@ -4,7 +4,7 @@ title = "如何用好消息队列RabbitMQ？ "
 date = "2017-03-11"
 description = "如何用好消息队列RabbitMQ？RabbitMQ 是基于 AMQP 实现的一个开源消息组件，主要用于在分布式系统中存储转发消息，由因高性能、高可用以及高扩展而出名的 Erlang 语言写成 "
 tags = [
-    "RabbitMQ",
+    "数据库",
 ]
 
 +++

@@ -4,7 +4,7 @@ title = "程序员除了会 CRUD 之外，还应该知道什么叫 CQRS！"
 date = "2017-03-11"  
 description = "程序员除了会 CRUD 之外，还应该知道什么叫 CQRS！简单的说，CQRS（Command Query Responsibility Segration）就是一个系统，从架构上把 CRUD 系统拆分为两部分：命令（Command）处理和查询（Query）处理。其中命令处理包括增、删、改。"  
 tags = [
-    "HTTP",
+    "dotnet",
 ]  
 +++
 

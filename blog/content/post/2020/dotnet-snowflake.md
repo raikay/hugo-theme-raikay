@@ -5,7 +5,6 @@ date = "2020-02-11"
 description = "分布式唯一ID 解决方案 非 GUID UUID：雪花ID Snowflake DotNet版 DotNet Core"
 tags = [
     "分布式",
-	"雪花Id",
 ]
 
 +++

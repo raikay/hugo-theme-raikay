@@ -4,7 +4,7 @@ title = "正则表达式元字符简介 "
 date = "2019-08-06"  
 description = "正则表达式元字符简介 基本元字符 c# .net core 正则表达式"  
 tags = [
-    "正则",
+    "dotnet",
 ]  
 
 +++

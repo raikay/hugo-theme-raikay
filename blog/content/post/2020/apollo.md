@@ -4,7 +4,7 @@ title = "Docker部署Apollo单环境以及多环境在一台服务器"
 date = "2020-04-05"
 description = "Docker部署Apollo单机单环境和单机多环境 安装 文档 教程 镜像 分布式 环境"
 tags = [
-    "Apollo",
+    "apollo",
 ]
 
 +++

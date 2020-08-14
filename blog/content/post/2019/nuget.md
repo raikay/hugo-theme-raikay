@@ -4,7 +4,7 @@ title = "NuGet源中国加速镜像，博客园，华为等"
 date = "2019-03-11"
 description = "NuGet源中国加速镜像，博客园，华为、官方镜像等 如何修改NuGet源"
 tags = [
-    "NuGet",
+    "dotnet",
 ]
 
 +++

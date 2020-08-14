@@ -4,9 +4,7 @@ title = "Net Core 3.x 禁用序列化时自动首字母小写"
 date = "2019-03-11"
 description = "Net Core 3.x 禁用序列化时自动首字母小写."
 tags = [
-    ".Net Core",
-	"配置文件",
-	"序列化",
+    "dotnet",
 ]
 series = [".Net Core","配置文件"]
 +++

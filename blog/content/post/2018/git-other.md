@@ -2,10 +2,9 @@
 author = "Raikay"  
 title = "git命令备忘系列（八）：其他命令集合"  
 date = "2018-08-06"  
-description = "ggit命令备忘系列（八）：其他命令集合  笔记 学习 教程 分支 差异"  
+description = "ggit命令备忘系列（八）：其他命令集合  笔记 学习 教程 分支 差异 "  
 tags = [
     "git",
-	"版本控制",
 ]  
 +++
 

@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>MarkDown on 代码改变世界</title>
+		<title>markdown on 代码改变世界</title>
 		<link>http://blog.raikay.com/tags/markdown/</link>
-		<description>Recent content in MarkDown on 代码改变世界</description>
+		<description>Recent content in markdown on 代码改变世界</description>
 		<generator>Hugo -- gohugo.io</generator>
 		
   		<language>zh-CN</language>
@@ -46,9 +46,9 @@ apollo-quick-start | Waiting for config service startup.....apollo-quick-start 
 yum install -y yum-utils device-mapper-persistent-data lvm22、添加阿里镜像稳定版仓库
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 添加阿里源时有时会报错，如果报错，使用如下命令使用官方源
 #删除异常源rm -f /etc/yum.repos.d/docker-ce.repo#使用官方源yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo 3、安装Docker-CE
-yum install docker-ce docker-ce-cli containerd.io启动 systemctl start docker #启动dockersystemctl enable docker #开机启动docker查看 systemctl status docker #查看docker状态docker info #查看详细信息docker version #查看版本配置加速 创建或修改 /etc/docker/daemon.json 文件
+yum install -y docker-ce docker-ce-cli containerd.io启动 systemctl start docker #启动dockersystemctl enable docker #开机启动docker查看 systemctl status docker #查看docker状态docker info #查看详细信息docker version #查看版本配置加速 创建或修改 /etc/docker/daemon.json 文件
 修改之后重启docker服务
-vi /etc/docker/daemon.json{&amp;#34;registry-mirrors&amp;#34; : [&amp;#34;http://registry.</description>
+vi /etc/docker/daemon.</description>
 		</item>
 		
 		<item>
@@ -95,6 +95,14 @@ vuepress dev .4、访问站点 http://localhost:8080/初始化项目 npm init 
 		</item>
 		
 		<item>
+			<title>Linux服务器使用Docker部署donet core项目 </title>
+			<link>http://blog.raikay.com/post/2020/dotnet-docker/</link>
+			<pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2020/dotnet-docker/</guid>
+			<description></description>
+		</item>
+		
+		<item>
 			<title>分布式唯一ID：雪花ID Snowflake .Net版</title>
 			<link>http://blog.raikay.com/post/2020/dotnet-snowflake/</link>
 			<pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
@@ -127,15 +135,6 @@ public class SnowflakeId{// 开始时间截((new DateTime(2020, 1, 1, 0, 0, 0,
 			<pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
 			<guid>http://blog.raikay.com/post/2019/npm/</guid>
 			<description>npm  允许用户从NPM服务器下载别人编写的第三方包到本地使用。 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用  npm命令  npm -v 来测试是否成功安装 查看当前目录已安装插件：npm list 更新全部插件： npm update [ --save-dev ] 使用 npm 更新对应插件： npm update &amp;lt;name&amp;gt; [ -g ] [ --save-dev] 使用 npm 卸载插件： npm uninstall &amp;lt;name&amp;gt; [ -g ] [ --save-dev ]  cnpm  淘宝团队做的国内镜像，因为npm的服务器位于国外可能会影响安装。淘宝镜像与官方同步频率目前为 10分钟 一次以保证尽量与官方服务同步。 安装：命令提示符执行 npm install cnpm -g --registry=https://registry.npm.taobao.org cnpm -v 来测试是否成功安装  通过改变地址来使用淘宝镜像  npm的默认地址是https://registry.npmjs.org/ 可以使用npm config get registry查看npm的仓库地址 可以使用npm config set registry https://registry.npm.taobao.org来改变默认下载地址，达到可以不安装cnpm就能采用淘宝镜像的目的，然后使用上面的get命令查看是否成功。  nrm   nrm包安装命令： npm i nrm -g</description>
-		</item>
-		
-		<item>
-			<title>F5负载均衡架构图 </title>
-			<link>http://blog.raikay.com/post/2018/f5/</link>
-			<pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
-			<guid>http://blog.raikay.com/post/2018/f5/</guid>
-			<description>巨人的肩膀：
-https://blog.csdn.net/qq_35611533/article/details/51917279?locationNum=1&amp;amp;fps=1</description>
 		</item>
 		
 	</channel>

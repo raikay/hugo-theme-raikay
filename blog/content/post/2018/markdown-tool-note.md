@@ -4,10 +4,7 @@ title = "MarkDown基本语法以及相关工具笔记简单介绍"
 date = "2017-03-11"
 description = "MarkDown基本语法以及相关工具笔记简单介绍"
 tags = [
-    "MarkDown",
-	"工具",
-	"笔记",
-	"语法",
+    "markdown",
 ]
 +++
 

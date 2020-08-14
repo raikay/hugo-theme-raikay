@@ -4,7 +4,7 @@ title = "把C#程序（含多个Dll）合并成一个Exe的超简单方法"
 date = "2019-03-11"
 description = "把C#程序（含多个Dll）合并成一个Exe的超简单方法"
 tags = [
-    "DotNet技巧",
+    "dotnet",
 ]
 +++
 

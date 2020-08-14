@@ -2,11 +2,9 @@
 author = "Raikay"  
 title = "git命令备忘系列（七）：标签操作（tag）"  
 date = "2018-06-13"  
-description = "git命令备忘录系列：标签操作（tag） 笔记 学习 教程 分支 差异"  
+description = "git命令备忘录系列：标签操作（tag） 笔记 学习 教程 分支 差异 版本控制"  
 tags = [
     "git",
-	"版本控制",
-	"标签"
 ]  
 +++
 

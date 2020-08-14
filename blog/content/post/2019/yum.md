@@ -4,7 +4,7 @@ title = "yum的基本使用"
 date = "2019-05-16"
 description = "yum的基本使用 Centos yum 安装指定版本 软件 yum替换国内加速源"
 tags = [
-    "yum",
+    "linux",
 ]
 
 +++

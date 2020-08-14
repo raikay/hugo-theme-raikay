@@ -4,7 +4,7 @@ title = "Docker环境安装以及基础使用命令"
 date = "2020-04-03"
 description = "Docker 部署 环境  安装 文档 教程 镜像 分布式 "
 tags = [
-    "Docker",
+    "docker",
 ]
 
 +++
@@ -47,7 +47,7 @@ yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/d
 3、安装Docker-CE
 
 ```shell
-yum install docker-ce docker-ce-cli containerd.io
+yum install -y docker-ce docker-ce-cli containerd.io
 ```
 
 ### 启动
