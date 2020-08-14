@@ -53,19 +53,23 @@ git clone https://github.com/raikay/firstdemo.git
 
 
 
-如果构建dotnet环境太慢，可以提前下载加速镜像
-
-```
-docker pull ccr.ccs.tencentyun.com/dotnet-core/aspnet:3.1-buster-slim
-
-docker tag ccr.ccs.tencentyun.com/dotnet-core/aspnet:3.1-buster-slim mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim
-```
-
-```
-docker pull ccr.ccs.tencentyun.com/dotnet-core/sdk:3.1-buster
-
-docker tag ccr.ccs.tencentyun.com/dotnet-core/sdk:3.1-buster mcr.microsoft.com/dotnet/core/sdk:3.1-buster
-```
+> 如果构建dotnet环境太慢，可以使用腾讯加速镜像下载
+>
+> ```
+> docker pull ccr.ccs.tencentyun.com/dotnet-core/aspnet:3.1-buster-slim
+>
+> docker tag ccr.ccs.tencentyun.com/dotnet-core/aspnet:3.1-buster-slim mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim
+> ```
+> 
+> ```
+> docker pull ccr.ccs.tencentyun.com/dotnet-core/sdk:3.1-buster
+> 
+> docker tag ccr.ccs.tencentyun.com/dotnet-core/sdk:3.1-buster mcr.microsoft.com/dotnet/core/sdk:3.1-buster
+> ```
+> 
+> ```
+> docker build -t firstdemo . -f firstdemo/Dockerfile
+> ```
 
 ### 运行镜像
 
@@ -85,5 +89,43 @@ http://192.168.198.131:1080/WeatherForecast
 
 ![IMG](https://gitee.com/imgrep001/m1/raw/master/20200814172900.png)
 
+### Dockerfile解释
 
+```sh
+#使用asp.net core 3.1作为基础镜像，起一个别名为base
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+#设置容器的工作目录为/app
+WORKDIR /app
+#暴露80端口
+EXPOSE 80
+
+#使用.net core sdk 3.1作为基础镜像，起一个别名为build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+#设置容器的工作目录为/src
+WORKDIR /src
+#拷贝WebApplication1/WebApplication1.csproj项目文件到容器中的/src/WebApplication1/目录
+COPY ["WebApplication1/WebApplication1.csproj", "WebApplication1/"]
+#执行dotnet restore命令，相当于平时用vs还原nuget包
+RUN dotnet restore "WebApplication1/WebApplication1.csproj"
+#拷贝当前目录的文件到到容器的/src目录
+COPY . .
+#设置容器的工作目录为/src/WebApplication1
+WORKDIR "/src/WebApplication1"
+#执行dotnet build命令，相当于平时用vs生成项目。以Release模式生成到容器的/app/build目录
+RUN dotnet build "WebApplication1.csproj" -c Release -o /app/build
+
+#将上面的build(.net core sdk 3.1)作为基础镜像，又重命名为publish
+FROM build AS publish
+#执行dotnet publish命令，相当于平时用vs发布项目。以Release模式发布到容器的/app/publish目录
+RUN dotnet publish "WebApplication1.csproj" -c Release -o /app/publish
+
+#将上面的base(asp.net core 3.1)作为基础镜像，又重命名为final
+FROM base AS final
+#设置容器的工作目录为/app
+WORKDIR /app
+#拷贝/app/publish目录到当前工作目录
+COPY --from=publish /app/publish .
+#指定容器入口命令，容器启动时会运行dotnet WebApplication1.dll
+ENTRYPOINT ["dotnet", "WebApplication1.dll"]
+```
 
