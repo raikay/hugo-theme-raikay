@@ -2,7 +2,7 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-<title>Docker部署Apollo单机单环境和单机多环境</title>
+<title>Docker部署Apollo单环境以及多环境在一台服务器</title>
 <meta name="description" content="Docker部署Apollo单机单环境和单机多环境 安装 文档 教程 镜像 分布式 环境">
 
 
@@ -58,7 +58,7 @@
         <div class="post-heading">
 				  
           
-            <h1>Docker部署Apollo单机单环境和单机多环境</h1>
+            <h1>Docker部署Apollo单环境以及多环境在一台服务器</h1>
           
           
             <span class="meta-post">
@@ -92,8 +92,9 @@
 <pre><code>git clone https://github.com/ctripcorp/apollo.git
 </code></pre><h3 id="二进入docker-quick-start-目录">二、进入docker-quick-start 目录</h3>
 <pre><code>cd apollo/scripts/docker-quick-start
-</code></pre><h3 id="三安装成功">三、安装成功</h3>
-<p>看到下面日志表示已经安装成功</p>
+</code></pre><h3 id="三安装启动">三、安装启动</h3>
+<pre><code>docker-compose up
+</code></pre><p>看到下面日志表示已经安装成功</p>
 <pre><code>apollo-quick-start    | Waiting for config service startup.....
 apollo-quick-start    | Config service started. You may visit http://localhost:8080 for service status now!
 apollo-quick-start    | Waiting for admin service startup.
@@ -130,9 +131,8 @@ cat apollo-service_apollo-quick-startservice.log
 docker stop apollo-quick-start
 </code></pre><p>启动客户端程序，在控制台获取value</p>
 <pre><code>docker exec -i apollo-quick-start /apollo-quick-start/demo.sh client
-
 </code></pre><p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811151609.png" alt="IMG"></p>
-<h1 id="单机多环境安装及基本使用">单机多环境安装及基本使用</h1>
+<h1 id="多环境安装在一台机器多及基本使用">多环境安装在一台机器多及基本使用</h1>
 <h3 id="一搭建mysql">一、搭建MySql</h3>
 <p><strong>1、拉取官方镜像</strong>
 （我们这里选择5.7，如果不写后面的版本号则会自动拉取最新版）</p>
@@ -180,9 +180,9 @@ ApolloPortalDB : <code>apolloportaldb.sql</code></p>
 <p>现在已经是两个环境 DEV、PRO</p>
 <p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811172833.png" alt="IMG"></p>
 <h3 id="新增配置">新增配置</h3>
-<p>默认只创建一个DEV环境，也可以在【选择集群】勾选PRO，同时创建两个环境。</p>
+<p>默认只在DEV环境创建，也可以在【选择集群】勾选PRO，同时在两个环境创建。</p>
 <p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811173324.png" alt="IMG"></p>
-<p>也可以根据实际项目进度，部署生产环境事在同步到PRO</p>
+<p>也可以根据实际项目进度，部署生产环境时同步到PRO</p>
 <p>图1</p>
 <p><img src="https://gitee.com/imgrep001/m1/raw/master/20200811173713.png" alt="IMG"></p>
 <p>图2</p>
@@ -201,8 +201,23 @@ pip install --upgrade pip
 <pre><code>pip install docker-compose
 #检查是是否成功
 docker-compose -version
+</code></pre><p>如果超时失败，可以临时使用国内源</p>
+<pre><code>pip install docker-compose -i https://mirrors.aliyun.com/pypi/simple/
 </code></pre><p>2、 error: command &lsquo;gcc&rsquo; failed with exit status 1</p>
 <p>是否忘记 升级pip</p>
+<p>3、环境科普</p>
+<p>DEV：Development environment，开发环境，用于开发者调试使用</p>
+<p>FAT：Feature Acceptance Test environment，功能验收测试环境，用于软件测试者测试使用</p>
+<p>UAT：User Acceptance Test environment，用户验收测试环境，用于生产环境下的软件测试者测试使用</p>
+<p>PRO：Production environment，生产环境</p>
+<p>4、继续扩展</p>
+<p>如果想添加 UAT、FAT等环境添加对应的数据库</p>
+<p>修改 <code>ApolloConfigDBUat</code>库中<code>ServerConfig</code>表eureka.service.url的值 为<code>http://localhost:8081/eureka/</code></p>
+<p>修改 <code>ApolloConfigDBFat</code>库中<code>ServerConfig</code>表eureka.service.url的值 为<code>http://localhost:8082/eureka/ </code></p>
+<p>修改 <code>ApolloPortalDB</code>库中<code>ServerConfig</code>表<code>configView.memberOnly.envs</code>的值为<code>pro,uat,fat</code></p>
+<p>同时环境变量增加对应的数据库连接、账号密码</p>
+<p><a href="https://github.com/ctripcorp/apollo/wiki/Apollo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97#%E4%B8%80%E6%99%AE%E9%80%9A%E5%BA%94%E7%94%A8%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97">使用指南</a></p>
+<p><img src="https://gitee.com/imgrep001/m1/raw/master/20200812105011.png" alt="IMG"></p>
 <p>鸣谢：</p>
 <p><a href="https://www.cnblogs.com/756623607-zhang/p/12726276.html">https://www.cnblogs.com/756623607-zhang/p/12726276.html</a></p>
 <p><a href="https://www.cnblogs.com/sablier/p/11605606.html">https://www.cnblogs.com/sablier/p/11605606.html</a></p>

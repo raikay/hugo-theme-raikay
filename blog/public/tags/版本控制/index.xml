@@ -14,13 +14,26 @@
 		<atom:link href="http://blog.raikay.com/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" rel="self" type="application/rss+xml" />
 		
 		<item>
-			<title>Docker部署Apollo单机单环境和单机多环境</title>
+			<title>Docker部署Gitlab及简单使用</title>
+			<link>http://blog.raikay.com/post/2020/gitlab/</link>
+			<pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
+			<guid>http://blog.raikay.com/post/2020/gitlab/</guid>
+			<description>安装Gitlab 1、拉取镜像
+# gitlab-ce为稳定版本，后面不填写版本则默认pull最新latest版本docker pull gitlab/gitlab-ce2、创建映射目录
+mkdir -p /home/gitlab/config #创建config目录mkdir -p /home/gitlab/logs #创建logs目录mkdir -p /home/gitlab/data #创建data目录3、运行镜像
+强烈建议80端口不要映射其他端口， http clone 那里生成的地址不带映射端口
+docker run -d -p 443:443 -p 80:80 -p 222:22 \ --name gitlab --restart always \ -v /home/gitlab/config:/etc/gitlab \ -v /home/gitlab/logs:/var/log/gitlab \ -v /home/gitlab/data:/var/opt/gitlab \ gitlab/gitlab-ce参数说明：
+   参数名称 简写 参数说明     detach d 后台运行   hostname  指定主机地址，如果有域名可以指向域名   publish p 将容器内部端口向外映射,左边代表宿主机的端口，右边代表容器端口   name  容器名称   restart always  总是重启   volume v 将容器内数据文件夹或者日志、配置等文件夹挂载到宿主机指定目录    4、配置</description>
+		</item>
+		
+		<item>
+			<title>Docker部署Apollo单环境以及多环境在一台服务器</title>
 			<link>http://blog.raikay.com/post/2020/apollo/</link>
 			<pubDate>Sun, 05 Apr 2020 00:00:00 +0000</pubDate>
 			<guid>http://blog.raikay.com/post/2020/apollo/</guid>
 			<description>单环境安装及基本使用  必备环境：Docker
 Docker 安装 : http://blog.raikay.com/post/2020/docker/
- 一、下载Apollo源码 git clone https://github.com/ctripcorp/apollo.git二、进入docker-quick-start 目录 cd apollo/scripts/docker-quick-start三、安装成功 看到下面日志表示已经安装成功
+ 一、下载Apollo源码 git clone https://github.com/ctripcorp/apollo.git二、进入docker-quick-start 目录 cd apollo/scripts/docker-quick-start三、安装启动 docker-compose up看到下面日志表示已经安装成功
 apollo-quick-start | Waiting for config service startup.....apollo-quick-start | Config service started. You may visit http://localhost:8080 for service status now!apollo-quick-start | Waiting for admin service startup.apollo-quick-start | Admin service startedapollo-quick-start | ==== starting portal ====apollo-quick-start | Portal logging file is ./portal/apollo-portal.logapollo-quick-start | Started [237]apollo-quick-start | Waiting for portal startup.</description>
 		</item>
 		
@@ -29,10 +42,13 @@ apollo-quick-start | Waiting for config service startup.....apollo-quick-start 
 			<link>http://blog.raikay.com/post/2020/docker/</link>
 			<pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
 			<guid>http://blog.raikay.com/post/2020/docker/</guid>
-			<description>安装Docker yum加速：如果不是国内源可以替换加速 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo #下载阿里yum源2 yum makecache #生成仓库缓存 安装： yum install docker -y启动 systemctl start docker #启动dockersystemctl enable docker #开机启动docker查看 systemctl status docker #查看docker状态docker info #查看详细信息docker version #查看版本加速 创建或修改 /etc/docker/daemon.json 文件
+			<description>安装Docker yum加速：如果不是国内源可以替换加速 #下载阿里yum源2 wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo yum clean all #清理缓存yum makecache #生成仓库缓存 安装： 1、安装必要依赖包
+yum install -y yum-utils device-mapper-persistent-data lvm22、添加阿里镜像稳定版仓库
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 添加阿里源时有时会报错，如果报错，使用如下命令使用官方源
+#删除异常源rm -f /etc/yum.repos.d/docker-ce.repo#使用官方源yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo 3、安装Docker-CE
+yum install docker-ce docker-ce-cli containerd.io启动 systemctl start docker #启动dockersystemctl enable docker #开机启动docker查看 systemctl status docker #查看docker状态docker info #查看详细信息docker version #查看版本配置加速 创建或修改 /etc/docker/daemon.json 文件
 修改之后重启docker服务
-{&amp;quot;registry-mirrors&amp;quot;: [&amp;quot;https://registry.docker-cn.com&amp;quot;,&amp;quot;http://hub-mirror.c.163.com&amp;quot;,&amp;quot;https://docker.mirrors.ustc.edu.cn&amp;quot;]}加速源
-   名称 地址     网易 http://hub-mirror.c.163.com   ustc https://docker.mirrors.ustc.edu.cn   中国科技大学 https://docker.mirrors.ustc.edu.cn   Docker中国区官方镜像 https://registry.</description>
+vi /etc/docker/daemon.json{&amp;#34;registry-mirrors&amp;#34; : [&amp;#34;http://registry.</description>
 		</item>
 		
 		<item>
@@ -120,32 +136,6 @@ public class SnowflakeId{// 开始时间截((new DateTime(2020, 1, 1, 0, 0, 0,
 			<guid>http://blog.raikay.com/post/2018/f5/</guid>
 			<description>巨人的肩膀：
 https://blog.csdn.net/qq_35611533/article/details/51917279?locationNum=1&amp;amp;fps=1</description>
-		</item>
-		
-		<item>
-			<title>HTTP / HTTPS 必备基础知识</title>
-			<link>http://blog.raikay.com/post/2019/http/</link>
-			<pubDate>Tue, 06 Aug 2019 00:00:00 +0000</pubDate>
-			<guid>http://blog.raikay.com/post/2019/http/</guid>
-			<description>HTTP 是一种 超文本传输协议(Hypertext Transfer Protocol)。
-http是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应 。
-1、地址栏输入网址（url）后发生了什么 1. DNS解析
-首先浏览器通过DNS解析根据域名获取IP。通过下面的顺序获取。其中某个节点返回IP就不继续执行。
- 浏览器缓存 &amp;ndash;&amp;gt; 系统host &amp;ndash;&amp;gt; 本地域名服务器LDNS &amp;ndash;&amp;gt; Root Server 域名服务器
- 2. 建立连接
-浏览器根据得到的IP和目标服务器经过三次握手建立 TCP 连接。
-3. 请求
-建立连接后，浏览器会向目标服务器发起 HTTP-GET 请求，包括其中的 URL，HTTP 1.1 后默认使用长连接，只需要一次握手即可多次传输数据。
-4. 响应
-如果目标服务器只是一个简单的页面，就会直接返回，状态码为200。如果有重定向 ，返回 301,302 以 3 开头的重定向码，浏览器在获取了重定向响应后，在响应报文中 Location 项找到重定向地址，浏览器重新第一步访问即可。
-5. 关闭连接
-应答结束后，web浏览器与webserver四次握手断开连接，以保证其它web浏览器能够与webserver建立连接。
-http1.1不是立即断开连接，而是服务端使用超时断开的策略来维护连接，一般是300s左右
-2、无状态协议 HTTP无状态协议，是指协议对于事务处理没有记忆能力。每次的请求都是独立的，它的执行情况和结果与前面的请求和之后的请求是无直接关系的。不过，可以通过cookie、session等机制解决这个问题。
-3、HTTP请求方法 根据 HTTP 标准，HTTP 请求可以使用多种请求方法。
-HTTP1.0 定义了三种请求方法： GET, POST 和 HEAD方法。
-HTTP1.1 新增了六种请求方法：OPTIONS、PUT、PATCH、DELETE、TRACE 和 CONNECT 方法。
-   方法 描述     GET 请求指定的页面信息，并返回实体主体。   POST 向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST 请求可能会导致新的资源的建立和/或已有资源的修改。   PUT 从客户端向服务器传送的数据取代指定的文档的内容。   DELETE 请求服务器删除指定的页面。   HEAD 类似于 GET 请求，只不过返回的响应中没有具体的内容，用于获取报头   CONNECT 协议中预留给能够将连接改为管道方式的代理服务器。   OPTIONS 允许客户端查看服务器的性能。   TRACE 回显服务器收到的请求，主要用于测试或诊断。   PATCH 对 PUT 方法的补充，用来对已知资源进行局部更新 。    4、HTTP报文 在HTTP连接中报文分为请求（request）和响应（response）两种。每种报文在请求头都有不同的字段来标识不同的用途。</description>
 		</item>
 		
 	</channel>

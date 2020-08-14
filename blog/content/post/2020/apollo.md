@@ -118,7 +118,7 @@ docker exec -i apollo-quick-start /apollo-quick-start/demo.sh client
 
 
 
-# 环境安装在一台机器多及基本使用
+# 多环境安装在一台机器多及基本使用
 
 ### 一、搭建MySql
 

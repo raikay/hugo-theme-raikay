@@ -85,28 +85,50 @@
       
     <h1 id="安装docker">安装Docker</h1>
 <h3 id="yum加速如果不是国内源可以替换加速">yum加速：如果不是国内源可以替换加速</h3>
-<pre><code>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo #下载阿里yum源2 
-yum makecache  #生成仓库缓存 
-</code></pre><h3 id="安装">安装：</h3>
-<pre><code>yum install docker -y
-</code></pre><h3 id="启动">启动</h3>
-<pre><code>systemctl start docker  #启动docker
-systemctl enable docker #开机启动docker
-</code></pre><h3 id="查看">查看</h3>
-<pre><code>systemctl status docker #查看docker状态
-docker info  #查看详细信息
-docker version #查看版本
-</code></pre><h3 id="加速">加速</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#下载阿里yum源2</span> 
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 
+yum clean all  <span style="color:#75715e">#清理缓存</span>
+yum makecache  <span style="color:#75715e">#生成仓库缓存</span> 
+</code></pre></div><h3 id="安装">安装：</h3>
+<p>1、安装必要依赖包</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install -y yum-utils device-mapper-persistent-data lvm2
+</code></pre></div><p>2、添加阿里镜像稳定版仓库</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+</code></pre></div><blockquote>
+<p>添加阿里源时有时会报错，如果报错，使用如下命令使用官方源</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#删除异常源</span>
+rm -f /etc/yum.repos.d/docker-ce.repo
+<span style="color:#75715e">#使用官方源</span>
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+</code></pre></div></blockquote>
+<p>3、安装Docker-CE</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install docker-ce docker-ce-cli containerd.io
+</code></pre></div><h3 id="启动">启动</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl start docker  <span style="color:#75715e">#启动docker</span>
+systemctl enable docker <span style="color:#75715e">#开机启动docker</span>
+</code></pre></div><h3 id="查看">查看</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl status docker <span style="color:#75715e">#查看docker状态</span>
+docker info  <span style="color:#75715e">#查看详细信息</span>
+docker version <span style="color:#75715e">#查看版本</span>
+</code></pre></div><h3 id="配置加速">配置加速</h3>
 <p>创建或修改 /etc/docker/daemon.json 文件</p>
 <p>修改之后重启docker服务</p>
-<pre><code>{
-  &quot;registry-mirrors&quot;: [
-    &quot;https://registry.docker-cn.com&quot;,
-    &quot;http://hub-mirror.c.163.com&quot;,
-    &quot;https://docker.mirrors.ustc.edu.cn&quot;
-  ]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vi  /etc/docker/daemon.json
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;registry-mirrors&#34;</span> : [
+    <span style="color:#e6db74">&#34;http://registry.docker-cn.com&#34;</span>,
+    <span style="color:#e6db74">&#34;http://docker.mirrors.ustc.edu.cn&#34;</span>,
+    <span style="color:#e6db74">&#34;http://hub-mirror.c.163.com&#34;</span>,
+    <span style="color:#e6db74">&#34;http://ovfftd6p.mirror.aliyuncs.com&#34;</span>
+  ],
+  <span style="color:#f92672">&#34;insecure-registries&#34;</span> : [
+    <span style="color:#e6db74">&#34;registry.docker-cn.com&#34;</span>,
+    <span style="color:#e6db74">&#34;docker.mirrors.ustc.edu.cn&#34;</span>
+  ],
+  <span style="color:#f92672">&#34;debug&#34;</span> : <span style="color:#66d9ef">true</span>,
+  <span style="color:#f92672">&#34;experimental&#34;</span> : <span style="color:#66d9ef">true</span>
 }
-</code></pre><p><strong>加速源</strong></p>
+</code></pre></div><p><strong>加速源</strong></p>
 <table>
 <thead>
 <tr>
@@ -134,39 +156,58 @@ docker version #查看版本
 </tbody>
 </table>
 <h3 id="重启">重启</h3>
-<pre><code>systemctl restart docker
-</code></pre><p>加载</p>
-<pre><code>systemctl daemon-reload
-</code></pre><h1 id="使用docker">使用Docker</h1>
-<h3 id="查看已有镜像列表">查看已有镜像列表</h3>
-<pre><code>docker images #查看有哪些镜像
-</code></pre><h3 id="搜索nginx镜像">搜索Nginx镜像</h3>
-<pre><code>docker search nginx #就找第一个，下载最多的，官方镜像
-</code></pre><h3 id="下载镜像">下载镜像</h3>
-<pre><code>docker pull nginx  #下载nginx镜像
-</code></pre><h3 id="启动镜像">启动镜像</h3>
-<pre><code>docker run -p 8000:80 --name mynginx -d nginx 
-#-p指定服务器8000端口,映射容器80 web端口，容器名为mynginx -d 守护进程模式启动（因为容器必须有进程在运行，否则结束就挂）
-</code></pre><h3 id="访问站点">访问站点</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl daemon-reload <span style="color:#75715e">#加载</span>
+systemctl restart docker
+</code></pre></div><h1 id="使用docker">使用Docker</h1>
+<p>查看已有镜像列表</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker images <span style="color:#75715e">#查看有哪些镜像</span>
+</code></pre></div><p>搜索Nginx镜像</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker search nginx <span style="color:#75715e">#就找第一个，下载最多的，官方镜像</span>
+</code></pre></div><p>下载镜像</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker pull nginx  <span style="color:#75715e">#下载nginx镜像</span>
+</code></pre></div><p>启动镜像</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker run -p 8000:80 --name mynginx -d nginx 
+<span style="color:#75715e">#-p指定服务器8000端口,映射容器80 web端口，容器名为mynginx -d 守护进程模式启动（因为容器必须有进程在运行，否则结束就挂</span>
+</code></pre></div><p>访问站点</p>
 <pre><code> http://localhost:8000/
-</code></pre><h3 id="查看-1">查看</h3>
-<pre><code>docker ps #查看目前工作的容器
-docker ps -a #查看所有运行过的容器
-</code></pre><h3 id="进出容器">进出容器</h3>
-<pre><code>#进入
+</code></pre><p>查看</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker ps <span style="color:#75715e">#查看目前工作的容器</span>
+docker ps -a <span style="color:#75715e">#查看所有运行过的容器</span>
+</code></pre></div><p>进出容器</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#进入</span>
 docker exec -it 容器ID /bin/bash
 
-#退出
+<span style="color:#75715e">#退出</span>
 exit
-</code></pre><h3 id="关闭镜像">关闭镜像</h3>
-<pre><code>docker stop nginx
-</code></pre><h3 id="删除镜像">删除镜像</h3>
-<pre><code>#删除所有未使用的镜像
+</code></pre></div><p>关闭镜像</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker stop nginx
+</code></pre></div><p>删除镜像</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#删除所有未使用的镜像</span>
 docker image prune 
 
-#删除指定id的镜像
+<span style="color:#75715e">#删除指定id的镜像</span>
 docker rmi &lt;image id&gt;
-</code></pre>
+</code></pre></div><p>安装redis</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker pull redis:latest
+docker run -itd --name redis-test -p 6379:6379 redis
+docker exec -it redis-test /bin/bash
+</code></pre></div><p>源简写</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;registry-mirrors&#34;</span>: [
+    <span style="color:#e6db74">&#34;https://registry.docker-cn.com&#34;</span>,
+    <span style="color:#e6db74">&#34;http://hub-mirror.c.163.com&#34;</span>,
+    <span style="color:#e6db74">&#34;https://docker.mirrors.ustc.edu.cn&#34;</span>
+  ]
+}
+</code></pre></div><p>卸载已安装的docker版本</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">yum -y remove docker*
+
+<span style="color:#75715e">#删除旧版本Docker文件</span>
+<span style="color:#75715e">#不删除目录，就不会删除已安装的镜像及容器</span>
+sudo rm /var/lib/docker/ -rf
+</code></pre></div><p>鸣谢：
+<a href="https://www.cnblogs.com/hellxz/p/11044012.html">https://www.cnblogs.com/hellxz/p/11044012.html</a></p>
+
 
 
       
