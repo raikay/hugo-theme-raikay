@@ -31,7 +31,7 @@ mkdir -p /home/gitlab/data    #创建data目录
 
 强烈建议80端口不要映射其他端口， http clone 那里生成的地址不带映射端口
 
-```shell
+```c
 docker run -d  -p 443:443 -p 80:80 -p 222:22 \
 --name gitlab --restart always \
 -v /home/gitlab/config:/etc/gitlab \
@@ -39,7 +39,6 @@ docker run -d  -p 443:443 -p 80:80 -p 222:22 \
 -v /home/gitlab/data:/var/opt/gitlab \
 gitlab/gitlab-ce
 ```
-
 参数说明：  
 
 | 参数名称       |简写| 参数说明                                                     |
