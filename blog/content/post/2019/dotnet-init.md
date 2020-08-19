@@ -11,7 +11,7 @@ tags = [
 
 +++
 
-# 环境安装及项目运行
+# 1、环境安装及项目运行
 
 安装 dotnet core
 
@@ -66,7 +66,7 @@ http://192.168.198.131/WeatherForecast
 
 至此已经成功运行！
 
-# supervisor创建守护进程
+# 2、supervisor创建守护进程
 
 到上面的步骤程序运行没问题了，但是如果退出当前控制台，程序就会结束运行。  
 
@@ -85,7 +85,7 @@ yum install -y supervisor
 supervisorctl
 ```
 
-进入 supervisor 控制台，表示服务安装成功，并已成功启动
+可以进入 supervisor 控制台，表示服务安装成功，并已成功启动
 
 ![IMG](https://gitee.com/imgrep001/m1/raw/master/20200819170821.png)
 
@@ -116,7 +116,7 @@ command=/usr/bin/dotnet  firstdemo.dll --urls http://0.0.0.0:80;
 directory=/root/firstdemo/firstdemo/publish ;
 #是否自动启动，当 supervisor 加载该配置文件的时候立即启动它 
 autostart=true ;
-#是否自动重启，当执行 dotnet  Deploy.Linux.dll 启动失败时，会重复的自动重启 
+#是否自动重启，当执行 dotnet  firstdemo.dll 启动失败时，会重复的自动重启 
 autorestart=true ;
 #该配置文件输出单个日志文件的大小 
 logfile_maxbytes=50MB ;
@@ -152,7 +152,7 @@ systemctl restart supervisord
 
 退出控制台仍继续运行，并且拥有异常重启日志等多个进程管理功能  
 
-# supervisor UI
+# 3、supervisor UI
 
 supervisor自带UI界面，我们只需要修改一下配置文件即可  
 
@@ -160,7 +160,7 @@ supervisor自带UI界面，我们只需要修改一下配置文件即可
 ```
  vim /etc/supervisord.conf
 ```
-取消注释：
+取消以下字段注释：
 
 用户名密码自定义
 
@@ -181,7 +181,7 @@ password=admin
 
 
 
-### 扩展
+# 4、扩展
 
 如果只是临时的持久运行，也可以使用 `nohub &`
 
@@ -193,7 +193,7 @@ nohup dotnet firstdemo.dll --urls http://0.0.0.0:80 &
 >
 > `&` : 加载一个命令的最后面，表示这个命令放在后台执行
 
-其他命令
+其他相关命令
 
 ```sh
 #查看端口占用情况
