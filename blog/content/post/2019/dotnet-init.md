@@ -75,8 +75,8 @@ http://192.168.198.131/WeatherForecast
 安装supervisor  
 
 ```
-yum install epel-release #安装扩展源
-yum install supervisor
+yum install -y epel-release #安装扩展源
+yum install -y supervisor
 ```
 
 进入 supervisor控制台
@@ -90,6 +90,12 @@ supervisorctl
 ![IMG](https://gitee.com/imgrep001/m1/raw/master/20200819170821.png)
 
 现在 可以ctrl+c退出。
+
+开机启动
+
+```
+systemctl enable supervisord
+```
 
 创建应用程序配置文件
 
