@@ -6,9 +6,6 @@ description = "DotNet Core AutoMapper实体映射学习记录 AutoMapper .Net Co
 tags = [
     "dotnet",
 ]
-series = ["命令","git"]
-aliases = ["migrate-from-jekyl"]
-
 +++
 
 
