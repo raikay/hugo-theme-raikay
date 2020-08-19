@@ -2,7 +2,7 @@
 
 +++
 author = "Raikay"
-title = "Linux部署DotNet Core项目及环境安装"
+title = "Linux系统Centos7部署DotNet Core项目及环境安装"
 date = "2019-09-06"
 description = "DotNet Core 环境安装及部署项目 net core 3.1，supervisor 进程管理，创建守护进程、程序持久运行 安装 部署 文档 教程"
 tags = [
