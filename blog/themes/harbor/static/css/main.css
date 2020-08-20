@@ -504,9 +504,9 @@ footer i {
 }
 .article img{
 	vertical-align: middle;
-	max-width: 888px;
+	max-width: 100%;
 	padding: 1px;
-	width:100%;
+	width:auto;
 	height:auto;
 	
 	
@@ -537,6 +537,7 @@ footer i {
   .header {
     margin: auto;
   }
+
 
   .nav-links {
     font-size: 18px;
