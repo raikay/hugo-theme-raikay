@@ -108,7 +108,7 @@ vim demo.ini
 
 文件内容：
 
-```ini
+```sh
 [program:demo]
 #输入执行命令，这里表示 dotnet  firstdemo.dll
 command=/usr/bin/dotnet  firstdemo.dll --urls http://0.0.0.0:80;
@@ -132,8 +132,8 @@ stdout_logfile=/data/logs/demo/demo.out.log ;
 environment=ASPNETCORE_ENVIRONMENT=Production ;
 #启动服务的用户 
 user=root ;
-stopsignal=INT;
-redirect_stderr=true;
+stopsignal=INT
+redirect_stderr=true
 ```
 
 创建日志目录
