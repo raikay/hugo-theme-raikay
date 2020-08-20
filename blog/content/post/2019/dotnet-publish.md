@@ -183,7 +183,7 @@ password=admin
 
 # 4、扩展
 
-如果只是临时的持久运行，也可以使用 `nohub &`
+如果只是临时的持久运行，也可以使用 `nohup &`
 
 ```
 nohup dotnet firstdemo.dll --urls http://0.0.0.0:80 &

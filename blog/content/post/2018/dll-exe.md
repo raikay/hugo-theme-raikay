@@ -1,8 +1,8 @@
 +++
 author = "Raikay"
-title = "把C#程序（含多个Dll）合并成一个Exe的超简单方法"
+title = "把C#程序（含多个Dll）合并成一个exe的超简单方法"
 date = "2019-03-11"
-description = "把C#程序（含多个Dll）合并成一个Exe的超简单方法"
+description = "把C#程序（含多个Dll）合并成一个exe的超简单方法"
 tags = [
     "dotnet",
 ]

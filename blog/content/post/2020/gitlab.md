@@ -115,8 +115,6 @@ gitlab-ctl tail　　　　　#查看gitlab运行日志
 
 ```
 
-
-
 ### 错误解决
 
 docker启动报错 
@@ -128,20 +126,14 @@ iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport
 systemctl restart docker
 ```
 
-
-
-
-
-
-
 鸣谢：
 
-https://www.cnblogs.com/zhengyazhao/p/11690189.html
-
-https://www.cnblogs.com/root0/articles/12762789.html
-
-https://www.jianshu.com/p/080a962c35b6
-
-https://www.jianshu.com/p/0bc9b4755082
-
-https://www.cnblogs.com/believepd/p/10499844.html
+> https://www.cnblogs.com/zhengyazhao/p/11690189.html
+> 
+> https://www.cnblogs.com/root0/articles/12762789.html
+> 
+> https://www.jianshu.com/p/080a962c35b6
+> 
+> https://www.jianshu.com/p/0bc9b4755082
+> 
+> https://www.cnblogs.com/believepd/p/10499844.html
