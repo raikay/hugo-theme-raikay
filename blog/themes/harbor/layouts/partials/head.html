@@ -1,5 +1,11 @@
 <meta charset="utf-8" />
-<title>{{ .Title }}</title>
+<title>
+{{ if .IsHome }}
+{{ .Site.Author.name }}博客 - {{ .Site.Title }}
+{{ else }}
+{{  .Title  }} - {{ .Site.Author.name }}博客
+{{ end }} 
+</title>
 <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
 
 {{ partial "analytics.html" . }}

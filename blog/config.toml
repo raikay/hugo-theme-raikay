@@ -1,6 +1,6 @@
-baseURL = "http://blog.raikay.com/"
+baseURL = "/"
 title = "代码改变世界"
-author = "Steve Francia"
+author = "Raikay"
 paginate = 10
 theme = "harbor"
 languageCode = "zh-CN"
@@ -9,7 +9,7 @@ enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 
 [Author]
-  name = "hugo author"
+  name = "Raikay"
 
 [outputs]
     section = ["JSON", "HTML"]
@@ -63,7 +63,7 @@ footnoteReturnLinkContents = "^"
   # Tips: 列表页是否显示内容图片
   mainSections = ["post"]
   favicon = "favicon.ico"
-
+  description = "Raikay个人博客，记录学习的点点滴滴，前端/后端/C#/DotNet Core/Linux/Centos/"
   [params.logo]
     url = "icon.png"
     width = 50

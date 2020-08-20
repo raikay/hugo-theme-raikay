@@ -5,7 +5,7 @@
     {{ range .Data.Terms.Alphabetical }}
       <div class="terms" style="float: left; margin:18px;">
         <div class="term-name" >
-          <a href="{{ .Page.Permalink }}/" style="font-size:20px">{{ .Page.Title }}</a>
+          <a href="{{ .Page.Permalink }}" style="font-size:20px">{{ .Page.Title }}</a>
           <span class="badge">({{ .Count }})</span>
         </div>
       </div>
