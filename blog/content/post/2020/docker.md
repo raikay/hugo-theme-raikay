@@ -208,6 +208,7 @@ yum -y remove docker*
 sudo rm /var/lib/docker/ -rf
 ```
 
-鸣谢：
-https://www.cnblogs.com/hellxz/p/11044012.html
+相关链接：
+> https://www.cnblogs.com/hellxz/p/11044012.html
+> https://www.jianshu.com/p/6eea18d6fb39 #镜像的备份
 
