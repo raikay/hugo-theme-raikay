@@ -157,7 +157,10 @@ h1,h2,h3,h4,h5,h6 {
   text-align: justify;
 }
 /* 图片居中 */
-div p img {margin:0 auto; display:block;}
+div p img {
+  /*margin:0 auto;*/ 
+  display:block;
+}
 
 #TableOfContents {
   font-size: 14px;
