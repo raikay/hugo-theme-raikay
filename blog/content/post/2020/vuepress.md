@@ -236,7 +236,7 @@ sidebar: [
 构建项目
 
 ```sh
-npm run biuld
+npm run build
 ```
 
 
