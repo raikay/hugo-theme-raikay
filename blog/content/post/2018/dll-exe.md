@@ -87,4 +87,7 @@ https://api.nuget.org/v3/index.json
 ```
 虽然写的都是默认值，可是配置文件如果是空的，不生生效
 
-鸣谢：http://www.cnblogs.com/instance/archive/2015/10/09/4863811.html
+鸣谢：
+```
+http://www.cnblogs.com/instance/archive/2015/10/09/4863811.html
+```

@@ -156,5 +156,4 @@ git update-index --assume-unchanged 忽略的文件名
 
 ```
 git update-index --no-assume-unchanged  忽略的文件名
-
 ```

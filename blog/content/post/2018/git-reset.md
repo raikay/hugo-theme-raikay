@@ -104,7 +104,7 @@ git commit --amend
 
 
 鸣谢：
-
-> https://www.cnblogs.com/lfxiao/p/9378763.html
->
-> https://juejin.im/post/5e79ea975188255e277a3892#heading-6
+```
+https://www.cnblogs.com/lfxiao/p/9378763.html
+https://juejin.im/post/5e79ea975188255e277a3892#heading-6
+```
