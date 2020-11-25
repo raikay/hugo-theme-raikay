@@ -317,7 +317,7 @@ Markdown [^mark]
       <source id="mp4" src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
 </video>
 ```
-
+{{< bilibili BV18t41187Bx 3 >}}
 ### 插入ifram
 示例：  
 
@@ -325,11 +325,12 @@ Markdown [^mark]
 <iframe 
     width="800" 
     height="450" 
-    src="https://v.miaopai.com/iframe?scid=SvyHaHOczsp7B6ftW86oqMMz62-h5ai6~Fwp8A__"
+    src="https://www.baidu.com/"
     frameborder="0" 
     allowfullscreen>
 </iframe>
 ```
+{{< iframe  www.baidu.com >}}
 ### HTML标签
 示例：  
 ```
