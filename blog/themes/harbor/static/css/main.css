@@ -129,6 +129,10 @@ a {
 
 /* } */
 
+.article p img
+{
+  cursor:zoom-in;
+}
 
 .intro-header .post-heading h1 {
   margin-top: 0;
