@@ -3,7 +3,7 @@
   {{ if .Params.tags }}
     &nbsp;&nbsp;&nbsp;<i class="fa fa-folder-open"></i>&nbsp;
     {{ range .Params.tags }}
-      <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
+      <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
     {{ end }}
   {{ end }}
 </span>
