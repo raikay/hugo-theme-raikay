@@ -70,7 +70,7 @@ dotnet build
 echo *******************pack nupkg*******************
 dotnet pack
 echo *******************publish nupkg*******************
-dotnet nuget push **/*.nupkg -s http://jhnuget.iuoooo.com/v3/index.json
+dotnet nuget push **/*.nupkg -s http://nuget.raikay.com/v3/index.json package.nupkg
 pause
 ```
 
@@ -81,7 +81,7 @@ pause
 运行命令行，将包文件推送到本地nuget服务器中，执行命令：（如果设置了Key，则需要在包名之前添加对应的ApiKey）
 
 ```
-dotnet nuget push -s http://localhost:5000/v3/index.json Dongteng.1.0.0.nupkg
+dotnet nuget push -s http://nuget.raikay.com/v3/index.json package.nupkg Dongteng.1.0.0.nupkg
 ```
 
 **部署(IIS)之后可能会出现503错误**
