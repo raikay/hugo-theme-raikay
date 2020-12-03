@@ -54,7 +54,27 @@ Nuget安装后还需要配置环境变量
 
 根据实际的需求修改，一般修改id、version、authors、description等
 
-修改完以上信息后执行命令：nuget pack，进行打包.正常结果如下
+修改完以上信息后执行命令：nuget pack，进行打包.正常结果如下   
+
+也可以使用bat脚本执行   
+
+`nuget-publish.cmd `:
+
+```
+@echo off
+echo *******************clean nupkg*******************
+del /S *.nupkg
+del /S *.nuspec
+echo *******************building*******************
+dotnet build
+echo *******************pack nupkg*******************
+dotnet pack
+echo *******************publish nupkg*******************
+dotnet nuget push **/*.nupkg -s http://jhnuget.iuoooo.com/v3/index.json
+pause
+```
+
+
 
 ### 发布
 
