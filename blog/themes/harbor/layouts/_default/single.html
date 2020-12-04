@@ -8,8 +8,10 @@
           {{ range .Params.tags }}
             <a href="{{ $.Site.BaseURL }}tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
           {{ end }}
+		  
         </div>
       {{ end }}
+	  <div id="vcomments"></div>
     </article>
     {{ if and (gt .WordCount 400) (.Param "backtotop") }}
       {{ partial "backtotop.html" . }}
