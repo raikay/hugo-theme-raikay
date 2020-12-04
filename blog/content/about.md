@@ -7,12 +7,11 @@ author = "Raikay"
 
 +++
 
+昵称：Raikay  
 
 出生：1995年  
 
 地点：北京 
-
-昵称：Raikay  
 
 职业：.Net 开发工程师
 
