@@ -1,17 +1,20 @@
 +++
 title = "关于"
-description = "Hugo, the world’s fastest framework for building websites"
+description = ".Net 开发工程师 .Net Framework、.Net Core、Python HTML、CSS/JS、jQuery、VUE MySql、SqlServer、Oracle、Redis DDD  "
 date = "2019-02-28"
 aliases = ["about-us","about-hugo","contact"]
 author = "Raikay"
+
 +++
 
 
-出生：1993年  
+出生：1995年  
 
-地点：东北 
+地点：北京 
 
 昵称：Raikay  
+
+职业：.Net 开发工程师
 
 后端技能：.Net Framework、.Net Core、Python  
 
@@ -27,24 +30,9 @@ author = "Raikay"
 Github：[https://github.com/raikay](https://github.com/raikay)
 
 <p>这是一个mailto链接
-<a href="mailto:1014420122@qq.com
-        ?cc=756237734@qq.com
-  &bcc=378657961@qq.com
-  &subject=主题是学习mailto
-  &body=这里是有%0d%0a邮件内容"> 发送qq邮件</a></p>
+<a href="mailto:Raikay@163.com
+        ?cc=Raikay@163.com
+  &subject=邮件主题
+  &body=这里是有%0d%0a邮件内容"> 发送邮件</a></p>
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
-
-Hugo makes use of a variety of open source projects including:
-
-
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
-
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
-
-Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
-
-
-
+![IMG](https://gitee.com/imgrep001/m1/raw/master/2020/12/04/20201204131021.png)
