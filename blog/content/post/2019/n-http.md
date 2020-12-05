@@ -1,7 +1,7 @@
 +++
 author = "Raikay"  
 title = "HTTP / HTTPS 必备基础知识"  
-date = "2019-08-06"  
+date = "2020-12-05"  
 description = "http / https 必备基础知识"  
 tags = [
     "http",
@@ -222,7 +222,15 @@ HTTP 2.0 是 2015 年开发出来的标准，它主要做的改变如下
 
 ![img](https://gitee.com/imgrep001/m1/raw/master/20200811133239.png)
 
+### HTTP 简单总结
 
+- HTTP/1.x 有连接无法复用、队头阻塞、协议开销大和安全因素等多个缺陷；
+
+- HTTP/2 通过多路复用、二进制流、Header 压缩等等技术，极大地提高了性能，但是还是存在着问题的；
+
+- http3基于utp 协议的QUIC协议，效率更好，丢失包也不会导致包阻塞，而且它采用64位uid 作为标识，不会导致我们切换网络时候因为ip的变化导致传输中断。
+
+  
 
 ## 7、HTTPS 
 HTTPS 的全称是 `Hypertext Transfer Protocol Secure`，从名称我们可以看出 HTTPS 要比 HTTPS 多了 secure 安全性这个概念，实际上， HTTPS 并不是一个新的应用层协议，它其实就是 HTTP + TLS/SSL 协议组合而成，而安全性的保证正是 TLS/SSL 所做的工作。
@@ -262,25 +270,14 @@ Data URI（Data URI scheme）
 ![img](https://gitee.com/imgrep001/m1/raw/master/20200811133323.png)
 
 
-
-
-
-
-**巨人肩膀：**
-
->https://www.zhihu.com/question/21950864
->
->https://www.cnblogs.com/hustskyking/p/data-uri.html
->
->https://www.cnblogs.com/luyuqiang/p/uri-url-urn-urc-and-data-uri.html
->
->https://mp.weixin.qq.com/s/d9mDXO-dxeYUPMIii_scrg
->
->https://www.cnblogs.com/liguangsunls/p/7248357.html
->
->https://blog.csdn.net/dreamingbaobei3/article/details/95938517
->
->https://www.cnblogs.com/wxf-h/p/10519670.html
->
->https://www.cnblogs.com/laoluoits/
->
+**鸣谢：**
+```
+https://www.zhihu.com/question/21950864
+https://www.cnblogs.com/hustskyking/p/data-uri.html
+https://www.cnblogs.com/luyuqiang/p/uri-url-urn-urc-and-data-uri.html
+https://mp.weixin.qq.com/s/d9mDXO-dxeYUPMIii_scrg
+https://www.cnblogs.com/liguangsunls/p/7248357.html
+https://blog.csdn.net/dreamingbaobei3/article/details/95938517
+https://www.cnblogs.com/wxf-h/p/10519670.html
+https://www.cnblogs.com/laoluoits/
+```
