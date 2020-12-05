@@ -38,8 +38,6 @@ mkdir vuepress-starter && cd vuepress-starter
 echo '# Hello VuePress!' > README.md
 ```
 
-![image-20200408212508125](https://gitee.com/raikay/img/raw/master/default/20200408212510.png)
-
 运行项目
 
 ```sh
