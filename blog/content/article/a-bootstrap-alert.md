@@ -1,8 +1,9 @@
-+++
+﻿+++
 author = "Raikay"  
 title = "对bootstrap中confirm alert进行封装"  
 date = "2020-12-06"  
 description = "对bootstrap中confirm alert进行封装 弹窗 修改 居中"  
+
 +++
 
 

@@ -1,4 +1,4 @@
-+++
+﻿+++
 author = "Raikay"  
 title = "在CentOS系统中使用yum安装指定版本软件的方法"  
 date = "2020-12-06"  
@@ -43,7 +43,6 @@ pcre-7.8-6.el6.x86_64 : Perl-compatible regular expression library
 
 ### **卸载软件：**
 
-如果你带有yum，可以直接yum remove xxx
-如果是rpm包，rpm -e xxx
-tar包的话需要你直接删除该文件或者make uninstall xxx
-常见的就这三种吧。
+如果你带有yum，可以直接yum remove xxx  
+如果是rpm包，rpm -e xxx  
+tar包的话需要你直接删除该文件或者make uninstall xxx  
