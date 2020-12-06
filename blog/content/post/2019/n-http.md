@@ -271,7 +271,7 @@ Data URI（Data URI scheme）
 
 
 **鸣谢：**
-```
+```xml
 https://www.zhihu.com/question/21950864
 https://www.cnblogs.com/hustskyking/p/data-uri.html
 https://www.cnblogs.com/luyuqiang/p/uri-url-urn-urc-and-data-uri.html
