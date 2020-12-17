@@ -6,6 +6,9 @@ description = "MarkDown基本语法以及相关工具笔记简单介绍"
 tags = [
     "markdown",
 ]
+
+weight=2
+
 +++
 
 ### 1、标题
@@ -330,7 +333,6 @@ Markdown [^mark]
     allowfullscreen>
 </iframe>
 ```
-{{< iframe  www.baidu.com >}}
 ### HTML标签
 示例：  
 ```
