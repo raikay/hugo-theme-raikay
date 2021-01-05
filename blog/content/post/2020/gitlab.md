@@ -8,8 +8,6 @@ tags = [
     "docker",
 ]
 
-weight=100
-
 +++
 
 ### 安装Gitlab

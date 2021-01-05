@@ -7,8 +7,6 @@ tags = [
     "dotnet",
 ]
 
-weight=99
-
 +++
 
 ### 1、NuGet引用
