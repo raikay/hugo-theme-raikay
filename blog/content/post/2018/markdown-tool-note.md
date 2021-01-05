@@ -7,8 +7,6 @@ tags = [
     "markdown",
 ]
 
-weight=2
-
 +++
 
 ### 1、标题

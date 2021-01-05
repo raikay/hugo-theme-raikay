@@ -7,8 +7,6 @@ tags = [
     "markdown",
 ]
 
-weight=100
-
 +++
 
 ### 1、安装

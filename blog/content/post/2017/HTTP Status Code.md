@@ -5,8 +5,7 @@ date = "2017-03-11"
 description = "HTTP协议状态码详解 HTTP Status Code,分别代表什么意思，注解，当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。HTTP状态码的英文为HTTP Status Code。"  
 tags = [
     "http",
-]  
-weight=100
+]
 +++
 
 

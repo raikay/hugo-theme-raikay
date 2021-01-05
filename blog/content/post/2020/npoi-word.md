@@ -7,8 +7,6 @@ tags = [
     "dotnet",
 ]
 
-weight=99
-
 +++
 
 ### 文档模板：
