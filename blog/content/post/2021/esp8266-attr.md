@@ -21,7 +21,7 @@ tags = [
 
 
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/05/20210105182522.0_PINMAP)
+![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/06/20210106153601.png)
 
 
 
@@ -35,5 +35,7 @@ tags = [
 
 [资源汇总](https://docs.ai-thinker.com/esp8266)
 
+### 注意事项
 
+NodeMcu的IIC（I2C）管脚是GOIO04和GPIO05，就是上面丝印的D1和D2。
 
