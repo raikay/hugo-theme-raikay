@@ -37,5 +37,17 @@ tags = [
 
 ### 注意事项
 
-NodeMcu的IIC（I2C）管脚是GOIO04和GPIO05，就是上面丝印的D1和D2。
+1、NodeMcu的IIC（I2C）管脚是GOIO04和GPIO05，就是上面丝印的D1和D2。
+
+2、ESP8266不是完全兼容Arduino ESP32貌似可以用Arduino所有的库。  
+
+```
+#ifdef ESP32
+#include <WiFi.h>
+#else
+#include <ESP8266WiFi.h>
+#endif
+```
+
+
 
