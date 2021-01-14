@@ -1,6 +1,6 @@
 +++
 author = "Raikay"
-title = "快速开始（环境安装、点亮LED灯）- Arduino-IDE开发ESP8266(NodeMcu)学习记录 "
+title = "快速开始- Arduino开发ESP8266(NodeMcu)学习记录 "
 date = "2021-01-14"
 description = "快速开始（环境安装、点亮LED灯）- Arduino-IDE开发ESP8266(NodeMcu)学习记录，Wemos D1 R1、Wemos D1 R3 Uno、D1 mini、Wifiduino、ESPduino、WiFinfo ESP8266开发板，学习记录，开发教程，文档，示例代码"
 tags = [
@@ -14,7 +14,7 @@ tags = [
 
 # 环境安装
 
-### 下载
+### 下载Arduino-IDE
 官网：https://www.arduino.cc/  
 下载地址：https://www.arduino.cc/en/software  
 下载时不是一定要付费，选择`JUST DOWNLOAD
@@ -22,7 +22,7 @@ tags = [
 
 ![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/05/20210105221202.png)
 
-解压双击EXE就可以打开了  
+解压后双击EXE就可以打开了  
 
 ### 安装驱动
 驱动下载地址：https://gitee.com/raikay/elefiles/tree/main/tools/%E9%A9%B1%E5%8A%A8
@@ -31,6 +31,7 @@ tags = [
 
 文件-->首选项
 把这个网址填到 【附加开发版管理器】
+
 ```
 http://arduino.esp8266.com/stable/package_esp8266com_index.json
 ```
@@ -93,3 +94,5 @@ void loop() {
 
 
 我也可能会用esp8266系列的其他开发板，其实所有esp8266的板子代码是通用（比如 Wemos D1 R1、Wemos D1 R3 Uno、D1 mini、Wifiduino、ESPduino、WiFinfo），只要对照一下引脚图稍微改动一下差异的引脚就可以。
+
+[引脚图：http://blog.raikay.com/post/2021/esp8266-attr/](http://blog.raikay.com/post/2021/esp8266-attr/)
