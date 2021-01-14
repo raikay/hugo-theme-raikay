@@ -25,7 +25,7 @@ tags = [
 解压后双击EXE就可以打开了  
 
 ### 安装驱动
-驱动下载地址：https://gitee.com/raikay/elefiles/tree/main/tools/%E9%A9%B1%E5%8A%A8
+![驱动下载地址：https://gitee.com/raikay/elefiles/tree/main/tools/驱动](https://gitee.com/raikay/elefiles/tree/main/tools/%E9%A9%B1%E5%8A%A8)
 
 ### 下载ESP8266库
 
@@ -45,7 +45,7 @@ http://arduino.esp8266.com/stable/package_esp8266com_index.json
 
 如果没有梯子下载可能会非常慢，可以用下面的直接安装工具
 
-工具下载地址：https://gitee.com/raikay/elefiles/tree/main/%E5%BC%80%E5%8F%91%E6%9D%BF/esp8266
+![工具下载地址：https://gitee.com/raikay/elefiles/tree/main/开发板/esp8266](https://gitee.com/raikay/elefiles/tree/main/%E5%BC%80%E5%8F%91%E6%9D%BF/esp8266)
 
 
 
