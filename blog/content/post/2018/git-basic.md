@@ -1,7 +1,7 @@
 +++
 author = "Raikay"
 title = "git命令备忘系列（一）：基础命令"
-date = "2018-06-06"
+date = "2020-06-06"
 description = "git 常用命令 笔记 学习 教程 分支 差异 版本控制"
 tags = [
     "git",
@@ -55,7 +55,7 @@ git push origin branch1 #多个仓库时，指定origin仓库下 branch1分支
 git 命令 -h     
 ```
 
-### 8、git pull 强制覆盖本地
+### 8、强制覆盖本地
 
 ```sh
 // 从远程仓库下载最新版本

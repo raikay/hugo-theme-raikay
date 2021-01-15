@@ -1,7 +1,7 @@
 +++
 author = "Raikay"
 title = "git命令备忘系列（六）：分支操作（branch）"
-date = "2018-06-12"
+date = "2020-06-12"
 description = "git命令备忘系列：分支操作（branch）查看分支列表、 创建并切换新分支、强制创建分支、新创建的分支推送到远程仓库、恢复误删除分支、分支重命名、合并分支、解决冲突 版本控制"
 tags = [
     "git",
@@ -15,7 +15,7 @@ git branch  #显示本地分支
 git branch -r #显示远程所有分支
 ```
 
-### 2、创建并切换分支
+### 2、创建分支和切换分支
 
 ```sh
 git branch branchName    # 创建分支
@@ -55,15 +55,11 @@ git log --branches="被删除的分支名"     # 找到被删分支最新的comm
 git branch 分支名 版本号(前七位即可)    # 恢复被删分支
 ```
 
-
-
 ### 5、分支重命名
 
 ```sh
 git branch -m 老分支名 新分支名     # 分支重命名
 ```
-
-
 
 ### 6、合并分支
 

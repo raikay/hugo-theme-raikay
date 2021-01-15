@@ -1,7 +1,7 @@
 +++
 author = "Raikay"
 title = "git命令备忘系列（五）：恢复与撤销（reset）"
-date = "2018-06-11"
+date = "2020-06-11"
 description = "git命令备忘系列：恢复与撤销 本地（工作区）修改撤销、提交暂存区（commit）撤销、提交到远程仓库撤销、版本回退 "
 tags = [
     "git",
