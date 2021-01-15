@@ -1,7 +1,7 @@
 +++
 author = "Raikay"
 title = "串口调试 - Arduino开发ESP8266(NodeMcu)学习记录 "
-date = "2021-01-14"
+date = "2021-01-15"
 description = "串口调试 - Arduino开发ESP8266(NodeMcu)学习记录，Wemos D1 R1、Wemos D1 R3 Uno、D1 mini、Wifiduino、ESPduino、WiFinfo ESP8266开发板，学习记录，开发教程，文档，示例代码"
 tags = [
     "esp8266",
