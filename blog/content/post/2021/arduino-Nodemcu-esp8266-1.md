@@ -84,12 +84,27 @@ void loop() {
 ![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/14/20210114214048.jpg)
 
 
+
+### 选择开发板
+
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/15/20210115213751.png)
+
+### 选择端口
+
+这个端口 一般可能是 3、5、6根据设备和电脑环境不同有所区别，可以到电脑的设备管理器查看一下
+
+(我机器插了两个板子，所以是下面这种情况，一般只会是COM3或COM5一个)
+
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/15/20210115215331.png)
+
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/15/20210115214415.png)
+
 ### 上传代码
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/14/20210114214321.png)
+![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/15/20210115215810.png)
 
 ### 运行效果
-![IMG](https://static01.imgkr.com/temp/f44b854b676a456aba5bf8943a913450.gif)
+![IMG](http://imgrep001.gitee.io/m1/2021/01/14/20210114214940.gif)
 
 
 
