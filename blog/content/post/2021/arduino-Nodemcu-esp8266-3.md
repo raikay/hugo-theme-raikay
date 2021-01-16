@@ -17,9 +17,13 @@ tags = [
 
 ```
 /**
-     作者: Raikay (raikay.com)
-     时间: 2021/01/16
-     说明: 控制继电器
+作者: Raikay (raikay.com)
+时间: 2021/01/16
+说明: 控制继电器
+NodeMcu -   继电器
+VU      -    VCC
+D5      -    OUT
+GND     -    GND
 **/
 //定义引脚GPIO14，即Nodemcu D5引脚
 int relay = 14;
@@ -39,14 +43,32 @@ void loop() {
 
 ```
 
+### 继电器
+
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/16/20210116161722.jpg)
+
 ### 线路图
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/16/20210116154300.png)
+继电器是5v供电，两个版本的NodeMcu输出5v的引脚不同。  
+
+CP2102版 ：Vin引脚输出5v  
+
+CH340版：VU引脚输出5v  
+
+下图是CH340版
+
+
+
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/16/20210116201839.png)
+
+
 
 ### 实物图
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/16/20210116154703.png)
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/16/20210116204100.jpg)
+
+
 
 ### 效果视频
 
-{{< bilibili BV1bf4y1k7uL >}}
+{{< bilibili BV1QT4y1N7f3 >}}
