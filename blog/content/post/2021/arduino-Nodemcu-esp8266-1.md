@@ -65,7 +65,7 @@ void setup() {
   pinMode(led, OUTPUT);
 }
 void loop() {
-  //程序灯带1秒（1000毫秒）
+  //程序等待1秒（1000毫秒）
   delay(1000);
   //设置led引脚高电平
   digitalWrite(led, LOW); 
