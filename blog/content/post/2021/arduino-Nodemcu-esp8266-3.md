@@ -2,7 +2,7 @@
 author = "Raikay"
 title = "控制继电器 - Arduino开发ESP8266(NodeMcu)学习记录 "
 date = "2021-01-16"
-description = "串口调试 - Arduino开发ESP8266(NodeMcu)学习记录，Wemos D1 R1、Wemos D1 R3 Uno、D1 mini、Wifiduino、ESPduino、WiFinfo ESP8266开发板，学习记录，开发教程，文档，示例代码"
+description = "控制继电器 - Arduino开发ESP8266(NodeMcu)学习记录，Wemos D1 R1、Wemos D1 R3 Uno、D1 mini、Wifiduino、ESPduino、WiFinfo ESP8266开发板，学习记录，开发教程，文档，示例代码"
 tags = [
     "esp8266",
 ]
@@ -49,11 +49,13 @@ void loop() {
 
 ### 线路图
 
-继电器是5v供电，两个版本的NodeMcu输出5v的引脚不同。  
+继电器是5v供电，NodeMcu两个版本输出5v的引脚不同。
 
 CP2102版 ：Vin引脚输出5v  
 
 CH340版：VU引脚输出5v  
+
+也可以单独5v电源供电。
 
 下图是CH340版
 
