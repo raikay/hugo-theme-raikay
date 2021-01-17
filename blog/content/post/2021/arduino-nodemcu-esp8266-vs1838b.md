@@ -23,13 +23,13 @@ ESP8266 开发板 （NodeMcu）
 
 IRremoteESP8266
 
+下载地址：[https://github.com/crankyoldgit/IRremoteESP8266](https://github.com/crankyoldgit/IRremoteESP8266)
+
 ### 红外接收头图片
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/16/20210116213324.jpg)
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117192023.png)
 
-### 参数图片
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/16/20210116213620.png)
 
 ### 线路图
 
