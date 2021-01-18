@@ -18,22 +18,6 @@ footnoteReturnLinkContents = "^"
 
 
 
-[[params.nav]]
-  identifier = "ESP8266"
-  name = "ESP8266"
-  url = "tags/esp8266/"
-  weight = 3
-
-[[params.nav]]
-  identifier = "Git"
-  name = "Git"
-  url = "tags/git/"
-  weight = 3
-  
-[[params.nav]]
-  identifier = "tags"
-  name = ""
-
 
 
 [[params.nav]]
