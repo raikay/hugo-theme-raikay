@@ -17,7 +17,7 @@ ESP8266 开发板（NodeMcu）  x1
 
 红外信号发射管Led  x1
 
-按键开关   2x
+按键开关   x2
 
 面包板  x1
 
@@ -30,6 +30,8 @@ IRremoteESP8266
 下载地址：[https://github.com/crankyoldgit/IRremoteESP8266](https://github.com/crankyoldgit/IRremoteESP8266)
 
 ### 线路图
+
+红外发射管 长的是正极，短的是负极。
 
 ![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117224810.png)
 
@@ -50,6 +52,9 @@ IRremoteESP8266
   作者: Raikay (raikay.com)
   时间: 2021/01/17
   说明: 红外发射管控制美的空调
+  NodeMcu        红外发射管
+  GND       -    负极
+  D2        -    正极
 **/
 #include <Arduino.h>
 #include <IRremoteESP8266.h>
