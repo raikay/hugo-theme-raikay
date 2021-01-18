@@ -31,11 +31,9 @@ DHT
 
 或者手动下载  
 
-下载地址：[https://github.com/adafruit/DHT-sensor-library)
+下载地址：[https://github.com/adafruit/DHT-sensor-library](https://github.com/adafruit/DHT-sensor-library)
 
 ### 线路图
-
-红外发射管 长的是正极，短的是负极。
 
 ![](https://gitee.com/imgrep001/m1/raw/master/2021/01/18/20210118220350.png)
 
