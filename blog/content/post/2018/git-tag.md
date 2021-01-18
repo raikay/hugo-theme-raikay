@@ -27,7 +27,10 @@ git push origin --delete tag [name]      #删除远程标签
 在git中创建带注释的标签非常简单，在运行’tag’命令时加上-a就可以了。
 
 ```
+# 提交
 $ git tag -a v1.4 -m ‘version 1.4′
+
+#查看
 $ git tag
 v0.1
 v1.3
@@ -39,13 +42,4 @@ v1.4
 
 ```
 $ git show v1.4
-tag v1.4
-Tagger: Scott Chacon
-Date: Mon Feb 9 14:45:11 2009 -0800
-my version 1.4
-commit 15027957951b64cf874c3557a0f3547bd83b3ff6
-Merge: 4a447f7… a6b4c97…
-Author: Scott Chacon
-Date: Sun Feb 8 19:02:46 2009 -0800
-Merge branch ‘experiment’
 ```

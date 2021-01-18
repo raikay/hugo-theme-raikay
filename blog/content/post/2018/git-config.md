@@ -84,36 +84,24 @@ git config –global alias
 比如 `commit` 定义为 `cm`:
 
 ```
-Raikay@DESKTOP-8CO9PI4 MINGW64 /d/Resources/GitFile/Managix (master)
-$ git config --global alias.cm commit
-
-Raikay@DESKTOP-8CO9PI4 MINGW64 /d/Resources/GitFile/Managix (master)
-$ git cm -m 'save'
-[master 037da09] save
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
+git config --global alias.cm commit
 ```
+
+定义之后就可以这样使用 commit
+```
+git cm -m 'save'
+```
+
+
 
 还可以组合多个命令为一个命令，比如将 `add`  `commit` `push` 合并为一个命令 `acp`
 
 ```
-Raikay@DESKTOP-8CO9PI4 MINGW64 /d/Resources/GitFile/Managix (master)
-$ git config --global alias.acp '!f() { git add -A && git commit -m \"$@\" && git push; }; f'
+# 定义
+git config --global alias.acp '!f() { git add -A && git commit -m \"$@\" && git push; }; f'
 
-Raikay@DESKTOP-8CO9PI4 MINGW64 /d/Resources/GitFile/Managix (master)
-$ git acp 'save'
-[master 51fb37f] "save"
- 1 file changed, 1 insertion(+), 2 deletions(-)
-Enumerating objects: 10, done.
-Counting objects: 100% (10/10), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (6/6), 582 bytes | 582.00 KiB/s, done.
-Total 6 (delta 4), reused 0 (delta 0)
-remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
-To https://github.com/raikay/Managix.git
-   2977f6b..51fb37f  master -> master
-
+#使用
+git acp 'save'
 ```
 
 也可以直接vim、文本编辑器编辑配置文件  
