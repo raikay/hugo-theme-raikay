@@ -1,4 +1,4 @@
-baseURL = "http://blog.raikay.com/"
+baseURL = "https://blog.raikay.com/"
 title = "代码改变世界"
 author = "Raikay"
 paginate = 10
