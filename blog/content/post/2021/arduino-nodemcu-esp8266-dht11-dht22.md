@@ -1,6 +1,6 @@
 +++
 author = "Raikay"
-title = "DHT11温湿度传感器 - Arduino-IDE开发ESP8266(NodeMcu)学习记录 "
+title = "DHT11温湿度传感器 - Arduino开发ESP8266(NodeMcu)学习记录 "
 date = "2021-01-18"
 description = "DHT11/DHT22温湿度传感器 - Arduino-IDE开发ESP8266(NodeMcu)学习记录，NodeMcu开发板 ， Wemos D1 R1、Wemos D1 R3 Uno、D1 mini、Wifiduino、ESPduino、WiFinfo ESP8266开发板，学习记录，开发教程，文档，示例代码"
 tags = [
