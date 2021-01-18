@@ -1,8 +1,8 @@
 +++
 author = "Raikay"
-title = "红外发射管Led - Arduino开发ESP8266(NodeMcu)学习记录 "
+title = "发射红外信号控制美的空调 - Arduino开发ESP8266(NodeMcu)学习记录 "
 date = "2021-01-17"
-description = "红外发射管Led 控制美的空调- Arduino开发ESP8266(NodeMcu)学习记录，NodeMcu开发板 红外线信号接收 红外接收头VS1838B， Wemos D1 R1、Wemos D1 R3 Uno、D1 mini、Wifiduino、ESPduino、WiFinfo ESP8266开发板，学习记录，开发教程，文档，示例代码"
+description = "红外信号发射 -通过红外信号发射管 控制美的空调 - Arduino开发ESP8266(NodeMcu)学习记录，NodeMcu开发板 ， Wemos D1 R1、Wemos D1 R3 Uno、D1 mini、Wifiduino、ESPduino、WiFinfo ESP8266开发板，学习记录，开发教程，文档，示例代码"
 tags = [
     "esp8266",
 ]
@@ -15,7 +15,7 @@ tags = [
 
 ESP8266 开发板（NodeMcu）  x1
 
-红外发射管Led  x1
+红外信号发射管Led  x1
 
 按键开关   2x
 
@@ -29,23 +29,21 @@ IRremoteESP8266
 
 下载地址：[https://github.com/crankyoldgit/IRremoteESP8266](https://github.com/crankyoldgit/IRremoteESP8266)
 
-
-
 ### 线路图
 
 ![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117224810.png)
 
 ### 实物图
 
-按D3按键关闭空调，按D4开启空调
+按D3按键关闭空调，按D4开启空调  
 
 ![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117223239.jpg)
 
 ### 代码
 
-原数据是从美的空调遥控器接收的
+红外信号原数据是从美的空调遥控器接收的  
 
-接收方法：[http://blog.raikay.com/post/2021/arduino-nodemcu-esp8266-vs1838b/](http://blog.raikay.com/post/2021/arduino-nodemcu-esp8266-vs1838b/)
+接收方法见：[http://blog.raikay.com/post/2021/arduino-nodemcu-esp8266-vs1838b/](http://blog.raikay.com/post/2021/arduino-nodemcu-esp8266-vs1838b/)    
 
 ```c++
 /**
@@ -107,4 +105,4 @@ void loop() {
 }
 ```
 
-
+这里把信号发了三遍，是因为，发射一遍信号比较弱，必须角度找的非常准确，即使这样有的时候还接收不到，发射三遍时，可以在任意角度随意发射，空调都可以接收到信号，百发百中！~
