@@ -11,7 +11,9 @@ tags = [
 
 #### 1、工作区与缓存区的差异
 
-`git diff`
+```
+git diff
+```
 
 #### 2、工作区与某分支的差异
 
@@ -23,7 +25,9 @@ git diff branchNmae
 
 #### 3、工作区与HEAD指针指向的内容差异	
 
-`git diff HEAD`
+```
+git diff HEAD
+```
 
 示例：
 
@@ -36,47 +40,51 @@ git diff head f42b15f5     # 也可以指定id
 
 #### 4、工作区某文件“当前版本”与“历史版本”的差异
 
-`git diff 提交id 文件路径`
+```
+git diff 提交id 文件路径
+```
 
 #### 5、查看从某个版本后所有改动内容
 
-`git diff 版本TAG`
+```
+git diff 版本TAG
+```
 
 #### 6、 查看两个分支指定文件的详细差异
-`
+```
 git diff branch1 branch2 具体文件路径
-`    
+```    
 
 #### 7、查看所有有差异的文件的详细差异(也支持TAG)
-`
+```
 git diff branch1 branch2
-`  
+```  
 #### 8、查看 branch1 分支有，而 branch2 中没有的 log
-`
+```
 git log branch1 ^branch2
-`  
+```  
 
 #### 9、查看 branch2 中比 branch1 中多提交了哪些内容
 
 列出来的是两个点后边（此处即 branch2）多提交的内容。
 
-`
+```
 git log branch1..branch2
-`
+```
 
 #### 10、不知道谁提交的多谁提交的少，单纯想知道有什么不一样
 
-`
+```
 git log branch1...branch2
-`  
+```  
 #### 11、在上述情况下，显示出每个提交是在哪个分支上
 
 commit 后面的箭头，根据我们在 –left-right branch1…branch2 的顺序，左箭头 <表示 branch1 的，右箭头> 表示branch2 的。
 
-`
+```
 git log --left-right branch1...branch2
-`
-示例：
+```  
+示例：  
 
 ```
 $ git log --left-right master...dev
