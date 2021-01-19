@@ -1,7 +1,7 @@
 +++
 author = "Raikay"
 title = "git命令备忘系列（二）：配置文件操作（config）"
-date = "2020-06-08"
+date = "2021-01-08"
 description = "Git 常用命令系列（一）配置文件操作 版本控制 基本操作 代码管理,解决git不自动记录 密码,每次操作都需要输入用户名和密码感觉很繁琐，解决方法，在本地的工程文件夹的.git下打开config文件 添加 版本控制"
 tags = [
     "git",
@@ -160,17 +160,10 @@ git update-index --no-assume-unchanged  忽略的文件名
 
 #### 相关文章
 [git命令备忘系列（一）：基础命令](https://blog.raikay.com/post/2018/git-basic/)  
-
 [git命令备忘系列（二）：配置文件操作（config）](https://blog.raikay.com/post/2018/git-config/)  
-
 [git命令备忘系列（三）：查看历史记录（log）](https://blog.raikay.com/post/2018/git-log/)  
-
 [git命令备忘系列（四）：对比两个分支的差异（diff）](https://blog.raikay.com/post/2018/git-diff/)  
-
 [git命令备忘系列（五）：恢复与撤销（reset）](https://blog.raikay.com/post/2018/git-reset/)  
-
 [git命令备忘系列（六）：分支操作（branch）](https://blog.raikay.com/post/2018/git-branch/)  
-
 [git命令备忘系列（七）：标签操作（tag）](https://blog.raikay.com/post/2018/git-tag/)  
-
 [git命令备忘系列（八）：使用技巧集合](https://blog.raikay.com/post/2018/git-other/)  

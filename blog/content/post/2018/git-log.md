@@ -1,7 +1,7 @@
 +++
 author = "Raikay"
 title = "git命令备忘系列（三）：查看历史记录（log）"
-date = "2020-06-09"
+date = "2021-01-09"
 description = "git常用命令查看历史记录（git log） 笔记 学习 教程 分支 差异 ."
 tags = [
     "git",
@@ -116,17 +116,10 @@ git reflog
 
 #### 相关文章
 [git命令备忘系列（一）：基础命令](https://blog.raikay.com/post/2018/git-basic/)  
-
 [git命令备忘系列（二）：配置文件操作（config）](https://blog.raikay.com/post/2018/git-config/)  
-
 [git命令备忘系列（三）：查看历史记录（log）](https://blog.raikay.com/post/2018/git-log/)  
-
 [git命令备忘系列（四）：对比两个分支的差异（diff）](https://blog.raikay.com/post/2018/git-diff/)  
-
 [git命令备忘系列（五）：恢复与撤销（reset）](https://blog.raikay.com/post/2018/git-reset/)  
-
 [git命令备忘系列（六）：分支操作（branch）](https://blog.raikay.com/post/2018/git-branch/)  
-
 [git命令备忘系列（七）：标签操作（tag）](https://blog.raikay.com/post/2018/git-tag/)  
-
 [git命令备忘系列（八）：使用技巧集合](https://blog.raikay.com/post/2018/git-other/)  

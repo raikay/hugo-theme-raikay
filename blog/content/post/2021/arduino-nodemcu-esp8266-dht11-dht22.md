@@ -39,7 +39,7 @@ DHT
 
 ### 实物图  
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/18/20210118222233.jpg)
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/19/20210119094307.jpg)
 
 
 
