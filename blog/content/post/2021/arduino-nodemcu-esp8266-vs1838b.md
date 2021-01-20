@@ -33,7 +33,7 @@ IRremoteESP8266
 
 ### 线路图
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117142154.png)
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/20/20210120130951.jpg)
 
 ### 实物图
 
@@ -68,7 +68,6 @@ IRrecv irrecv(kRecvPin, 1024, 50, true);
 // 存储结果
 decode_results results;
 
-
 void setup() {
 
   Serial.begin(115200);
@@ -82,8 +81,6 @@ void setup() {
   irrecv.enableIRIn();
 }
 
-
-
 void loop() {
   // 是否收到消息
   if (irrecv.decode(&results)) {
@@ -92,7 +89,6 @@ void loop() {
     Serial.print("输出编码：");
     serialPrintUint64(results.value, HEX);
     Serial.println();
-
     
     // 协议和编码
     Serial.println("输出协议和编码：");
@@ -109,7 +105,6 @@ void loop() {
     {
       Serial.println("Mesg Desc.: 无");
     }
-
 
     // 原数据
     Serial.println("输出原数据：");
