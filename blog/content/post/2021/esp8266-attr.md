@@ -8,6 +8,18 @@ tags = [
 ]
 
 +++
+
+# 规格书/管脚说明/文档
+
+[安信可各类ESP8266模组规格书汇总](https://docs.ai-thinker.com/规格书)
+
+[NodeMcu规格书](https://docs.ai-thinker.com/_media/esp8266/docs/nodemcu8266_v1.2%E8%A7%84%E6%A0%BC%E4%B9%A6.pdf)
+
+[ESP8266资源汇总](https://docs.ai-thinker.com/esp8266)
+
+[Wemos 文档](https://www.wemos.cc/)
+
+
 # ESP8266
 ### 版本对比图
 
@@ -74,15 +86,6 @@ static const uint8_t PIN_LED = 2;
 | RST  | Reset                        | RST          |
 
 *All IO have interrupt/pwm/I2C/one-wire supported(except D0)*
-
-
-### 规格书/管脚说明
-
-[安信可各类ESP8266模组规格书汇总](https://docs.ai-thinker.com/规格书)
-
-[NodeMcu规格书](https://docs.ai-thinker.com/_media/esp8266/docs/nodemcu8266_v1.2%E8%A7%84%E6%A0%BC%E4%B9%A6.pdf)
-
-[ESP8266资源汇总](https://docs.ai-thinker.com/esp8266)
 
 
 
