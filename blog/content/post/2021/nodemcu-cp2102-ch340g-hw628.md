@@ -1,8 +1,8 @@
 +++
 author = "Raikay"
-title = "CP2102版和CH340版两种NodeMcu的区别和H2-628有什么不同"
+title = "CP2102版和CH340版两种NodeMcu的区别和HW-628有什么不同"
 date = "2021-01-21"
-description = "NodeMCU开发版介绍  CP2102版和CH340版两种NodeMcu的区别和H2-628有什么不同   有哪些不同  引脚和管脚的差异"
+description = "NodeMCU开发版介绍  CP2102版和CH340版两种NodeMcu的区别和HW-628有什么不同   有哪些不同  引脚和管脚的差异"
 tags = [
     "esp8266",
 ]
