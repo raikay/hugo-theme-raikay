@@ -2,22 +2,25 @@
 author = "Raikay"
 title = "ESP8266包括NodeMcu说明文档和每个版本属性对比图、管脚资料工具 "
 date = "2021-01-05"
-description = "ESP8266包括NodeMcu每个版本属性对比图和管脚说明资料文档工具 ，ESP8266参数图表 对照表 ESP-01 ESP-01S、12E、12F 版本对比 参照,安信可8266在售模块选型表,各个版本之间的区别，NodeMcu管脚说明 文档"
+description = "NodeMcu CP2101 CH340 两种版本的区别，ESP8266包括NodeMcu每个版本属性对比图和管脚说明资料文档工具 ，ESP8266参数图表 对照表 ESP-01 ESP-01S、12E、12F 版本对比 参照,安信可8266在售模块选型表,各个版本之间的区别，NodeMcu管脚说明 文档"
 tags = [
     "esp8266",
 ]
 
 +++
+# ESP8266
+### 版本对比图
 
+![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/05/20210105170518.png)
 
+图片来自安信可官网
 
+# NodeMcu
 
-### NodeMcu原理图
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/06/20210106153601.png)
+NodeMcu引脚以及区别见：[CP2102版和CH340版两种NodeMcu的区别和H2-628有什么不同](https://blog.raikay.com/post/2018/nodemcu-cp2102-ch340g-hw628/)
 
-
-
-### Wemos D1 R3 管脚
+# Wemos D1 R3 
+### 对应引脚
 ```
 static const uint8_t PIN_D0 = 3;            //RX
 static const uint8_t PIN_D1 = 1;            //TX
@@ -44,11 +47,33 @@ static const uint8_t PIN_SS = 15;
 static const uint8_t PIN_LED = 2;
 ```
 
- ### ESP8266每个版本属性
+# Wemos D1 mini
+### 引脚图
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/21/20210121151010.jpg)
+![](https://gitee.com/imgrep001/m1/raw/master/2021/01/21/20210121151115.png)
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/05/20210105170518.png)
+### 引脚对应表
 
-图片来自安信可官网
+| Pin  | Function                     | ESP-8266 Pin |
+| :--- | :--------------------------- | :----------- |
+| TX   | TXD                          | TXD          |
+| RX   | RXD                          | RXD          |
+| A0   | Analog input, max 3.3V input | A0           |
+| D0   | IO                           | GPIO16       |
+| D1   | IO, SCL                      | GPIO5        |
+| D2   | IO, SDA                      | GPIO4        |
+| D3   | IO,10k Pull-up               | GPIO0        |
+| D4   | IO, 10k pull-up, BUILTIN_LED | GPIO2        |
+| D5   | IO, SCK                      | GPIO14       |
+| D6   | IO, MISO                     | GPIO12       |
+| D7   | IO, MOSI                     | GPIO13       |
+| D8   | IO,10k pull-down, SS         | GPIO15       |
+| G    | Ground                       | GND          |
+| 5V   | 5V                           | –            |
+| 3V3  | 3.3V                         | 3.3V         |
+| RST  | Reset                        | RST          |
+
+*All IO have interrupt/pwm/I2C/one-wire supported(except D0)*
 
 
 ### 规格书/管脚说明
@@ -59,9 +84,7 @@ static const uint8_t PIN_LED = 2;
 
 [ESP8266资源汇总](https://docs.ai-thinker.com/esp8266)
 
-### 注意事项
 
-1、NodeMcu的IIC（I2C）管脚是GOIO04和GPIO05，就是上面丝印的D1和D2。
 
 
 
