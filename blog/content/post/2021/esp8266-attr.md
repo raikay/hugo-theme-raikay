@@ -19,6 +19,10 @@ tags = [
 
 [Wemos 文档](https://www.wemos.cc/)
 
+[Arduino-ESP8266官方文档](https://arduino-esp8266.readthedocs.io/)
+
+[工具/驱动等资源下载](https://gitee.com/raikay/elefiles)
+
 
 # ESP8266
 ### 版本对比图
