@@ -1,8 +1,8 @@
 +++
 author = "Raikay"
-title = "Docker部署Apollo单环境以及多环境在一台服务器"
+title = "使用Docker部署Apollo多个环境在一台(Linux)服务器"
 date = "2020-04-05"
-description = "Docker部署Apollo单机单环境和单机多环境 安装 文档 教程 镜像 分布式 环境"
+description = "从一个环境版本安装开始，包含一个环境的安装方法，Docker镜像部署Apollo在linux系统单机单环境一个环境和单机多环境在一台机器上 安装 文档 教程 镜像 分布式 环境 免费"
 tags = [
     "apollo",
     "docker",
@@ -12,11 +12,11 @@ weight=98
 
 +++
 
-# 单环境安装及基本使用
+# 一、一个环境的安装
 > 必备环境：Docker  
 > [Docker 安装](/post/2020/docker/) : [http://blog.raikay.com/post/2020/docker/](/post/2020/docker/)  
 
-### 一、下载Apollo源码
+### 1、下载Apollo源码
 
 ```
 git clone https://github.com/ctripcorp/apollo.git
@@ -24,7 +24,7 @@ git clone https://github.com/ctripcorp/apollo.git
 
 
 
-### 二、进入docker-quick-start 目录
+### 2、进入docker-quick-start 目录
 
 ```
 cd apollo/scripts/docker-quick-start
@@ -32,7 +32,7 @@ cd apollo/scripts/docker-quick-start
 
 
 
-### 三、安装启动
+### 3、安装启动
 
 ```
 docker-compose up
@@ -54,7 +54,7 @@ apollo-quick-start    | Portal started. You can visit http://localhost:8070 now!
 
 
 
-### 四、基本使用
+### 4、基本使用
 
 管理后台：
 
@@ -121,7 +121,7 @@ docker exec -i apollo-quick-start /apollo-quick-start/demo.sh client
 
 
 
-# 多环境安装在一台机器多及基本使用
+# 二、多个环境安装在一台机器
 
 ### 一、搭建MySql
 
