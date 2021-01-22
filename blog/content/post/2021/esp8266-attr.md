@@ -29,7 +29,7 @@ tags = [
 
 # NodeMcu
 
-NodeMcu引脚以及区别见：[CP2102版和CH340版两种NodeMcu的区别和H2-628有什么不同](https://blog.raikay.com/post/2018/nodemcu-cp2102-ch340g-hw628/)
+NodeMcu引脚以及区别见：[CP2102版和CH340版两种NodeMcu的区别和HW-628有什么不同](https://blog.raikay.com/post/2021/nodemcu-cp2102-ch340g-hw628/)
 
 # Wemos D1 R3 
 ### 对应引脚
