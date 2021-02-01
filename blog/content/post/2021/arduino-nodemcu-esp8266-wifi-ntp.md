@@ -18,12 +18,13 @@ ESP8266WiFi
 网络时间协议，英文名称：Network Time Protocol（NTP）是用来使计算机时间同步化的一种协议，它可以使计算机对其服务器或时钟源（如石英钟，GPS等等)做同步化，它可以提供高精准度的时间校正（LAN上与标准间差小于1毫秒，WAN上几十毫秒），且可介由加密确认的方式来防止恶毒的协议攻击。NTP的目的是在无序的Internet环境中提供精确和健壮的时间服务。 ——【百度百科】
 
 ### 代码：
-```
+```c++
 /**
   作者: Raikay (raikay.com)
   时间: 2021/01/30
   说明: 通过NTP服务器获取网络时间（连接wifi）
 **/
+
 #include <ESP8266WiFi.h> //wifi库
 #include <time.h> //时间库
 
@@ -68,7 +69,6 @@ void loop() {
   //格式化输入
   Serial.print(String(1900 + p->tm_year) + "年" + String(1 + p->tm_mon) + "月" + String(p->tm_mday) + "日");
   Serial.println(" " + String(p->tm_hour) + ":" + String(p->tm_min) + ":" + String(p->tm_sec));
-
   delay(1000);
 }
 ```
