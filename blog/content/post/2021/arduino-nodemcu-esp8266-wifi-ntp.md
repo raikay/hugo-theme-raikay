@@ -1,7 +1,7 @@
 +++
 author = "Raikay"
 title = "使用NTP协议获取时间(连接wifi) - Arduino开发ESP8266(NodeMcu)学习记录 "
-date = "2021-01-17"
+date = "2021-02-01"
 description = "使用NTP协议获取时间(连接wifi) - Arduino开发ESP8266(NodeMcu)学习记录，通过NTP服务器获取当前网络时间 ESP8266连接wifi 使用wifi获取实时北京时间， Wemos D1 R1、Wemos D1 R3 Uno、D1 mini、Wifiduino、ESPduino、WiFinfo ESP8266开发板，学习记录，开发教程，文档，示例代码"
 tags = [
     "esp8266",
