@@ -22,7 +22,11 @@ tags = [
 ### CLR:
 公共语言运行时( Common Language Runtime )  
 
+### JIT:
+
+即时编译器(Just in time)
+
 ### 关系
-各个语言（VB.Net、F#）编译器把自己语言按照CTS、CLS编程成可以在CLR上运行的IL 
+各个语言（VB.Net、F#）使用自己的JIT按照CTS、CLS编译成可以在CLR上运行的IL 
 
 ![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/03/12/20210312151913.png)
