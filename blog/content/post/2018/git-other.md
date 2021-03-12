@@ -114,7 +114,7 @@ git clone --recursive https://github.com/dotnet/aspnetcore.git
 
 ```shell
 git config --global http.proxy "socks5://127.0.0.1:1080"
-git config --global https.proxy "socks5://127.0.0.1:1080"COPY
+git config --global https.proxy "socks5://127.0.0.1:1080"
 ```
 > 注意端口要换成自己的配置，默认为1080
 
