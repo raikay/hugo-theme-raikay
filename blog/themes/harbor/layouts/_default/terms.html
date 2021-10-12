@@ -1,0 +1,17 @@
+{{ define "main" }}
+
+<div class="container" role="main">
+  <article class="post-preview" >
+    {{ range .Data.Terms.Alphabetical }}
+      <div class="terms" style="float: left; margin:18px;">
+        <div class="term-name" >
+          <a href="{{ .Page.Permalink }}" style="font-size:20px">{{ .Page.Title }}</a>
+          <span class="badge">({{ .Count }})</span>
+        </div>
+      </div>
+    {{ end }}
+  </article>
+  <div style="clear:both;"/>
+</div>
+
+{{ end }}

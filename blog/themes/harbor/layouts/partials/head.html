@@ -1,0 +1,43 @@
+<title>{{ if .IsHome }}{{ .Site.Author.name }}博客 - 代码改变世界{{ else }}{{  .Title  }} - {{ .Site.Author.name }}博客{{ end }} </title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
+<meta name="keywords" content="{{ with .Params.tags }}{{ delimit . "," }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}"/>
+<link rel="canonical" href="{{ .Permalink }}" />
+{{ partial "analytics.html" . }}
+<link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}index.xml" title="{{.Site.Author.name}}博客">
+<!-- OG data -->
+<meta property="og:locale" content="{{ $.Site.Language.Lang }}" />
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+<meta property="og:title" content="{{ if .IsHome }}{{ $.Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ if .IsHome }}{{ $.Site.Params.Subtitle }}{{ else if .Description}}{{ .Description | plainify }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:site_name" content="{{ $.Site.Title }}" />
+{{ if and (not .IsHome) (isset .Params "cover") }}
+<meta property="og:image" content="{{ .Param "cover" | absURL }}">
+{{ else }}
+  {{ if isset $.Site.Params "favicon" }}
+<meta property="og:image" content="{{ $.Site.Params.favicon | absURL }}">
+  {{ else }}
+<meta property="og:image" content="{{ printf "img/favicon/%s.png" $.Site.Params.ThemeColor | absURL }}">
+  {{ end }}
+{{ end }}
+{{ range .Params.categories }}
+<meta property="article:section" content="{{ . }}" />
+{{ end }}
+<!-- RSS -->
+{{ with .OutputFormats.Get "RSS" }}
+<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+{{ end }}
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
+<link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css" />
+<!-- <link id="dark-mode" rel="stylesheet" href="{{ .Site.BaseURL }}css/dark-sys.css" /> -->
+<!-- <link disabled id="dark-mode-theme" rel="stylesheet" href="{{ .Site.BaseURL }}css/dark.css" /> -->
+<link rel="stylesheet" href="{{ .Site.BaseURL }}fontawesome/css/all.css" />
+<link rel="stylesheet" href="{{ .Site.BaseURL }}viewer/css/viewer.min.css" /> 
+<script src="{{ .Site.BaseURL }}viewer/js/viewer.min.js"></script>
+<script src='{{ .Site.BaseURL }}valine/Valine.min.js'></script>
+{{ hugo.Generator -}}
+

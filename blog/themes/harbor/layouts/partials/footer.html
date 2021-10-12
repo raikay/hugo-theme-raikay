@@ -1,0 +1,105 @@
+<footer>
+
+  <script>
+    new Valine({
+      el: '#vcomments',
+      appId: '5kAGCWy2Ftgf0OArUlYbfEwq-gzGzoHsz',
+      appKey: 'QhoQw7pqsjh5tzrHhGN2vyjk'
+    })
+  </script>
+  <script type="text/javascript">
+    //      回到顶部效果
+    window.onload = function () {
+      var obtn = document.getElementById('return_top');  //获取回到顶部按钮的ID
+      var clientHeight = document.documentElement.clientHeight;   //获取可视区域的高度
+      var timer = null; //定义一个定时器
+      var isTop = true; //定义一个布尔值，用于判断是否到达顶部
+
+      window.onscroll = function () {         //滚动条滚动事件
+
+        //获取滚动条的滚动高度
+        var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+        if (osTop >= clientHeight) {  //如果滚动高度大于可视区域高度，则显示回到顶部按钮
+          obtn.style.display = 'block';
+        } else {         //否则隐藏
+          obtn.style.display = 'none';
+        }
+
+        //主要用于判断当 点击回到顶部按钮后 滚动条在回滚过程中，若手动滚动滚动条，则清除定时器
+        if (!isTop) {
+          clearInterval(timer);
+        }
+        isTop = false;
+      }
+
+      obtn.onclick = function () {    //回到顶部按钮点击事件
+        //设置一个定时器
+        timer = setInterval(function () {
+          //获取滚动条的滚动高度
+          var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+          //用于设置速度差，产生缓动的效果
+          var speed = Math.floor(-osTop / 6);
+          document.documentElement.scrollTop = document.body.scrollTop = osTop + speed;
+          isTop = true;  //用于阻止滚动事件清除定时器
+          if (osTop == 0) {
+            clearInterval(timer);
+          }
+        }, 30);
+      }
+    }
+
+
+    //$(function() {
+    //	$('p> img').zoomify({scale:1});
+    //});
+
+
+  </script>
+  {{ if .IsHome }}
+  {{ else }}
+  <script type="text/javascript">
+      var viewer = new Viewer(document.getElementById('viewerId'), {
+      navbar: false,
+      toolbar: false
+    });
+
+  </script>
+  {{ end }}
+  <div class="container">
+    <p class="credits ">
+      友情链接： <a target="_blank" href="https://www.mediazhang.com/">小张博客</a>&nbsp;|&nbsp;
+      <a target="_blank" href="https://www.liflag.cn">立flag博客</a>&nbsp;|&nbsp;
+      <a target="_blank" href="http://www.raikay.com/">Raikay个人网站</a>&nbsp;|&nbsp;
+      <a href="https://www.leejean.top" title="记录、分享关于Java的学习总结" target="_blank">LeeBlog</a>&nbsp;|&nbsp;
+      <a target="_blank" href="https://www.webyang.net/">WebYang.NET- IT技术博客</a>&nbsp;|&nbsp;
+      <a target="_blank" href="http://www.qs5.org">青石坞</a>&nbsp;|&nbsp;
+      <a target="_blank" href="/links/">申请友链</a>
+    </p>
+
+    <p class="credits theme-by">
+      <script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279485768&web_id=1279485768"></script>&nbsp;|&nbsp;
+      <a href="https://blog.raikay.com/sitemap.xml" target="_blank">网站地图</a>&nbsp;|&nbsp;
+       <!-- {{ if .Site.Title }}
+      &nbsp;|
+      &nbsp;<a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>&nbsp;&nbsp;
+      {{ end }} 
+      &nbsp;&ndash;-->
+      <i style="display: none;" class="fas fa-moon" id="dark-mode-toggle"></i> 
+      Powered By <a href="https://gohugo.io" target="_blank">Hugo</a>&nbsp;Theme 
+      <a target="_blank" href="https://github.com/matsuyoshi30/harbor">Harbor</a>
+    </p>
+
+
+    <p class="credits copyright">
+      Copyright &copy;
+      2017 - {{ .Site.LastChange.Format "2006" }} {{ .Site.Author.name }}&nbsp;All Rights Reserved. <a href="https://beian.miit.gov.cn/" target="_blank">京ICP备20002569号-1</a>
+    </p>
+
+  </div>
+  <div>
+    <a href="javascript:;" id="return_top" title="回到顶部"><img
+        width="20px" height="20px"  style="position: absolute;left: 25%;top: 25%;" src="{{ .Site.BaseURL }}images/back-to-top.svg"></a>
+  </div>
+  <!-- <a href="https://baidurank.aizhan.com/" target="_blank"><img src="https://baidurank.aizhan.com/api/br?domain=raikay.com&style=images" /></a> -->
+</footer>
