@@ -20,7 +20,7 @@
         //获取滚动条的滚动高度
         var osTop = document.documentElement.scrollTop || document.body.scrollTop;
 
-        if (osTop >= clientHeight) {  //如果滚动高度大于可视区域高度，则显示回到顶部按钮
+        if (osTop >= clientHeight-700) {  //如果滚动高度大于可视区域高度，则显示回到顶部按钮
           obtn.style.display = 'block';
         } else {         //否则隐藏
           obtn.style.display = 'none';
@@ -97,9 +97,6 @@
     </p>
 
   </div>
-  <div>
-    <a href="javascript:;" id="return_top" title="回到顶部"><img
-        width="20px" height="20px"  style="position: absolute;left: 25%;top: 25%;" src="{{ .Site.BaseURL }}images/back-to-top.svg"></a>
-  </div>
+
   <!-- <a href="https://baidurank.aizhan.com/" target="_blank"><img src="https://baidurank.aizhan.com/api/br?domain=raikay.com&style=images" /></a> -->
 </footer>

@@ -36,6 +36,10 @@
       {{ end }}
     </article>
 	  <div id="vcomments"></div>
+    <div>
+      <a href="javascript:;" id="return_top" title="回到顶部"><img
+          width="20px" height="20px"  style="position: absolute;left: 25%;top: 25%;" src="{{ .Site.BaseURL }}images/back-to-top.svg"></a>
+    </div>
     {{ if and (gt .WordCount 400) (.Param "backtotop") }}
       {{ partial "backtotop.html" . }}
       <button onclick="topFunction()" id="backtotopButton">

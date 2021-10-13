@@ -167,8 +167,10 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .container[role=main] {
+  background-color:  rgb(255 255 255);
   max-width: 888px; 
-  padding: 0 20px;
+  padding: 1px 20px 0 20px;
+  margin-top: 1px;
   font-size: 16px;
   line-height: 1.7;
   color: #333333;
@@ -561,7 +563,8 @@ footer i {
 #return_top{
 
     position:fixed; 
-    right:45px; 
+    /* right:45px;  */
+    margin-left: 1000px;
     bottom:90px; 
     display:none; 
     border: 1px solid #ddd;
