@@ -76,7 +76,7 @@ HTTP1.1 新增了六种请求方法：OPTIONS、PUT、PATCH、DELETE、TRACE 和
 **rest full api**
 
 GET /device-management/devices ：获取所有设备  
-POST /device-management/devices：创建新设备    （是幂等的。多次发送重试请求，等同于单个请求修改。）  
+POST /device-management/devices：创建新设备    （是幂等的。多次发送重试请求，等同于单个请求修改）  
 
 GET /device-management/devices/{id} ：获取设备信息由“id”  
 PUT /device-management/devices/{id} ：更新由“id”标识的设备信息  （不是幂等的。重试请求N次，最终拥有N个资源）  
