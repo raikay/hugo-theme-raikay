@@ -121,7 +121,9 @@ docker run ... -e JAVA_OPTS=-Duser.timezone=Asia/Shanghai
 
 ![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/23/20210923165624.png)
 
+### 插件
 
+http请求插件：HTTP Request
 
 ### 相关文章：
 
