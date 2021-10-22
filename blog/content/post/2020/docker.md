@@ -37,18 +37,7 @@ yum install -y yum-utils device-mapper-persistent-data lvm2
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
-
-> 添加阿里源时有时会报错，如果报错，使用如下命令使用官方源
-> ```shell
-> #删除异常源
-> rm -f /etc/yum.repos.d/docker-ce.repo
-> #使用官方源
-> yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-> #清华大学源
-> #https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/docker-ce.repo
-> ```
-
-3、安装Docker-CE
+3、安装docker-ce
 
 ```shell
 yum install -y docker-ce docker-ce-cli containerd.io
@@ -86,8 +75,6 @@ vim  /etc/docker/daemon.json
 ```
 systemctl enable docker #开机启动docker
 ```
-
-
 
 ### 重启
 
@@ -139,18 +126,18 @@ docker run -p 8000:80 --name mynginx -d nginx
 #-name 容器名为mynginx 
 #-d 守护进程模式启动（因为容器必须有进程在运行，否则结束就挂
 ```
-| **参数**   | 说明 |
+| 参数   | 说明 |
 | --------- | ------------------ |
-| **run**   | 创建并运行一个容器 |
-| **-d**    | 放入后台           |
-| **-p**    | 端口映射           |
-| **-v** | 挂载目录     |
-| **-env** | 环境变量          |
+| run   | 创建并运行一个容器 |
+| -d    | 放入后台           |
+| -p    | 端口映射           |
+| -v | 挂载目录     |
+| -env | 环境变量          |
 
 启动后URL
 
 ```
- http://localhost:8000/
+http://localhost:8000/
 ```
 
 
@@ -241,6 +228,16 @@ sudo rm /var/lib/docker/ -rf
 
 
 # 扩展
+**问题解决**
+添加阿里源时有时会报错，如果报错，使用如下命令使用官方源  
+```shell
+#删除异常源
+rm -f /etc/yum.repos.d/docker-ce.repo
+#使用官方源
+yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+#清华大学源
+#https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/centos/docker-ce.repo
+```
 **加速源**
 
 |  名称|  地址|
@@ -291,9 +288,6 @@ docker kill， 发送SIGKILL信号，应用程序直接退出。
 - docker-ce 社区版，免费
 - docker-ee 商业版，收费
 
-
-
-  
 
 **鸣谢：**
 
