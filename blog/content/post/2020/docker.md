@@ -135,8 +135,17 @@ docker pull nginx  #下载nginx镜像
 
 ```shell
 docker run -p 8000:80 --name mynginx -d nginx 
-#-p指定服务器8000端口,映射容器80 web端口，容器名为mynginx -d 守护进程模式启动（因为容器必须有进程在运行，否则结束就挂
+#-p 指定服务器8000端口,映射容器80 web端口
+#-name 容器名为mynginx 
+#-d 守护进程模式启动（因为容器必须有进程在运行，否则结束就挂
 ```
+
+| **run**   | 创建并运行一个容器 |
+| --------- | ------------------ |
+| **-d**    | 放入后台           |
+| **-p**    | 端口映射           |
+| **-v** | 文件映射           |
+
 
 启动后URL
 
@@ -188,7 +197,29 @@ docker run -itd --name redis-test -p 6379:6379 redis
 docker exec -it redis-test /bin/bash
 ```
 
+容器保存为镜像
+```
+#docker commit 容器名 镜像名
+docker commit mynginx mynginx_i
+```
+
+镜像输出为文件
+```
+docker save -o myNginxFileName.tar mynginx_i
+```
+恢复镜像
+
+```
+docker load -i myNginxFileName.tar
+```
+
+构建
+```
+docker build -t='镜像名称' .
+```
+
 源简写
+
 ```json
 {
   "registry-mirrors": [
