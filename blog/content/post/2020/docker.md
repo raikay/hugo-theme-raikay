@@ -145,7 +145,7 @@ docker run -p 8000:80 --name mynginx -d nginx
 | **-d**    | 放入后台           |
 | **-p**    | 端口映射           |
 | **-v** | 文件映射           |
-
+| **-env** | 环境变量          |
 
 启动后URL
 
