@@ -29,5 +29,5 @@ tags = [
   
 
 ### 关系
-**各个语言（VB.Net、F#）使用自己的JIT按照CTS、CLS编译成可以在CLR上运行的IL **
+**各个语言（VB.Net、F#）使用自己的JIT按照CTS、CLS编译成可以在CLR上运行的IL**
 
