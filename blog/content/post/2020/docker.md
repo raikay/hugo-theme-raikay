@@ -2,14 +2,14 @@
 author = "Raikay"
 title = "Docker环境安装及基础命令使用"
 date = "2020-04-03"
-description = "Docker环境的安装以及基础命令使用，并且配置国内源加速"
+description = "Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker环境的安装以及基础命令使用，并且配置国内源加速"
 tags = [
     "docker","环境安装","国内源"
 ]
 
 +++
 
-
+Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows操作系统的机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。
 
 # 安装Docker
 
@@ -274,6 +274,8 @@ curl -sSL https://get.docker.com/ | bash -x
 apt-get purge lxc-docker
 ```
 
+### 轻量级可视化管理工具`Portainer`
+
 ###  相关问题：
 
 **1、docker stop 与 docker kill 均可以将容器停掉，但二者究竟有什么区别呢？**
@@ -290,7 +292,7 @@ docker kill， 发送SIGKILL信号，应用程序直接退出。
 
 
 **鸣谢：**
-
+> https://baike.baidu.com/item/Docker/13344470
 > https://www.cnblogs.com/hellxz/p/11044012.html    
 > https://www.jianshu.com/p/6eea18d6fb39 #镜像的备份      
 
