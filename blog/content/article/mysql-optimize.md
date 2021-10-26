@@ -1,7 +1,7 @@
 +++
 author = "Raikay"  
 title = "最全的MySQL数据库SQL优化总结"  
-date = "2021-09-21"  
+date = "2021-10-25"  
 description = "最全的MySQL数据库SQL优化总结"  
 tags = [  
     "mysql", 
@@ -10,12 +10,6 @@ tags = [
 +++
 
 
-
-### SQL优化三大原则:
-
-最大化利用索引；  
-尽可能避免全表扫描；  
-减少无效数据的查询；  
 
 ### 一、避免不走索引的场景
 #### 1、尽量避免在字段开头模糊查询  
@@ -49,3 +43,9 @@ SELECT * FROM t WHERE id = 1
    UNION all
 SELECT * FROM t WHERE id = 3
 ```
+
+### SQL优化三大原则:
+
+最大化利用索引；  
+尽可能避免全表扫描；  
+减少无效数据的查询；  
