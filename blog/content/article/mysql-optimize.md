@@ -66,7 +66,14 @@ SELECT username, age, sex FROM T WHERE 1=1
 
 #### 7、尽量避免查询条件用 <> 或者 !=
 
-如确实业务需要，使用到不等于符号，需要在重新评估索引建立，避免在此字段上建立索引，改由查询条件中其他索引字段代替。
+如确实业务需要，使用到不等于符号，让条件列在查询列内，或重新评估索引建立，避免在此字段上建立索引，改由查询条件中其他索引字段代替。
+
+```sql
+-- 会使用到覆盖索引
+EXPLAIN SELECT `name`, `age`, `pos` FROM `staffs` WHERE `name` != 'Ringo';
+-- 索引失效 全表扫描
+EXPLAIN SELECT * FROM `staffs` WHERE `name` != 'Ringo';
+```
 
 #### 8、where条件仅包含复合索引非前置列
 
@@ -80,7 +87,7 @@ select col1 from table where key_part2=1 and key_part3=2
 
 如下col_varchar类型为varchar，但给定的值为数值，涉及隐式类型转换，造成不能正确走索引。 
 
-```
+```sql
 select col1 from table where col_varchar=123; 
 -- 优化 加单引号'123' 匹配正确类型
 ```
@@ -89,10 +96,9 @@ select col1 from table where col_varchar=123;
 
 > group by 、union 、distinct 同理
 
-```
+```sql
 -- 不走age索引
 SELECT * FROM t order by age;
- 
 -- 走age索引
 SELECT * FROM t where age > 0 order by age;
 ```
@@ -142,7 +148,7 @@ MySQL采用从左往右，自上而下的顺序解析where子句。根据这个�
 
 因此，如果查询包括 GROUP BY 但你并不想对分组的值进行排序，你可以指定 ORDER BY NULL禁止排序。例如：
 
-```
+```sql
 SELECT col1, col2, COUNT(*) FROM table GROUP BY col1, col2 ORDER BY NULL ;
 ```
 
@@ -168,8 +174,6 @@ MySQL通过创建并填充临时表的方式来执行union查询。除非确实�
 
 8、不用外键，由程序保证约束
 
-
-
 ## 查询分析
 
  查询语句钱加EXPLAIN查看是否用了索引
@@ -183,7 +187,9 @@ SET GLOBAL slow_query_log=ON;
 
 ## 数据库引擎
 
-引擎是数据库的核心服务。目前广泛使用的是 MyISAM 和 InnoDB 两种引擎：
+引擎是数据库的核心服务。目前广泛使用的是 MyISAM 和 InnoDB 两种引擎。
+
+> 还有MEMORY存储引擎，通常很少用到。由于基于内存，所以响应速度非常快。但若内存出现异常就会影响到数据的完整性。若重启机器或者关机，或当mysqld守护进程崩溃时，所有的数据都会丢失。
 
 |                  | InnoDB                              | MyISAM                   |
 | ---------------- | ----------------------------------- | ------------------------ |
@@ -194,6 +200,12 @@ SET GLOBAL slow_query_log=ON;
 | 全文索引         | 不支持（5.6.4之后版本逐渐开始支持） | 支持                     |
 | 索引类型         | 聚集索引                            | 非聚集索引               |
 | 默认引擎         | 5.5 后成为默认索引                  | 5.1 及之前版本的默认引擎 |
+
+ InnoDB是聚集索引，使用B+Tree作为索引结构，数据文件是和（主键）索引绑在一起的（表数据文件本身就是按B+Tree组织的一个索引结构），必须要有主键，通过主键索引效率很高。但是辅助索引需要两次查询，先查询到主键，然后再通过主键查询到数据。因此，主键不应该过大，因为主键太大，其他索引也都会很大。
+MyISAM是非聚集索引，也是使用B+Tree作为索引结构，索引和数据文件是分离的，索引保存的是数据文件的指针。主键索引和辅助索引是独立的。
+也就是说：InnoDB的B+树主键索引的叶子节点就是数据文件，辅助索引的叶子节点是主键的值；而MyISAM的B+树主键索引和辅助索引的叶子节点都是数据文件的地址指针
+
+
 
 ### 三范式  
 
