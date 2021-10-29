@@ -238,14 +238,15 @@ InnoDB使用的是B+树索引.
 存储过程  、触发器、事件、锁、分页、binglog恢复数据     
 
 **鸣谢**：
-> https://blog.csdn.net/qq_39390545/article/details/107020686
-> https://blog.csdn.net/qq_39390545/article/details/106414765
-> SQL优化最干货总结 - MySQL（2020最新版）
-> https://blog.csdn.net/qq_39390545/article/details/107020686
-> MySql的数据库引擎
-> https://www.cnblogs.com/wangsen/p/10863405.html
-> MySql 日常指导，及大表优化思路
-> https://juejin.cn/post/6844903663459123208
-> mysql主从同步配置
-> https://www.cnblogs.com/zhoujie/p/mysql1.html
+
+> https://blog.csdn.net/qq_39390545/article/details/107020686  
+> https://blog.csdn.net/qq_39390545/article/details/106414765  
+> SQL优化最干货总结 - MySQL（2020最新版）  
+> https://blog.csdn.net/qq_39390545/article/details/107020686  
+> MySql的数据库引擎  
+> https://www.cnblogs.com/wangsen/p/10863405.html  
+> MySql 日常指导，及大表优化思路  
+> https://juejin.cn/post/6844903663459123208  
+> mysql主从同步配置  
+> https://www.cnblogs.com/zhoujie/p/mysql1.html  
 
