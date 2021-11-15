@@ -54,14 +54,12 @@ rm ~/testFile
 #查找名称包含nginx的.conf文件
 find / -name '*.conf' |grep nginx
 
-
 #解压：
 # tar.gz  tar  tgz
 tar xzvf FileName.tar.gz
 
 #压缩：
 tar czvf FileName.tar.gz DirName
-
 ```
 #### 查看文件
 
@@ -166,7 +164,7 @@ Systemctl disable serviceName  #关闭服务的开机自启动
 ```
 
 ## 网络
-```
+```sh
 #netstat 命令
 #netstat 命令用于显示各种网络相关信息，如网络连接, 路由表, 接口状态等等
 
@@ -179,7 +177,7 @@ netstat -tulpn
 
 **检查网卡**
 > Centos7的ifconfig不能用了，貌似需要后安装  
-```
+```sh
 #查询IP 网卡信息
 ip addr 
 #网卡状态查询
@@ -205,7 +203,7 @@ service network restart #重启网络服务
 > 新版centos7安装后网卡默认采用ipv6，需要将ipv6修改为ipv4   
 
 修改网卡配置：    
-```
+```sh
 #vim /etc/sysconfig/network-scripts/ifcfg-ens33
 #ens33 网卡名
 IPV6INIT=no
@@ -260,7 +258,6 @@ firewall-cmd --query-service ssh
 
 # 10、列出防火墙全部的启用
 firewall-cmd --list-all
-
 ```
 ### Ubuntu/Debian防火墙管理
 ```sh
@@ -294,7 +291,6 @@ sudo ufw allow from 10.0.0.0/8
 sudo ufw allow from 172.16.0.0/12
 
 sudo ufw allow from 192.168.0.0/16
-
 ```
 
 ### selinux管理
@@ -320,7 +316,7 @@ getenforce
 ```
 
 ## 控制台
-```
+```sh
 #清屏
 clear
 
@@ -332,7 +328,7 @@ reset
 Screen是Linux后台运行工具。提供了 ANSI/VT100 的终端模拟器，运行多个全屏的伪终端，每个伪终端我们称之为一个session。
 
 **常用screen参数**
-```
+```sh
 screen -S yourname -> 新建一个叫yourname的session
 screen -ls -> 列出当前所有的session
 screen -r yourname -> 回到yourname这个session
@@ -344,7 +340,7 @@ screen -d -r yourname -> 结束当前session并回到yourname这个session
 
 ### nohup
 
-```
+```sh
 # 后台执行任务
 nohup  <命令>  &
 # 不加nohup 只有&，退出当前控制台后进程结束
@@ -366,19 +362,19 @@ bg
 
 
 ### 装机必备
-```
+```sh
 #安装wget vim  gcc、c++编译器以及内核文件
 yum -y install gcc gcc-c++ kernel-devel wget vim gi
 ```
 
 
-```
+```sh
 #查看软件是否安装
 whereis software_name
 ```
 
 ### rpm包管理
-```
+```sh
 #查看已安装软件包数量：
 rpm -qa | wc -l
 #查询系统中已经安装的软件
@@ -401,7 +397,7 @@ rpm -qR 软件名
 rpm -qa | grep vsftpd
 ```
 ### 安装mariadb
-```
+```sh
 yum install mariadb mariadb-server
 # ==> 启动mariadb
 systemctl start mariadb
@@ -415,7 +411,7 @@ mysql -uroot -p123456
 
 ## 其他
 ### curl post请求
-```
+```sh
 # curl 命令如下：
 curl -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"phone": "18000011005","password": "xxxxx", "status":40,"order_no":"1998708","config":{"loading":true},"data": "123", "appVersion": "1.2.3","CHEN_ZHE_TEST_ONE_TWO_THREE": 1}'  http://192.168.57.80/mjyx-mall-gateway2/web/index.php/auth/login
 
