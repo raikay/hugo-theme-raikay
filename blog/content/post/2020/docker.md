@@ -202,7 +202,7 @@ docker load -i myNginxFileName.tar
 
 构建
 ```
-docker build -t='镜像名称' .
+docker build -t '镜像名称' .
 ```
 
 源简写
