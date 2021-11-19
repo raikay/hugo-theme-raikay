@@ -256,7 +256,7 @@ yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce
 ```shell
 #如果没有pip，先安装pip
 yum -y install epel-release
-yum -y install python-pip
+yum -y install python-pip #如果失败用：yum --enablerepo=extras install epel-release
 #升级
 pip install --upgrade pip
 #安装docker-compose
