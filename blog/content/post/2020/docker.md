@@ -121,10 +121,11 @@ docker pull nginx  #下载nginx镜像
 启动镜像
 
 ```shell
-docker run -p 8000:80 --name mynginx -d nginx 
+docker run  -d -p 8000:80 --name mynginx -it  nginx
 #-p 指定服务器8000端口,映射容器80 web端口
 #-name 容器名为mynginx 
-#-d 守护进程模式启动（因为容器必须有进程在运行，否则结束就挂
+#-d 守护进程模式启动（因为容器必须有进程在运行，否则结束就挂，最后面加/bin/bash 好像是一样的作用）
+#-it 为该docker创建一个伪终端，这样就可以进入到容器的交互模式（也就是直接进入到容器里面）
 ```
 | 参数   | 说明 |
 | --------- | ------------------ |
