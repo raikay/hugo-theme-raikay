@@ -364,7 +364,7 @@ bg
 ### 装机必备
 ```sh
 #安装wget vim  gcc、c++编译器以及内核文件
-yum -y install gcc gcc-c++ kernel-devel wget vim gi
+yum -y install gcc gcc-c++ kernel-devel wget vim git
 ```
 
 
