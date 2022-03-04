@@ -280,6 +280,7 @@ REST是英文representational state transfer(表象性状态转变)或者表述�
 >同一个资源具有多种表现形式(xml,json等)  
 >对资源的各种操作不会改变资源标识符  
 >所有的操作都是无状态的  
+
 符合REST原则的架构方式即可称为RESTful  
 
 **什么是Restful**:
@@ -288,17 +289,17 @@ REST是英文representational state transfer(表象性状态转变)或者表述�
 **为什么会出现Restful?**  
 
 **在Restful之前的操作**：
-`GET: /devices/1` 获取所有设备
-`POST: /devices/save`  新增设备
-`POST: /devices/update`  修改设备信息
-`GET/POST: /devices/delete/1`  删除设备信息
+`GET: /devices/1` 获取所有设备  
+`POST: /devices/save`  新增设备  
+`POST: /devices/update`  修改设备信息  
+`GET/POST: /devices/delete/1`  删除设备信息  
 
 **RESTful用法**：
-`GET /devices` ：获取所有设备
+`GET /devices` ：获取所有设备  
 `POST /devices`：新增设备 （是幂等的。多次发送重试请求，等同于单个请求修改）  
-`GET /devices/{id}` ：获取设备信息由“id”
-`PUT /devices/{id}` ：更新由“id”标识的设备信息 （不是幂等的。重试请求N次，最终拥有N个资源）
-`DELETE /devices/{id}` ：通过“id”删除设备
+`GET /devices/{id}` ：获取设备信息由“id”  
+`PUT /devices/{id}` ：更新由“id”标识的设备信息 （不是幂等的。重试请求N次，最终拥有N个资源）  
+`DELETE /devices/{id}` ：通过“id”删除设备  
 
 之前的操作是没有问题的,大神认为是有问题的,有什么问题呢?你每次请求的接口或者地址,都在做描述,例如查询的时候用了query,新增的时候用了save,其实完全没有这个必要,我使用了get请求,就是查询.使用post请求,就是新增的请求,我的意图很明显,完全没有必要做描述,这就是为什么有了restful。  
 
