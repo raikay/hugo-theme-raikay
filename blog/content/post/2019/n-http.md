@@ -288,13 +288,13 @@ REST是英文representational state transfer(表象性状态转变)或者表述�
 
 **为什么会出现Restful?**  
 
-**在Restful之前的操作**：
+**在Restful之前的操作**：  
 `GET: /devices/1` 获取所有设备  
 `POST: /devices/save`  新增设备  
 `POST: /devices/update`  修改设备信息  
 `GET/POST: /devices/delete/1`  删除设备信息  
 
-**RESTful用法**：
+**RESTful用法**：  
 `GET /devices` ：获取所有设备  
 `POST /devices`：新增设备 （是幂等的。多次发送重试请求，等同于单个请求修改）  
 `GET /devices/{id}` ：获取设备信息由“id”  
