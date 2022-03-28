@@ -9,7 +9,7 @@ tags = [
 
 +++
 
-![img](https://gitee.com/imgrep001/m1/raw/master/20200811135727.png)
+![img](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811135727.png)
 
 
 
@@ -33,7 +33,7 @@ tags = [
 
 使用消息队列，就好比为了防汛而建葛洲坝，有大量数据的堆积能力，然后可靠地进行异步输出。例如：
 
-![img](https://gitee.com/imgrep001/m1/raw/master/20200811135626.png)
+![img](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811135626.png)
 
 传统做法存在如下问题，请见上图：
 
@@ -43,7 +43,7 @@ tags = [
 
 - 3、数据库压力大，易并发。
 
-![img](https://gitee.com/imgrep001/m1/raw/master/20200811135548.png)
+![img](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811135548.png)
 
 **使用 MQ 后的好处，请见上图**：
 
@@ -89,7 +89,7 @@ http://139.198.13.12:6233/，
 
 消息从发送端到接收端的流转过程即 RabbitMQ 的消息工作机制，请见下图：
 
-![img](https://gitee.com/imgrep001/m1/raw/master/20200811135511.png)
+![img](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811135511.png)
 
 消息发送与接收的工作机制
 
@@ -99,17 +99,17 @@ http://139.198.13.12:6233/，
 
 1、**单对单**：单发送、单接收。请见下图。
 
-![img](https://gitee.com/imgrep001/m1/raw/master/20200811135413.png)
+![img](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811135413.png)
 
 2、**单对多**：一个发送端，多个接收端，如分布式的任务派发。请见下图：
 
-![img](https://gitee.com/imgrep001/m1/raw/master/20200811135329.png)
+![img](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811135329.png)
 
 3、**主题**：Exchange Type 为 topic，发送消息时需要指定交换机及 Routing Key，消费者的消息队列绑定到该交换机并匹配到 Routing Key 实现消息的订阅，订阅后则可接收消息。只有消费者将队列绑定到该交换机且指定的 Routing Key 符合匹配规则，才能收到消息。
 
 其中 Routing Key 可以设置成通配符，如：*或 #（*表示匹配 Routing Key 中的某个单词，# 表示任意的 Routing Key 的消息都能被收到）。如果 Routing Key 由多个单词组成，则单词之间用. 来分隔。
 
-![img](https://gitee.com/imgrep001/m1/raw/master/20200811135221.png)
+![img](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811135221.png)
 
 
 

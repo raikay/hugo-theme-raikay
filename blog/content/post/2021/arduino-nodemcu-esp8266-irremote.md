@@ -33,13 +33,13 @@ IRremoteESP8266
 
 红外发射管 长的是正极，短的是负极。
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117224810.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117224810.png)
 
 ### 实物图
 
 按D3按键关闭空调，按D4开启空调  
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117223239.jpg)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117223239.jpg)
 
 ### 代码
 

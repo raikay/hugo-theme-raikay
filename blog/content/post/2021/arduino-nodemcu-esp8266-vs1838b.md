@@ -29,17 +29,17 @@ IRremoteESP8266
 
 ### 红外接收头图片
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117192023.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117192023.png)
 
 
 
 ### 线路图
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/20/20210120130951.jpg)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/20/20210120130951.jpg)
 
 ### 实物图
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117142918.jpg)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117142918.jpg)
 
 ### 代码
 
@@ -121,7 +121,7 @@ void loop() {
 
 ### 使用的红外遥控器  
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117120748.jpg)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117120748.jpg)
 
 对应的编码：
 
@@ -144,7 +144,7 @@ void loop() {
 
 rawData是原数据，在无法解码的情况，可以使用原数据直接发出，同样可以控制。  
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117115616.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117115616.png)
 
 ### 通过红外线信号控制板载LED灯代码
 ```c++
@@ -228,19 +228,19 @@ void loop() {
 
 编码：`0x3C0E205010200070`、`0x3C0E205010200070`、`0x3C0D205010200060`
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117120244.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117120244.png)
 
 
 美的空调 省电星 红外接收结果
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117115428.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117115428.png)
 
 
 
 长虹电视 红外遥控器接收结果
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117115017.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117115017.png)
 
 ### 参数图片
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/17/20210117114849.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117114849.png)

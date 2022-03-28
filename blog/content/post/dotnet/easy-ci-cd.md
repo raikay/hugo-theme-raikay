@@ -107,28 +107,28 @@ chmod a+x publish.sh
 
 创建一个Demo项目部署到服务器，托管到gitee  
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/18/20210918170456.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918170456.png)
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/18/20210918170700.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918170700.png)
 
 
 把webhook地址添加到gitee的WebHooks，并指定脚本文件名
 > 大多数git平台都有webhook功能   
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/18/20210918165623.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918165623.png)
 
 
 
 项目做一些改动，git提交代码  
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/18/20210918171945.png)  
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918171945.png)  
 
 查看gitee触发记录  
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/18/20210918171151.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918171151.png)
 
 查看网站已经完成自动部署
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/18/20210918171236.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918171236.png)
 
 ### 相关文章：
 [Docker环境安装及基础命令使用](https://blog.raikay.com/post/2020/docker/)  

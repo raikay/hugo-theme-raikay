@@ -13,29 +13,29 @@ tags = [
 
 ## 添加节点
  这个jenkins是用docker安装的，我们要操作宿主机构建项目，不是这个容器，所以要把这个容器本身的节点停止，添加宿主机节点  
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921231054.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921231054.png)
 
 ### 断开jenkins容器节点 Master 
 
 > 也可以使用标签限制
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921232006.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921232006.png)
 
 ### 新建节点
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921230914.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921230914.png)
 
 ### 添加宿主机连接信息
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921232207.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921232207.png)
 
 ### 添加宿主机认证用户
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921232421.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921232421.png)
 
 
 ### 生成ssh公钥和私钥
 
 执行：`ssh-keygen` 一路回车
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922002426.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922002426.png)
 
 
 
@@ -59,23 +59,23 @@ cat id_rsa.pub > authorized_keys
 cat id_rsa
 ```
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922003022.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922003022.png)
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922003126.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922003126.png)
 
 ## 添加触发器
 `token`可以区分项目  
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921223033.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921223033.png)
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921223102.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921223102.png)
 
 把地址复制到代码托管平台，设置触发
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922003438.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922003438.png)
 
 ## 添加构建脚本
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922183552.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922183552.png)
 
 Jenkins构建完成会自动关闭进程及其子进程，造成`nohup` 无效，需要在命令内加参数`BUILD_ID=DONTKILLME`
 
@@ -97,7 +97,7 @@ nohup dotnet WebDemo.dll --urls http://0.0.0.0:8081 &
   
 ## 构建记录
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922003807.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922003807.png)
 
 ### 相关文章：
 [Docker环境安装及基础命令使用](https://blog.raikay.com/post/2020/docker/)  

@@ -87,7 +87,7 @@ $ docker restart gitlab
 
 第一次进入需要设置root密码  
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/20200812143122.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200812143122.png)
 
 
 

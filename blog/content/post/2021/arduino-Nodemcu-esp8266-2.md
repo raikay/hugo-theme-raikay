@@ -26,25 +26,25 @@ void loop() {
 }
 ```
 ### 选择开发板
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/15/20210115213751.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/15/20210115213751.png)
 ### 选择端口
 
 这个端口 一般可能是 3、5、6根据设备和电脑环境不同有所区别，可以到电脑的设备管理器查看一下
 
 (我机器插了两个板子，所以是下面这种情况，一般只会是COM3或COM5一个)
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/15/20210115215331.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/15/20210115215331.png)
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/15/20210115214415.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/15/20210115214415.png)
 ### 上传代码
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/15/20210115213332.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/15/20210115213332.png)
 
 ### 查看串口调试窗口
 【工具】--> 【串口调试】
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/15/20210115213459.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/15/20210115213459.png)
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/15/20210115213530.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/15/20210115213530.png)
 
 说一下这个9600波特率，和代码上的一致就可以一般是9600、115200  
 

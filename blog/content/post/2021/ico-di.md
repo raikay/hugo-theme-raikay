@@ -24,4 +24,4 @@ tags = [
 
 IoC框架使用依赖注入作为实现控制反转的方式，但是控制反转还有其他的实现方式，例如说依赖查找，所以不能将控制反转和依赖注入等同。
 
-![img](https://gitee.com/imgrep001/m1/raw/master/2021/03/12/20210312131446.png)
+![img](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/03/12/20210312131446.png)

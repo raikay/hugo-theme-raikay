@@ -11,7 +11,7 @@ tags = [
 
 ### 文档模板：
 
-![模板图片](https://gitee.com/imgrep001/m1/raw/master/2020/11/21/20201121183654.png)
+![模板图片](https://raikay.coding.net/p/code/d/m1/git/raw/master/2020/11/21/20201121183654.png)
 
 单一字段替换：\#batchNo#  
 
@@ -19,7 +19,7 @@ tags = [
 
 ### 生成后文档：
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2020/11/21/20201121183828.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2020/11/21/20201121183828.png)
 
 
 
@@ -114,7 +114,7 @@ public static void Export(string tempFilePath, string outPath, Dictionary<string
 
 模板文件要设置为“始终复制”  
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2020/11/21/20201121185700.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2020/11/21/20201121185700.png)
 
 
 

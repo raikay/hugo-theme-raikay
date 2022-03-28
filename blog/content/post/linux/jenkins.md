@@ -53,21 +53,21 @@ docker exec -it jenkins bash
 #查看密码
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921184227.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921184227.png)
 
 ### 安装推荐的插件
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921184249.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921184249.png)
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921184350.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921184350.png)
 
 ### 创建管理员
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921184308.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921184308.png)
 
 ### 安装已完成
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/21/20210921184330.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921184330.png)
 
 
 
@@ -83,9 +83,9 @@ System.setProperty('org.apache.commons.jelly.tags.fmt.timeZone', 'Asia/Shanghai'
 
 
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/23/20210923140135.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923140135.png)
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/23/20210923140417.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923140417.png)
 
 方法二：
 
@@ -99,13 +99,13 @@ docker run ... -e JAVA_OPTS=-Duser.timezone=Asia/Shanghai
 
 **添加windows节点**
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/23/20210923140816.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923140816.png)
 
 保存后，返回节点，下载`agent.jar`到目标主机，并在目标主机执行这条命令
 
 > jenkins容器的50000 端口需要映射到宿主机
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/23/20210923141358.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923141358.png)
 
 **为 [构建触发器] 添加过滤**
 
@@ -115,11 +115,11 @@ docker run ... -e JAVA_OPTS=-Duser.timezone=Asia/Shanghai
 
 `fullname`  : 项目名
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/23/20210923165304.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923165304.png)
 
 过滤规则
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/23/20210923165624.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923165624.png)
 
 ### 插件
 

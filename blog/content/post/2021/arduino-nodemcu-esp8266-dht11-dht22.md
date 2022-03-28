@@ -35,11 +35,11 @@ DHT
 
 ### 线路图
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/18/20210118220350.png)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/18/20210118220350.png)
 
 ### 实物图  
 
-![](https://gitee.com/imgrep001/m1/raw/master/2021/01/19/20210119211654.jpg)
+![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/19/20210119211654.jpg)
 
 
 
@@ -103,4 +103,4 @@ void loop() {
 ```
 
 ### 串口显示
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/01/06/20210106214115.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/06/20210106214115.png)

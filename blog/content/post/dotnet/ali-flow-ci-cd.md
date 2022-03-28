@@ -9,44 +9,44 @@ tags = [
 
 +++
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922165556.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922165556.png)
 
 ### 新建流水线
 选择对应语言，新建流水线  
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922161709.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922161709.png)
 
 ### 选择代码源
 
 这个代码我托管在云效自带的Codeup
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922161759.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922161759.png)
 
 **代码结构**
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922170049.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922170049.png)
 
 **设置代码源触发**
 
 开启代码源触发，并添加Webhook,Codeup会带动添加，如果是码云、github等其他托管平台，需要手动将下面webhook地址添加到代码托管平台对应的Webhook
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922161830.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922161830.png)
 
 ### 配置构建
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922162841.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922162841.png)
 
 ### 配置部署
 
 新建主机，部署项目的服务器，如果是集群可以添加多台
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922163032.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922163032.png)
 
 如果账号内有阿里云ECS直接选择即可，否则选自有服务器，复制脚本在目标服务器执行
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922163248.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922163248.png)
 
 添加部署脚本和变量
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922163639.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922163639.png)
 
 **脚本**
 
@@ -68,9 +68,9 @@ docker run -d -p 1080:80 --name  apidemo $image
 
 提交代码触发流水线
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922164718.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922164718.png)
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/09/22/20210922164808.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/22/20210922164808.png)
 
 
 > 云效2020文档地址：https://help.aliyun.com/product/150040.html  

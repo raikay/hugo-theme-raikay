@@ -91,7 +91,7 @@ dotnet nuget push -s http://nuget.raikay.com/v3/index.json package.nupkg Dongten
 
 **部署(IIS)之后可能会出现503错误**
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/20201026191656.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20201026191656.png)
 
 **解决方案：**
 
@@ -105,7 +105,7 @@ hostingModel="inprocess"
 
 **推送包失败，405错误**
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/20201026192038.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20201026192038.png)
 
 **解决方案：**
 

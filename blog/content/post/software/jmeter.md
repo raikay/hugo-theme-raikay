@@ -36,7 +36,7 @@ CLASSPATH=%JMETER_HOME%\lib\ext\ApacheJMeter_core.jar;%JMETER_HOME%\lib\jorphan.
 
 cmd窗口输入jmeter运行或者双击bin目录下jmeter.bat
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/11/26/20211126030820.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/11/26/20211126030820.png)
 
 
 
@@ -52,13 +52,13 @@ cmd窗口输入jmeter运行或者双击bin目录下jmeter.bat
 **线程数**：您正在测试的用户数  
 **加速时间**：您希望允许线程组从0到N个用户的时间  
 **循环计数**：应该循环测试的次数  
-**调度器**：测试持续时间，启动延迟时间     ![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/11/26/20211126031713.png)
+**调度器**：测试持续时间，启动延迟时间     ![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/11/26/20211126031713.png)
 
 ### 2、新建http请求
 
 在线程组右键--添加--取样器--http请求
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/11/26/20211126032551.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/11/26/20211126032551.png)
 
 **post json 请求**
 
@@ -66,10 +66,10 @@ json数据放到消息体数据中
 
 自定义请求头，在HTTP请求右键--添加--配置原件--HTTP信息头管理器  
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/11/26/20211126055538.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/11/26/20211126055538.png)
 
 ### 3、查看结果
 
 线程组--添加--监听器--[察看结果数 / 汇总报告 / 聚合报告]
 
-![IMG](https://gitee.com/imgrep001/m1/raw/master/2021/11/26/20211126061047.png)
+![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/11/26/20211126061047.png)
