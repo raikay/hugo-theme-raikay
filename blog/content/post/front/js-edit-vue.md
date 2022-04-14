@@ -4,7 +4,7 @@ title = "jQuery给编译后页面中vue变量赋值"
 date = "2022-04-14"  
 description = "JQ给编译后页面中vue变量赋值"  
 tags = [  
-         "JQ,vue,jQuery,js" ,
+         "JQ","vue","jQuery","js" ,
 ]  
 
 +++
