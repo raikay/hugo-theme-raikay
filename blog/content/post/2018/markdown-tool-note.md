@@ -126,7 +126,7 @@ public class int fuc(string str)
 2. 这是有序列表
 3. 这是有序列表
 
-### 8、无需列表
+### 8、无序列表
 [-] [+] [*] 都可以  
 
 示例：
@@ -227,7 +227,7 @@ public class int fuc(string str)
 - Markdown神器
 - 桌面客户端
 - 编辑区预览区不是左右分开，是一个
-- 免费
+- 免费(现在已经收费)
 - 支持导出HTML、MD
 - 下载：[https://www.typora.io/](https://www.typora.io/)
 
@@ -245,8 +245,11 @@ public class int fuc(string str)
 - 免费
 - top目录太多的时候影响左右同步对齐，影响编辑观看
 - 支持导出 Html、MD
-- 下载：[http://pad.haroopress.com/user.html](http://pad.haroopress.com/user.html)
+- 下载：[http://pad.haroopress.com/user.html](http://pad.haroopress.com/user.html)  
 
+#### VS Code
+- 插件：markdown-all-in-one
+- 免费
 
 
 #### MdNice微信排版工具
