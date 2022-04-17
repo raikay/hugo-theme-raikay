@@ -147,19 +147,8 @@ CQRS 虽然在思想上简单，但是实现上相对来说复杂些，也涉及
 
 
 参考文献：  
-```xml
-1.https://msdn.microsoft.com/magazine/mt703431
-2.https://blog.csdn.net/rocketluoqq/article/details/81434871
-3.https://docs.microsoft.com/en-us/previous-versions/msp-n-p/dn589792(v=pandp.10)
-4.https://www.cnblogs.com/yangecnu/p/Introduction-CQRS.html
-原文：https://blog.csdn.net/csdnnews/article/details/97711359
-```
-
-
-
-
-
-
-
-
-
+> 1.https://msdn.microsoft.com/magazine/mt703431
+> 2.https://blog.csdn.net/rocketluoqq/article/details/81434871
+> 3.https://docs.microsoft.com/en-us/previous-versions/msp-n-p/dn589792(v=pandp.10)
+> 4.https://www.cnblogs.com/yangecnu/p/Introduction-CQRS.html
+> 原文：https://blog.csdn.net/csdnnews/article/details/97711359
