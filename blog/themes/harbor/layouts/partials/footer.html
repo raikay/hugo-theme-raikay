@@ -11,6 +11,7 @@
     //      回到顶部效果
     window.onload = function () {
       var obtn = document.getElementById('return_top');  //获取回到顶部按钮的ID
+      if (obtn!=null){
       var clientHeight = document.documentElement.clientHeight;   //获取可视区域的高度
       var timer = null; //定义一个定时器
       var isTop = true; //定义一个布尔值，用于判断是否到达顶部
@@ -50,6 +51,10 @@
     }
 
 
+
+    }
+
+
     //$(function() {
     //	$('p> img').zoomify({scale:1});
     //});
@@ -57,14 +62,8 @@
 
   </script>
   {{ if .IsHome }}
-  {{ else }}
-  <script type="text/javascript">
-      var viewer = new Viewer(document.getElementById('viewerId'), {
-      navbar: false,
-      toolbar: false
-    });
+  {{ else  }}
 
-  </script>
   {{ end }}
   <div class="container">
     <p class="credits ">
