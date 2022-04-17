@@ -11,7 +11,7 @@ tags = [
 
 
 
-如果某个网站的头像上传、文件上传等功能没限制文件格式，可上传一个aspx文件，然后直接执行
+如果某个网站文件、图片上传直接存储到网站目录下，而且没限制文件格式，可上传一个aspx文件，然后直接执行
 
 ```html
 <%@ Page Language="C#" ContentType="text/html" ResponseEncoding="gb2312" %>
