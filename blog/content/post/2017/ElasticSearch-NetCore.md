@@ -297,20 +297,16 @@ public class ValueController : ControllerBase
 
 
 
-其中Index方法能进行数据的提交，Search是通过Post实体的type来进行数据查询。
+其中Index方法能进行数据的提交，Search是通过Post实体的type来进行数据查询。  
 
-代码不复杂，我就不详细介绍了，在PostMan中进行Search方法的测试，效果如下：
+代码不复杂，我就不详细介绍了，在PostMan中进行Search方法的测试，效果如下：  
 
 ![image](http://blogimg.raikay.com/303690029811765248.png)
 
-查询要求是type是567,响应的实体中，type确实为567,Success!
-
-
+查询要求是type是567,响应的实体中，type确实为567,Success!  
 
 项目完整代码：https://github.com/liuzhenyulive/Elasticsearch.Net-Demo
 
- 
+鸣谢：
 
-不定期分享.Net实用干货，欢迎关注![Open-mouthed smile](https://img2018.cnblogs.com/blog/1293736/201809/1293736-20180906233700788-302189562.png)！
-
-原文：https://www.cnblogs.com/CoderAyu/p/9601991.html
+> 原文：https://www.cnblogs.com/CoderAyu/p/9601991.html
