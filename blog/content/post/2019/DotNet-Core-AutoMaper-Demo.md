@@ -12,11 +12,7 @@ tags = [
 
 ### AutoMapper:实体间的映射(数据库Model转Dto)
 
-### 1、创建web项目
-
-![20190325000741](https://gitee.com/raikay/img/raw/master/default/20200405183014.png)
-
-### 2、创建Model
+### 1、创建Model
 ```
 using System;
 using System.Collections.Generic;
@@ -55,7 +51,7 @@ namespace AutoMapperDemo
 }
 
 ```
-### 3、创建Dto
+### 2、创建Dto
 
 ```
 using System;
@@ -85,7 +81,7 @@ namespace AutoMapperDemo
 ```
 
 
-### 4、创建映射规则
+### 3、创建映射规则
 ```
 using AutoMapper;
 using System;
@@ -120,7 +116,7 @@ namespace AutoMapperDemo
 
 ```
 
-### 5、创建mapper扩展
+### 4、创建mapper扩展
 映射规则注入
 ```
 using System;
@@ -174,12 +170,12 @@ namespace AutoMapperDemo
 ```
 
 
-### 6 Startup.ConfigureServices中注册
+### 5、 Startup.ConfigureServices中注册
 ```
 services.AddAutoMapperProfiles();
 ```
 
-### 7 查看映射
+### 6、查看映射
 ```
 using System;
 using System.Collections.Generic;
