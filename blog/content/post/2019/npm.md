@@ -33,8 +33,8 @@ tags = [
 ### 通过改变地址来使用淘宝镜像
 
 - npm的默认地址是`https://registry.npmjs.org/`
-- 可以使用`npm config get registry`查看npm的仓库地址
-- 可以使用`npm config set registry https://registry.npm.taobao.org`来改变默认下载地址，达到可以不安装`cnpm`就能采用淘宝镜像的目的，然后使用上面的get命令查看是否成功。  
+- `npm config get registry`查看npm的仓库地址
+- `npm config set registry https://registry.npm.taobao.org`改变默认下载地址，这样不安装`cnpm`就能采用淘宝镜像  
 
 ### nrm
 
