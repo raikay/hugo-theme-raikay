@@ -91,7 +91,7 @@ Typora 是一款支持实时预览的 Markdown 文本编辑器。它有 OS X、W
 
 如果报什么upload文件夹错误，检查一下这个路径是否有权限读写权限`C:\Program Files\Typora\upload`
 
-![QQ截图20200405124622](https://gitee.com/raikay/img/raw/master/default/20200405132504.png)
+![QQ截图20200405124622](http://blogimg.raikay.com/306332446641754112.png)
 
 ---
 
