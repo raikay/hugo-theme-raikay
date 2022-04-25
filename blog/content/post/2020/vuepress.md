@@ -52,7 +52,7 @@ vuepress dev .
 http://localhost:8080/
 ```
 
-![20200408212023](https://gitee.com/raikay/img/raw/master/default/20200408212534.png)
+![20200408212023](http://blogimg.raikay.com/306330845831106560.png)
 
 
 
@@ -169,7 +169,7 @@ footer: MIT Licensed | Copyright © 2018-present xxxxxx
 npm run dev
 ```
 
-![20200408224259](https://gitee.com/raikay/img/raw/master/default/20200408224319.png)
+![20200408224259](http://blogimg.raikay.com/306330875619053568.png)
 
 现在看上去已经很像样子了
 
@@ -196,7 +196,7 @@ content...
 
 运行项目，点击首页 快速上手 查看效果
 
-![20200408225105](https://gitee.com/raikay/img/raw/master/default/20200408225138.png)
+![20200408225105](http://blogimg.raikay.com/306330897714647040.png)
 
 
 
@@ -204,7 +204,7 @@ content...
 
 在config文件添加themeConfig
 
-![image-20200408225646648](https://gitee.com/raikay/img/raw/master/default/20200408225647.png)
+![image-20200408225646648](http://blogimg.raikay.com/306330912075943936.png)
 
 
 
@@ -227,7 +227,7 @@ sidebar: [
 
 配置好后，运行项目
 
-![image-20200408230046511](https://gitee.com/raikay/img/raw/master/default/20200408230048.png)
+![image-20200408230046511](http://blogimg.raikay.com/306330929016737792.png)
 
 
 
