@@ -15,7 +15,7 @@ Typora 是一款支持实时预览的 Markdown 文本编辑器。它有 OS X、W
 
 
 
-![1713d9f011fd1311](https://gitee.com/raikay/img/raw/master/default/20200405132032.jpg)
+![1713d9f011fd1311](http://blogimg.raikay.com/306331932403306496.jpg)
 
 
 
@@ -25,7 +25,7 @@ Typora 是一款支持实时预览的 Markdown 文本编辑器。它有 OS X、W
 
 将本地图片上传到七牛云、腾讯云COS、GitHub等图床。
 
-![image-20200403091618489](https://gitee.com/raikay/img/raw/master/default/20200405132113.png)
+![image-20200403091618489](http://blogimg.raikay.com/306331946739437568.png)
 
 
 
@@ -33,11 +33,11 @@ Typora 是一款支持实时预览的 Markdown 文本编辑器。它有 OS X、W
 
 ##### 1、在Typora 依次点击 文件 --> 偏好设置 --> 图像
 
-![image-20200403093744345](https://gitee.com/raikay/img/raw/master/default/20200405132203.png)
+![image-20200403093744345](http://blogimg.raikay.com/306331959406235648.png)
 
 ##### 2、点击下载PicGo,填写PicGo启动文件路径
 
-![image-20200403094141548](https://gitee.com/raikay/img/raw/master/default/20200405132226.png)
+![image-20200403094141548](http://blogimg.raikay.com/306331976246366208.png)
 
 ### 4、PicGo相关设置
 
@@ -49,21 +49,21 @@ Typora 是一款支持实时预览的 Markdown 文本编辑器。它有 OS X、W
 
 点击 插件设置 --> 搜索插件 --> 安装
 
-![image-20200403094531535](https://gitee.com/raikay/img/raw/master/default/20200405132257.png)
+![image-20200403094531535](http://blogimg.raikay.com/306331989676527616.png)
 
 点图床设置 --> 掘金 -->  设置为默认图床  -->  确定
 
-![image-20200403095124656](https://gitee.com/raikay/img/raw/master/default/20200405132320.png)
+![image-20200403095124656](http://blogimg.raikay.com/306332000241979392.png)
 
 如果没有博客图床，点PicoGo设置，拉到最下面，重新选择一遍即可
 
-![image-20200403095323663](https://gitee.com/raikay/img/raw/master/default/20200405132340.png)
+![image-20200403095323663](http://blogimg.raikay.com/306332011935698944.png)
 
 现在可以去到PicGo上传区或者Typora测试一下上传是否成功！
 
 **拖拽：**
 
-![123](https://gitee.com/raikay/img/raw/master/default/20200405132401.gif)
+![123](http://blogimg.raikay.com/306332027848888320.gif)
 
 **粘贴板直接粘贴**
 
@@ -71,7 +71,7 @@ Typora 是一款支持实时预览的 Markdown 文本编辑器。它有 OS X、W
 
 
 
-![124](https://gitee.com/raikay/img/raw/master/default/20200405132440.gif)
+![124](http://blogimg.raikay.com/306332061592064000.gif)
 
 ### 5、相关错误解决：
 
@@ -79,13 +79,13 @@ Typora 是一款支持实时预览的 Markdown 文本编辑器。它有 OS X、W
 
 
 
-![image-20200403102845372](https://gitee.com/raikay/img/raw/master/default/20200405132459.png)
+![image-20200403102845372](http://blogimg.raikay.com/306332108136255488.png)
 
 
 
-![image-20200403095752479](https://gitee.com/raikay/img/raw/master/default/20200405132523.png)
+![image-20200403095752479](http://blogimg.raikay.com/306332121415421952.png)
 
-![image-20200403103139673](https://gitee.com/raikay/img/raw/master/default/20200405132537.png)
+![image-20200403103139673](http://blogimg.raikay.com/306332131762769920.png)
 
 
 
