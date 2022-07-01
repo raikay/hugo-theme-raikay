@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <title>Document</title>
+    <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            width:100vw;
+            height:100vh;
+            background-color: beige;
+            overflow:hidden;color:#222;
+            font-family:-apple-system,Helvetica neue,"Pingfang SC","microsoft yahei",simsun,serif;
+        }
+        .wrap {
+            text-align:center;
+            width: 90%;
+            max-width: 900px;
+            font-size: 17px;
+        }
+        .img{
+            width: 90%;
+            max-width: 500px;
+        }
+        .au
+        {
+            float:right; 
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <img id="img"  class="avatar img" id="DM_avatar">
+        <div>
+            <h2><p class="content"></p></h2>
+        </div>
+        <div class="au">
+            <h2><p></p></h2>
+        </div>
+    </div>
+    
+
+
+    <script>
+        /*
+        //20211029173609.png
+        $(document).ready(function(){
+            $("#img").attr("src","https://www.dmoe.cc/random.php");
+            //https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302
+            //http://www.dmoe.cc/random.php
+            //$("#img").attr("src","img/"+Math.floor((Math.random() * 8) + 1)+".jpg?t="+Math.random());
+            $("#img").show();
+        });
+*/
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.getJSON("https://v1.hitokoto.cn/",function(result){
+
+                $("p.content").append(result.hitokoto + " ");
+                
+                $(".au p").append("————《"+result.from + "》");
+
+            });
+        });
+    </script>
+<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+ 
+<script>
+    L2Dwidget.init({
+        "model": {
+            jsonPath: "https://unpkg.com/live2d-widget-model-z16@1.0.5/assets/z16.model.json",
+            "scale": 1
+        },
+        "display": {
+            "position": "left",
+            "width": 150,
+            "height": 300,
+            "hOffset": 0,
+            "vOffset": -20
+        },
+        "mobile": {
+            "show": true,
+            "scale": 0.5
+        },
+        "react": {
+            "opacityDefault": 0.7,
+            "opacityOnHover": 0.2
+        }
+    });
+</script>
+ 
+<!--
+其他可选的模型：
+黑猫：https://unpkg.com/live2d-widget-model-hijiki@1.0.5/assets/hijiki.model.json
+萌娘：https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json
+白猫：https://unpkg.com/live2d-widget-model-tororo@1.0.5/assets/tororo.model.json
+狗狗：https://unpkg.com/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json
+小可爱：https://unpkg.com/live2d-widget-model-z16@1.0.5/assets/z16.model.json
+小可爱：https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json
+-->
+</body>
+</html>
