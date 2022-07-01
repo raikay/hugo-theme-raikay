@@ -9,7 +9,7 @@ description = "对bootstrap中confirm alert进行封装 弹窗 修改 居中"
 
 ### 效果图：
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2020/12/06/20201206184525.png)
+![IMG](http://blogimg.raikay.com/330616870224924672.png)
 
 
 

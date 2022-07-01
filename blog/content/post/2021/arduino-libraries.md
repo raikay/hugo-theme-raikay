@@ -17,19 +17,19 @@ tags = [
 
 【项目】  --》 【加载库】  --》【管理库】
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/21/20210121212843.png)
+![](http://blogimg.raikay.com/330638699345874944.png)
 
 **安装**
 
 弹出窗口后，搜索、安装即可
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/21/20210121213303.png)
+![](http://blogimg.raikay.com/330638636074799104.png)
 
 **查看示例代码**
 
 安装之后， 【文件】 --》【示例】 ，就可以查看库带的示例代码，大多数库都有，这个示例代码是很好的教程。
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/21/20210121213609.png)
+![](http://blogimg.raikay.com/330638610615373824.png)
 
 
 
@@ -37,8 +37,8 @@ tags = [
 
 直接下载库第三方库，下载的库放在库文件夹即可。通过  【文件】 -->  【首选项】 --> 【项目文件夹位置】  查看库文件夹位置
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/21/20210121212031.png)
+![](http://blogimg.raikay.com/330638419334139904.png)
 
 
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/21/20210121214506.png)
+![](http://blogimg.raikay.com/330638283908452352.png)

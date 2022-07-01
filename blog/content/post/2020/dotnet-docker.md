@@ -14,23 +14,23 @@ tags = ["DotNet","Docker","Centos","Linux"]
 
 选择 ASP.NET Core Web 应用程序
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814171232.png)
+![IMG](http://blogimg.raikay.com/330634287743373312.png)
 
 可以在创建时直接勾选【启用Docker支持】选择Linux(图1)，也可以在已有项目右键添加Docker支持（图2）
 
 图1
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814171413.png)
+![IMG](http://blogimg.raikay.com/330634310300340224.png)
 
 图2
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814171005.png)
+![IMG](http://blogimg.raikay.com/330634349500305408.png)
 
 
 
 项目发送至Linux服务器，我这里是上传到github,然后在linux服务器通过github下载项目
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814172015.png)
+![IMG](http://blogimg.raikay.com/330634371046445056.png)
 
 
 
@@ -46,7 +46,7 @@ git clone https://github.com/raikay/firstdemo.git
  docker build -t firstdemo . -f firstdemo/Dockerfile
 ```
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814172344.png)
+![IMG](http://blogimg.raikay.com/330634408950370304.png)
 
 
 
@@ -80,11 +80,11 @@ docker run -d -p 1080:80 --name myfirstdemo  firstdemo
 http://192.168.198.131:1080/WeatherForecast
 ```
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814173048.png)
+![IMG](http://blogimg.raikay.com/330634436485976064.png)
 
 浏览器显示效果
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814172900.png)
+![IMG](http://blogimg.raikay.com/330634456509583360.png)
 
 ### Dockerfile解释
 

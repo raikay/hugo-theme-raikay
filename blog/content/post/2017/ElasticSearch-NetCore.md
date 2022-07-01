@@ -21,10 +21,6 @@ Elasticsearch是基于Lucene的搜索引擎。它提供了一个分布式，支�
 
 而且ES能搭配Kibana,实现数据的可视化管理与数据分析。
 
-![QQ截图20180906215325](http://blogimg.raikay.com/303688923681525760.png)
-
-
-
 ## 2.ES中名词概念
 
 ### 2.1 Node和Cluster

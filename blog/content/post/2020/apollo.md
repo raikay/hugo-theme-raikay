@@ -47,13 +47,13 @@ ApolloPortalDB : `apolloportaldb.sql`
 **4、修改值**
 
 修改 `ApolloPortalDB`库中`ServerConfig`表`apollo.portal.envs`的值为`dev,pro`  
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811155302.png)
+![IMG](http://blogimg.raikay.com/330633669687513088.png)
 
 
 
 修改 `ApolloConfigDBPro`库中`ServerConfig`表eureka.service.url的值 为`http://localhost:8083/eureka/`
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811160145.png)
+![IMG](http://blogimg.raikay.com/330633690457706496.png)
 
 
 ### 二、搭建Apollo
@@ -88,7 +88,7 @@ docker run --net="host" --name myapollo -d \
 
 等待时可以 `docker ps` 查看状态
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811172434.png)
+![IMG](http://blogimg.raikay.com/330633716617580544.png)
 
 
 
@@ -98,13 +98,13 @@ docker run --net="host" --name myapollo -d \
 
 **创建项目**
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811172640.png)
+![IMG](http://blogimg.raikay.com/330633733772283904.png)
 
 
 
 现在已经是两个环境 DEV、PRO
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811172833.png)
+![IMG](http://blogimg.raikay.com/330633752583737344.png)
 
 
 
@@ -112,7 +112,7 @@ docker run --net="host" --name myapollo -d \
 
 默认只在DEV环境创建，也可以在【选择集群】勾选PRO，同时在两个环境创建。
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811173324.png)
+![IMG](http://blogimg.raikay.com/330633782463959040.png)
 
 
 
@@ -120,11 +120,11 @@ docker run --net="host" --name myapollo -d \
 
 图1
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811173713.png)
+![IMG](http://blogimg.raikay.com/330633803376758784.png)
 
 图2
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811173733.png)
+![IMG](http://blogimg.raikay.com/330633823043850240.png)
 
 
 
@@ -191,7 +191,7 @@ PRO：Production environment，生产环境
 
 [使用指南](https://github.com/ctripcorp/apollo/wiki/Apollo%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97#%E4%B8%80%E6%99%AE%E9%80%9A%E5%BA%94%E7%94%A8%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97)
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200812105011.png)
+![IMG](http://blogimg.raikay.com/330633859093893120.png)
 
 相关文章：  
 [使用Docker部署Apollo一个环境docker-quick-start版](http://blog.raikay.com/post/2020/apollo-one/)

@@ -13,9 +13,9 @@ tags = [
 
 打开Visual Studio => 工具 => NuGet包管理器 => 程序包管理器设置
 
-![20200407123245](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811133529.png)
+![20200407123245](http://blogimg.raikay.com/330633140269879296.png)
 
-![image-20200407123814591](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811133554.png)
+![image-20200407123814591](http://blogimg.raikay.com/330633104702181376.png)
 
 
 

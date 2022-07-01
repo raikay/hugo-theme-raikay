@@ -56,7 +56,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ```
 ### 4、查看效果
 访问网址 `http://localhost:5000/swagger/index.html`  
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/20201109131622.png)
+![](http://blogimg.raikay.com/330634906134777856.png)
 
 ### 5、设置在域名根目录直接访问swagger
 ```
@@ -97,7 +97,7 @@ app.UseSwaggerUI(c =>
 
 ##### 项目上右键属性，点击生成，选中下面 `XML 文档文件`  
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/20201109132019.png)
+![](http://blogimg.raikay.com/330634917954326528.png)
 
 ##### NuGet添加引用
 ```
@@ -127,7 +127,7 @@ services.AddSwaggerGen(c =>
 *忽略警告编码：`;1591`*
 ##### 查看效果
 *记得给controller 和参数类都加上注释 才会有注释显示*
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/20201109132035.png)
+![](http://blogimg.raikay.com/330634947805188096.png)
 
 ### 8、多层项目，显示其他层注释
 上面把Param类放在controller层，所以注释显示没问题，当独立处model层，model的注释就不会显示。  
@@ -162,5 +162,4 @@ services.AddSwaggerGen(c =>
 ```
 [ApiExplorerSettings(IgnoreApi = true)]
 ```
-
 

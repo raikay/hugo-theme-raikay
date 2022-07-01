@@ -53,21 +53,21 @@ docker exec -it jenkins bash
 #查看密码
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921184227.png)
+![IMG](http://blogimg.raikay.com/330629592639475712.png)
 
 ### 安装推荐的插件
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921184249.png)
+![IMG](http://blogimg.raikay.com/330629568849383424.png)
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921184350.png)
+![IMG](http://blogimg.raikay.com/330629484237688832.png)
 
 ### 创建管理员
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921184308.png)
+![IMG](http://blogimg.raikay.com/330629466713886720.png)
 
 ### 安装已完成
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/21/20210921184330.png)
+![IMG](http://blogimg.raikay.com/330629408324980736.png)
 
 
 
@@ -83,9 +83,9 @@ System.setProperty('org.apache.commons.jelly.tags.fmt.timeZone', 'Asia/Shanghai'
 
 
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923140135.png)
+![IMG](http://blogimg.raikay.com/330629376666374144.png)
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923140417.png)
+![IMG](http://blogimg.raikay.com/330629349659250688.png)
 
 方法二：
 
@@ -99,13 +99,13 @@ docker run ... -e JAVA_OPTS=-Duser.timezone=Asia/Shanghai
 
 **添加windows节点**
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923140816.png)
+![IMG](http://blogimg.raikay.com/330629299071750144.png)
 
 保存后，返回节点，下载`agent.jar`到目标主机，并在目标主机执行这条命令
 
 > jenkins容器的50000 端口需要映射到宿主机
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923141358.png)
+![IMG](http://blogimg.raikay.com/330629278855204864.png)
 
 **为 [构建触发器] 添加过滤**
 
@@ -115,11 +115,11 @@ docker run ... -e JAVA_OPTS=-Duser.timezone=Asia/Shanghai
 
 `fullname`  : 项目名
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923165304.png)
+![IMG](http://blogimg.raikay.com/330629257392951296.png)
 
 过滤规则
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/23/20210923165624.png)
+![IMG](http://blogimg.raikay.com/330629236396265472.png)
 
 ### 插件
 

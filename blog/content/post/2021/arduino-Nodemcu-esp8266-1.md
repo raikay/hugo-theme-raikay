@@ -20,7 +20,7 @@ tags = [
 下载时不是一定要付费，选择`JUST DOWNLOAD
 `免费下载  
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/05/20210105221202.png)
+![IMG](http://blogimg.raikay.com/330642668981981184.png)
 
 解压后双击EXE就可以打开了  
 
@@ -36,12 +36,12 @@ tags = [
 http://arduino.esp8266.com/stable/package_esp8266com_index.json
 ```
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/05/20210105222351.png)
+![IMG](http://blogimg.raikay.com/330642583497871360.png)
 
 
 工具--> 开发板-->开发板管理器
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/05/20210105223116.png)
+![IMG](http://blogimg.raikay.com/330642628548890624.png)
 
 如果没有梯子下载可能会非常慢，可以用下面的直接安装工具
 
@@ -52,7 +52,7 @@ http://arduino.esp8266.com/stable/package_esp8266com_index.json
 # 点亮LED
 
 ### 新建项目
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/14/20210114205657.png)
+![IMG](http://blogimg.raikay.com/330642547481382912.png)
 
 
 ### 代码
@@ -78,16 +78,16 @@ void loop() {
 
 
 ### 线路图
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/14/20210114213459.png)
+![IMG](http://blogimg.raikay.com/330642536232259584.png)
 
 ### 实物图
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/14/20210114214048.jpg)
+![IMG](http://blogimg.raikay.com/330642517567606784.jpg)
 
 
 
 ### 选择开发板
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/15/20210115213751.png)
+![](http://blogimg.raikay.com/330642484877201408.png)
 
 ### 选择端口
 
@@ -95,13 +95,13 @@ void loop() {
 
 (我机器插了两个板子，所以是下面这种情况，一般只会是COM3或COM5一个)
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/15/20210115215331.png)
+![](http://blogimg.raikay.com/330642446318964736.png)
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/15/20210115214415.png)
+![](http://blogimg.raikay.com/330642415830568960.png)
 
 ### 上传代码
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/15/20210115215810.png)
+![IMG](http://blogimg.raikay.com/330642395265896448.png)
 
 ### 运行效果
 ![IMG](http://imgrep001.gitee.io/m1/2021/01/14/20210114214940.gif)

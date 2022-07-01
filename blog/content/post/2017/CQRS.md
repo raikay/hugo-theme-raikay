@@ -14,7 +14,7 @@ tags = [
 
 我们平常最熟悉的就是三层架构，通常都是通过数据访问层来修改或者查询数据，一般修改和查询使用的是相同的实体。然后通过业务层来处理业务逻辑，将处理结果封装成DTO对象返回给控制层，再通过前端渲染。反之亦然。
 
-![640?wx_fmt=png](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811134124.png)
+![640?wx_fmt=png](http://blogimg.raikay.com/330630287245578240.png)
 
 这里基本上是围绕关系数据库构建而成的“创建、读取、更新、删除”系统（即CRUD系统），此类系统在一些业务逻辑简单的项目中可能没有什么问题，但是随着系统逻辑变得复杂，用户增多，这种设计就会出现一些性能问题。  
 
@@ -26,11 +26,11 @@ tags = [
 
 简单的说，CQRS（Command Query Responsibility Segration）就是一个系统，从架构上把 CRUD 系统拆分为两部分：命令（Command）处理和查询（Query）处理。其中命令处理包括增、删、改。
 
-![640?wx_fmt=png](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811134209.png)
+![640?wx_fmt=png](http://blogimg.raikay.com/330630380753391616.png)
 
 然后命令与查询两边可以用不同的架构实现，以实现CQ两端（即Command Side，简称C端；Query Side，简称Q端）的分别优化。两边所涉及到的实体对象也可以不同，从而继续演变成下面这样。
 
-![640?wx_fmt=png](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811134235.png)
+![640?wx_fmt=png](http://blogimg.raikay.com/330630414702088192.png)
 
 当然了，CQRS 作为一个读写分离思想的架构，在数据存储方面也没有做过多的约束。所以 CQRS可以有不同层次的实现。
 

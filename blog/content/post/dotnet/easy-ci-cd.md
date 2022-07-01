@@ -13,7 +13,7 @@ tags = [
 
 创建一个web api 项目，作为webhook,实现接收web请求后执行shell脚本
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918141423.png)
+![IMG](http://blogimg.raikay.com/330626858540470272.png)
 
 
 
@@ -107,28 +107,28 @@ chmod a+x publish.sh
 
 创建一个Demo项目部署到服务器，托管到gitee  
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918170456.png)
+![IMG](http://blogimg.raikay.com/330626893743263744.png)
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918170700.png)
+![IMG](http://blogimg.raikay.com/330619443430428672.png)
 
 
 把webhook地址添加到gitee的WebHooks，并指定脚本文件名
 > 大多数git平台都有webhook功能   
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918165623.png)
+![IMG](http://blogimg.raikay.com/330627389509996544.png)
 
 
 
 项目做一些改动，git提交代码  
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918171945.png)  
+![IMG](http://blogimg.raikay.com/330627583022600192.png)  
 
 查看gitee触发记录  
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918171151.png)
+![IMG](http://blogimg.raikay.com/330619475013537792.png)
 
 查看网站已经完成自动部署
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/09/18/20210918171236.png)
+![IMG](http://blogimg.raikay.com/330627066452119552.png)
 
 ### 相关文章：
 [Docker环境安装及基础命令使用](https://blog.raikay.com/post/2020/docker/)  

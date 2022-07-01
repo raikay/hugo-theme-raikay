@@ -35,11 +35,11 @@ DHT
 
 ### 线路图
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/18/20210118220350.png)
+![](http://blogimg.raikay.com/330638870272151552.png)
 
 ### 实物图  
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/19/20210119211654.jpg)
+![](http://blogimg.raikay.com/330638834251468800.jpg)
 
 
 
@@ -103,4 +103,4 @@ void loop() {
 ```
 
 ### 串口显示
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/06/20210106214115.png)
+![IMG](http://blogimg.raikay.com/330638781235466240.png)

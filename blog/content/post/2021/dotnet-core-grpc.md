@@ -236,5 +236,5 @@ static async Task Main(string[] args)
 
 点TLS导入证书，我是在阿里云申请的免费证书
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/08/26/20210826111839.png)
+![IMG](http://blogimg.raikay.com/330643629704089600.png)
 

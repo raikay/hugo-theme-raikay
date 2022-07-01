@@ -11,7 +11,7 @@ tags = [
 
 ### 文档模板：
 
-![模板图片](https://raikay.coding.net/p/code/d/m1/git/raw/master/2020/11/21/20201121183654.png)
+![模板图片](http://blogimg.raikay.com/330634606766329856.png)
 
 单一字段替换：\#batchNo#  
 
@@ -19,7 +19,7 @@ tags = [
 
 ### 生成后文档：
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2020/11/21/20201121183828.png)
+![IMG](http://blogimg.raikay.com/330634649875386368.png)
 
 
 
@@ -114,7 +114,7 @@ public static void Export(string tempFilePath, string outPath, Dictionary<string
 
 模板文件要设置为“始终复制”  
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2020/11/21/20201121185700.png)
+![IMG](http://blogimg.raikay.com/330634693231906816.png)
 
 
 
@@ -129,5 +129,4 @@ https://github.com/raikay/Demo/tree/master/NpoiDemo/NpoiWordDemo
 > https://github.com/YSGStudyHards/NPOI-ExportWordAndExcel-ImportExcelData  
 > https://github.com/dotnetcore/NPOI  
 > https://github.com/nissl-lab/npoi  
-
 

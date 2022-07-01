@@ -29,17 +29,17 @@ IRremoteESP8266
 
 ### 红外接收头图片
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117192023.png)
+![](http://blogimg.raikay.com/330639344920563712.png)
 
 
 
 ### 线路图
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/20/20210120130951.jpg)
+![](http://blogimg.raikay.com/330639328583749632.jpg)
 
 ### 实物图
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117142918.jpg)
+![](http://blogimg.raikay.com/330639292835696640.jpg)
 
 ### 代码
 
@@ -121,7 +121,7 @@ void loop() {
 
 ### 使用的红外遥控器  
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117120748.jpg)
+![](http://blogimg.raikay.com/330639240113295360.jpg)
 
 对应的编码：
 
@@ -144,7 +144,7 @@ void loop() {
 
 rawData是原数据，在无法解码的情况，可以使用原数据直接发出，同样可以控制。  
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117115616.png)
+![](http://blogimg.raikay.com/330639218076422144.png)
 
 ### 通过红外线信号控制板载LED灯代码
 ```c++
@@ -228,19 +228,19 @@ void loop() {
 
 编码：`0x3C0E205010200070`、`0x3C0E205010200070`、`0x3C0D205010200060`
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117120244.png)
+![](http://blogimg.raikay.com/330639196140212224.png)
 
 
 美的空调 省电星 红外接收结果
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117115428.png)
+![](http://blogimg.raikay.com/330639177794326528.png)
 
 
 
 长虹电视 红外遥控器接收结果
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117115017.png)
+![](http://blogimg.raikay.com/330639159347777536.png)
 
 ### 参数图片
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117114849.png)
+![](http://blogimg.raikay.com/330639140360163328.png)

@@ -23,6 +23,8 @@ ESP8266 开发板（NodeMcu）  x1
 
 杜邦线  若干
 
+![11](http://blogimg.raikay.com/330638928535228416.png)
+
 ### 第三方库
 
 IRremoteESP8266
@@ -33,13 +35,13 @@ IRremoteESP8266
 
 红外发射管 长的是正极，短的是负极。
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117224810.png)
+![](http://blogimg.raikay.com/330638954997092352.png)
 
 ### 实物图
 
 按D3按键关闭空调，按D4开启空调  
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/01/17/20210117223239.jpg)
+![](http://blogimg.raikay.com/330639008046649344.jpg)
 
 ### 代码
 

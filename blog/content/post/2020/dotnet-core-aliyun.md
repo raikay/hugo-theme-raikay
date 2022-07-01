@@ -16,7 +16,7 @@ weight=97
 
 ### 创建命名空间
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814175731.png)
+![IMG](http://blogimg.raikay.com/330634173092073472.png)
 
 
 
@@ -24,22 +24,22 @@ weight=97
 
 ### 创建仓库镜像
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814180059.png)
+![IMG](http://blogimg.raikay.com/330634151478824960.png)
 
 
 
 如果没有绑定账号，根据提示绑定一下账号，然后选择你的项目即可
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814175838.png)
+![IMG](http://blogimg.raikay.com/330634129479700480.png)
 
 
 镜像仓库--在对应的镜像 点击 【管理】
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814180528.png)
+![IMG](http://blogimg.raikay.com/330634105102405632.png)
 
 ### 添加构建规则
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814182956.png)
+![IMG](http://blogimg.raikay.com/330634078053339136.png)
 
 这个镜像版本号建议 `latest` 在构建的时默认是`latest`
 
@@ -56,6 +56,5 @@ docker run -p 8000:80 --name mynginx -d nginx:1
 
 现在每次提交代码到master会自动触发构建，也可以手动 立即构建
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200814182414.png)
-
+![IMG](http://blogimg.raikay.com/330634050064748544.png)
 

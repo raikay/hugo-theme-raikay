@@ -34,4 +34,4 @@ Github：[https://github.com/raikay](https://github.com/raikay)
   &subject=邮件主题
   &body=这里是有%0d%0a邮件内容"> 发送邮件</a></p>
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2020/12/04/20201204131021.png)
+![](http://blogimg.raikay.com/330646238611509248.png)

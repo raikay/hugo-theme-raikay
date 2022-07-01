@@ -58,18 +58,18 @@ apollo-quick-start    | Portal started. You can visit http://localhost:8070 now!
 
 Mysql：  
 localhost:13306，用户名是root，密码为空  
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811145031.png)
+![IMG](http://blogimg.raikay.com/330633358591791104.png)
 
 如果不能访问，检查一下防火墙是否通行。  
 默认带了一个SampleApp项目
 
-![](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811145145.png)
+![](http://blogimg.raikay.com/330633388274880512.png)
 
 添加配置：
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811145356.png)
+![IMG](http://blogimg.raikay.com/330633414027907072.png)
 
 发布后生效
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811145535.png)
+![IMG](http://blogimg.raikay.com/330633435947339776.png)
 
 查看日志
 ```
@@ -92,7 +92,7 @@ docker stop apollo-quick-start
 ```
 docker exec -i apollo-quick-start /apollo-quick-start/demo.sh client
 ```
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811151609.png)
+![IMG](https://raikay.coding.net/p/code/d/m12/git/raw/master/20200811151609.png)
 
 
 
