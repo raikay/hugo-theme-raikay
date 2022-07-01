@@ -92,7 +92,7 @@ docker stop apollo-quick-start
 ```
 docker exec -i apollo-quick-start /apollo-quick-start/demo.sh client
 ```
-![IMG](https://raikay.coding.net/p/code/d/m12/git/raw/master/20200811151609.png)
+![IMG](http://blogimg.raikay.com/330648420773662720.png)
 
 
 

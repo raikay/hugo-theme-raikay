@@ -62,7 +62,7 @@ dotnet firstdemo.dll --urls http://0.0.0.0:80
 http://192.168.198.131/WeatherForecast
 ```
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200819155335.png)
+![IMG](http://blogimg.raikay.com/330648202497888256.png)
 
 至此已经成功运行！
 
@@ -87,7 +87,7 @@ supervisorctl
 
 可以进入 supervisor 控制台，表示服务安装成功，并已成功启动
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200819170821.png)
+![IMG](http://blogimg.raikay.com/330648224614453248.png)
 
 现在 可以ctrl+c退出。
 
@@ -171,11 +171,11 @@ username=admin
 password=admin 
 ```
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200819180626.png)
+![IMG](http://blogimg.raikay.com/330648252926005248.png)
 
 重启supervisor，浏览器访问`http://192.168.198.131:9001/`
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200819180132.png)
+![IMG](http://blogimg.raikay.com/330648270823100416.png)
 
 
 

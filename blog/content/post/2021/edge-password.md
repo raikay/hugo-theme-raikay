@@ -23,7 +23,7 @@ Edge浏览器在清理缓存时，如果勾选密码一项，清除的不只是�
 
 2、 在【目标】 后面输入 ` --enable-features=PasswordImport`  （前面有一个空格不要忽略）
 
-![IMG](https://raikay.coding.net/p/code/d/m1/git/raw/master/2021/08/23/20210823154532.png)
+![IMG](http://blogimg.raikay.com/330648704941953024.png)
 
 3、已管理员权限打开浏览器，【设置】--> 【密码】，点击三个点即可导入，如果没有，重新已管理员权限打开浏览器
 

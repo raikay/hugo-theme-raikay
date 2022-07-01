@@ -98,7 +98,7 @@ title 是鼠标放到上面显示的内容，可不填
 三个点后面标明语言，会按照标明语言高亮，不标会自动识别
 示例：  
 
-![图片](https://raikay.coding.net/p/code/d/m1/git/raw/master/20200811134014.png)
+![图片](http://blogimg.raikay.com/330648009945780224.png)
 
 效果：   
 
